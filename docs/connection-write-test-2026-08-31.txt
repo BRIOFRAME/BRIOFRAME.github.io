@@ -1,0 +1,2 @@
+BRIOFRAME GitHub connector write-access verification.
+Created 2026-08-31.
