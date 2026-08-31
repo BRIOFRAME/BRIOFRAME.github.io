@@ -23,6 +23,14 @@ Shopify remains the sales and payment destination. A public Shopify CTA may be a
 - Navigation and CTA hierarchy must make the visitor's next action obvious.
 - Forms, booking, checkout, account, quote, and private API behaviors remain simulated in public demos.
 - Each template should reflect the needs of its vertical rather than forcing a generic site structure.
+- BRIOFRAME marketing/device mockups must remain separate from the fictional customer's finished-site experience unless they serve a genuine in-site purpose.
+
+## Human Imagery and Anatomy QA Gate
+Any template containing people must pass a visual anatomy review before release. A human image is automatically rejected if it shows malformed or duplicated hands or fingers, missing or duplicated limbs, impossible shoulder/hip/torso relationships, warped joints, distorted facial features, fused body parts, anatomically impossible poses, or other obvious AI-generation defects.
+
+When a human visual fails this gate, it must be removed and recreated or replaced with a natural, believable subject before the template proceeds. Attractive layout or styling does not override an anatomy failure. This review applies to hero imagery, testimonials, staff/instructor photos, portfolio imagery, lifestyle scenes, preview graphics, thumbnails, and any marketing image representing the template.
+
+Generated people should favor straightforward, credible poses where anatomy is easy to inspect. Human imagery must be reviewed at full size and at the final cropped size used in the template. If anatomy cannot be confidently verified, the image is rejected.
 
 ## Starting-Wave Concepts
 ### Northstar Advisory Group
@@ -32,7 +40,7 @@ Executive professional-services presentation focused on credibility, expertise, 
 Editorial luxury-catering presentation focused on events, signature menus, presentation imagery, service occasions, process, testimonials, and inquiry conversion. Hospitality-first structure rather than a generic restaurant layout.
 
 ### Pulsewell Studio
-Energetic wellness studio presentation focused on programs/classes, instructor credibility, schedule discovery, membership pathways, transformation benefits, and simulated trial/booking conversion.
+Energetic wellness studio presentation focused on programs/classes, instructor credibility, schedule discovery, membership pathways, transformation benefits, and simulated trial/booking conversion. The previously reviewed yoga hero concept is rejected because the subject's anatomy is visually inconsistent; any replacement must pass the Human Imagery and Anatomy QA Gate.
 
 ### Encore Creator Studio
 Media-forward creator/entertainment presentation focused on portfolio/showreel, services, collaborations, audience proof, featured work, and booking/contact conversion. Designed to feel materially different from corporate or commerce templates.
@@ -48,7 +56,7 @@ Each released record uses the established catalog contract: `id`, `slug`, `name`
 - Public visibility does not grant resale or redistribution rights.
 
 ## Validation and Release
-Every expansion template must pass the existing repository validator, basic JavaScript syntax validation where applicable, responsive/live-browser QA, internal navigation checks, and exact purchase-link verification when a Shopify product URL is present. Batch 1 remains unchanged except for shared-library changes required to display additional validated inventory.
+Every expansion template must pass the existing repository validator, basic JavaScript syntax validation where applicable, responsive/live-browser QA, internal navigation checks, human-imagery anatomy QA when people are present, and exact purchase-link verification when a Shopify product URL is present. Batch 1 remains unchanged except for shared-library changes required to display additional validated inventory.
 
 ## Expansion Strategy After Starting Wave
 Continue with additional approved verticals in revenue-oriented waves, favoring categories with clear small-business demand and strong visual differentiation. Approved directions include aviation and aviation services, aircraft detailing, aviation catering, aviation clubs/knowledge resources, boating/marine, fishing/charter fishing, clubs/membership organizations, villas/luxury vacation properties, wholesale/distributor, beauty, food/catering, professional services, fitness/wellness, creator/entertainment, and e-commerce.
@@ -56,6 +64,7 @@ Continue with additional approved verticals in revenue-oriented waves, favoring 
 ## Success Criteria
 - Batch 1 remains functional and unchanged in behavior.
 - Four starting-wave demos are distinct, responsive, sanitized, and validator-clean.
+- Any human imagery passes anatomy QA before release.
 - The public library can present the new inventory without breaking existing cards.
 - Exact Shopify purchase CTAs are never guessed.
 - Expansion can continue in repeatable waves without restructuring the core library architecture.
