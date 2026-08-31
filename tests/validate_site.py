@@ -11,6 +11,20 @@ FORBIDDEN_TEXT = re.compile(
     re.I,
 )
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+APPROVED_BATCH_ONE = {
+    "velvet-nail-atelier": (
+        "Velvet Nail Atelier",
+        "https://1gsa1w-f1.myshopify.com/products/velvet-nail-atelier",
+    ),
+    "amara-braid-house": (
+        "Amara Braid House",
+        "https://1gsa1w-f1.myshopify.com/products/amara-braid-house",
+    ),
+    "meridian-supply-co": (
+        "Meridian Supply Co.",
+        "https://1gsa1w-f1.myshopify.com/products/meridian-supply-co",
+    ),
+}
 
 errors = []
 for required_path in (
@@ -108,6 +122,38 @@ if index_path.exists():
     for needle, label in required_markup.items():
         if index_text.count(needle) != 1:
             errors.append(f"index.html must contain one {label}")
+
+catalog_by_slug = {
+    item.get("slug"): item
+    for item in (catalog if isinstance(catalog, list) else [])
+}
+for slug, (public_name, product_url) in APPROVED_BATCH_ONE.items():
+    demo_path = ROOT / "demos" / slug / "index.html"
+    if not demo_path.is_file():
+        errors.append(f"pending Batch 1 demo missing: {demo_path.relative_to(ROOT)}")
+        continue
+    demo_text = demo_path.read_text(encoding="utf-8")
+    if public_name not in demo_text:
+        errors.append(f"pending Batch 1 demo missing approved identity: {slug}")
+    if 'data-brioframe-demo="true"' not in demo_text:
+        errors.append(f"pending Batch 1 demo missing BRIOFRAME demo marker: {slug}")
+    if 'href="/"' not in demo_text:
+        errors.append(f"pending Batch 1 demo missing return-to-library link: {slug}")
+    if "Simulated demo" not in demo_text:
+        errors.append(f"pending Batch 1 demo missing simulated-action disclosure: {slug}")
+    if "data-demo-form" not in demo_text:
+        errors.append(f"pending Batch 1 demo missing simulated form marker: {slug}")
+    if demo_text.count(product_url) != 1:
+        errors.append(f"Batch 1 demo must contain its exact verified purchase URL once: {slug}")
+    if 'data-purchase-link="verified"' not in demo_text:
+        errors.append(f"Batch 1 demo missing verified purchase marker: {slug}")
+    if re.search(r"LaunchPoint|LP Inbox", demo_text, re.I):
+        errors.append(f"Batch 1 demo contains legacy or private-integration copy: {slug}")
+    record = catalog_by_slug.get(slug)
+    if not record:
+        errors.append(f"Batch 1 catalog record missing: {slug}")
+    elif record.get("shopifyProductUrl") != product_url:
+        errors.append(f"Batch 1 catalog URL does not match verified product URL: {slug}")
 
 if errors:
     print("\n".join(errors))
