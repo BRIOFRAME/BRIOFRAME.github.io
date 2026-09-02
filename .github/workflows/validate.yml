@@ -1,0 +1,31 @@
+name: Validate BRIOFRAME public release
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate public site
+        run: python tests/validate_site.py
+      - name: Validate 16-template inventory
+        run: python tests/validate_inventory.py
+      - name: Check library JavaScript syntax
+        run: node --check assets/js/library.js
+      - name: Check demo runtime JavaScript syntax
+        run: node --check assets/js/demo-runtime.js
+      - name: Check JSON syntax
+        run: python -m json.tool data/templates.json >/dev/null && python -m json.tool data/demo-config.json >/dev/null
