@@ -1,5 +1,11 @@
 const grid = document.querySelector("#template-grid");
 const status = document.querySelector("#library-status");
+const searchInput = document.querySelector("#template-search");
+const industryFilter = document.querySelector("#industry-filter");
+const clearFilters = document.querySelector("#clear-filters");
+const emptyState = document.querySelector("#empty-state");
+
+let catalog = [];
 
 function addText(parent, tagName, className, value) {
   const element = document.createElement(tagName);
@@ -43,6 +49,30 @@ function renderTemplate(template) {
   grid.append(article);
 }
 
+function populateIndustries(templates) {
+  const categories = [...new Set(templates.map((template) => template.category))].sort();
+  categories.forEach((category) => {
+    const option = document.createElement("option");
+    option.value = category;
+    option.textContent = category;
+    industryFilter.append(option);
+  });
+}
+
+function applyFilters() {
+  const query = searchInput.value.trim().toLowerCase();
+  const category = industryFilter.value;
+  const matches = catalog.filter((template) => {
+    const haystack = `${template.name} ${template.category} ${template.description}`.toLowerCase();
+    return (!query || haystack.includes(query)) && (!category || template.category === category);
+  });
+
+  grid.replaceChildren();
+  matches.forEach(renderTemplate);
+  emptyState.hidden = matches.length !== 0;
+  status.textContent = `${matches.length} of ${catalog.length} working demo${catalog.length === 1 ? "" : "s"} shown.`;
+}
+
 async function loadTemplates() {
   try {
     const response = await fetch("/data/templates.json", { credentials: "same-origin" });
@@ -53,16 +83,22 @@ async function loadTemplates() {
     if (!Array.isArray(templates)) {
       throw new TypeError("Catalog must be an array");
     }
-    if (templates.length === 0) {
-      status.textContent = "Working demos are being prepared. Please check back soon.";
-      return;
-    }
-    status.textContent = `${templates.length} working demo${templates.length === 1 ? "" : "s"} available.`;
-    templates.forEach(renderTemplate);
+    catalog = templates;
+    populateIndustries(catalog);
+    applyFilters();
   } catch (error) {
     status.textContent = "The demo library could not load. Please refresh the page and try again.";
     console.error("BRIOFRAME catalog load failed", error);
   }
 }
+
+searchInput.addEventListener("input", applyFilters);
+industryFilter.addEventListener("change", applyFilters);
+clearFilters.addEventListener("click", () => {
+  searchInput.value = "";
+  industryFilter.value = "";
+  applyFilters();
+  searchInput.focus();
+});
 
 loadTemplates();
