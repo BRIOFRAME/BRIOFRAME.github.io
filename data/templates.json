@@ -1,5 +1,178 @@
 [
-  {"id":"bf-001","slug":"velvet-nail-atelier","name":"Velvet Nail Atelier","category":"Nail Salon & Nail Tech","description":"A luxury booking-first salon experience with services, lookbook, policies, testimonials, and a simulated appointment flow.","previewImage":"/assets/previews/velvet-nail-atelier.svg","demoUrl":"/demos/velvet-nail-atelier/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/velvet-nail-atelier","availability":"Available"},
-  {"id":"bf-002","slug":"amara-braid-house","name":"Amara Braid House","category":"Braiding & Hair Stylist","description":"A distinctive stylist-led site with a style catalog, starting prices, preparation guidance, brand story, and simulated booking.","previewImage":"/assets/previews/amara-braid-house.svg","demoUrl":"/demos/amara-braid-house/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/amara-braid-house","availability":"Available"},
-  {"id":"bf-003","slug":"meridian-supply-co","name":"Meridian Supply Co.","category":"Wholesale & Distributor","description":"A B2B purchasing experience with catalog filters, MOQ and case quantities, volume tiers, logistics, RFQ, and dealer application flows.","previewImage":"/assets/previews/meridian-supply-co.svg","demoUrl":"/demos/meridian-supply-co/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/meridian-supply-co","availability":"Available"}
+  {
+    "id": "bf-001",
+    "slug": "velvet-nail-atelier",
+    "name": "Velvet Nail Atelier",
+    "category": "Nail Salon & Nail Tech",
+    "description": "A luxury booking-first salon experience with services, lookbook, policies, testimonials, and a simulated appointment flow.",
+    "previewImage": "/assets/previews/velvet-nail-atelier.svg",
+    "demoUrl": "/demos/velvet-nail-atelier/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/velvet-nail-atelier",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-002",
+    "slug": "amara-braid-house",
+    "name": "Amara Braid House",
+    "category": "Braiding & Hair Stylist",
+    "description": "A distinctive stylist-led site with a style catalog, starting prices, preparation guidance, brand story, and simulated booking.",
+    "previewImage": "/assets/previews/amara-braid-house.svg",
+    "demoUrl": "/demos/amara-braid-house/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/amara-braid-house",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-003",
+    "slug": "meridian-supply-co",
+    "name": "Meridian Supply Co.",
+    "category": "Wholesale & Distributor",
+    "description": "A B2B purchasing experience with catalog filters, MOQ and case quantities, volume tiers, logistics, RFQ, and dealer application flows.",
+    "previewImage": "/assets/previews/meridian-supply-co.svg",
+    "demoUrl": "/demos/meridian-supply-co/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/meridian-supply-co",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-004",
+    "slug": "apex-auto-detail-auto-detailing-website-template",
+    "name": "Apex Auto Detail",
+    "category": "Auto Detailing & Automotive",
+    "description": "A high-impact automotive service experience for detailing, ceramic coating, paint correction, and mobile-service conversion.",
+    "previewImage": "/assets/previews/apex-auto-detail-auto-detailing-website-template.svg",
+    "demoUrl": "/demos/apex-auto-detail-auto-detailing-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/apex-auto-detail-auto-detailing-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-005",
+    "slug": "atlas-freight-logistics-logistics-freight-website-template",
+    "name": "Atlas Freight & Logistics",
+    "category": "Logistics & Freight",
+    "description": "A B2B logistics experience built around lane coverage, service capability, proof metrics, quote conversion, and operational trust.",
+    "previewImage": "/assets/previews/atlas-freight-logistics-logistics-freight-website-template.svg",
+    "demoUrl": "/demos/atlas-freight-logistics-logistics-freight-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/atlas-freight-logistics-logistics-freight-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-006",
+    "slug": "avery-cole-law",
+    "name": "Avery Cole Law",
+    "category": "Law Firm & Legal Services",
+    "description": "A credibility-first legal site with practice areas, attorney authority, case-result context, resources, and consultation conversion.",
+    "previewImage": "/assets/previews/avery-cole-law.svg",
+    "demoUrl": "/demos/avery-cole-law/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/avery-cole-law",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-007",
+    "slug": "common-ground-foundation-nonprofit-community-website-template",
+    "name": "Common Ground Foundation",
+    "category": "Nonprofit & Community",
+    "description": "A mission-led nonprofit experience that makes impact visible and guides visitors toward volunteering, giving, and community action.",
+    "previewImage": "/assets/previews/common-ground-foundation-nonprofit-community-website-template.svg",
+    "demoUrl": "/demos/common-ground-foundation-nonprofit-community-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/common-ground-foundation-nonprofit-community-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-008",
+    "slug": "crescent-private-wealth",
+    "name": "Crescent Private Wealth",
+    "category": "Financial Advisory & Wealth",
+    "description": "A refined wealth-management site focused on fiduciary trust, planning depth, client fit, insights, and consultation conversion.",
+    "previewImage": "/assets/previews/crescent-private-wealth.svg",
+    "demoUrl": "/demos/crescent-private-wealth/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/crescent-private-wealth",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-009",
+    "slug": "elevate-catering",
+    "name": "Elevate Catering",
+    "category": "Luxury Catering & Events",
+    "description": "An editorial hospitality experience showcasing event occasions, signature menus, presentation, process, and inquiry conversion.",
+    "previewImage": "/assets/previews/elevate-catering.svg",
+    "demoUrl": "/demos/elevate-catering/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/elevate-catering",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-010",
+    "slug": "harbor-dental-studio-dental-medical-practice-website-template",
+    "name": "Harbor Dental Studio",
+    "category": "Dental & Medical Practice",
+    "description": "A reassuring patient-first practice site with services, new-patient guidance, trust signals, and a frictionless appointment path.",
+    "previewImage": "/assets/previews/harbor-dental-studio-dental-medical-practice-website-template.svg",
+    "demoUrl": "/demos/harbor-dental-studio-dental-medical-practice-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/harbor-dental-studio-dental-medical-practice-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-011",
+    "slug": "ledgerline-tax-accounting-accounting-firm-website-template",
+    "name": "Ledgerline Tax & Accounting",
+    "category": "Accounting & Tax",
+    "description": "A professional accounting site that clarifies expertise, deadlines, advisory services, industries served, and consultation options.",
+    "previewImage": "/assets/previews/ledgerline-tax-accounting-accounting-firm-website-template.svg",
+    "demoUrl": "/demos/ledgerline-tax-accounting-accounting-firm-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/ledgerline-tax-accounting-accounting-firm-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-012",
+    "slug": "little-grove-early-learning-daycare-childcare-website-template",
+    "name": "Little Grove Early Learning",
+    "category": "Daycare & Childcare",
+    "description": "A warm family-focused childcare site with age-group programs, safety reassurance, curriculum highlights, tour booking, and enrollment guidance.",
+    "previewImage": "/assets/previews/little-grove-early-learning-daycare-childcare-website-template.svg",
+    "demoUrl": "/demos/little-grove-early-learning-daycare-childcare-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/little-grove-early-learning-daycare-childcare-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-013",
+    "slug": "lumiere-photography-studio-photography-website-template",
+    "name": "Lumiere Photography Studio",
+    "category": "Photography & Creative Studio",
+    "description": "An editorial portfolio experience for photographers and visual storytellers with immersive work, packages, proof, and booking conversion.",
+    "previewImage": "/assets/previews/lumiere-photography-studio-photography-website-template.svg",
+    "demoUrl": "/demos/lumiere-photography-studio-photography-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/lumiere-photography-studio-photography-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-014",
+    "slug": "monarch-estates",
+    "name": "Monarch Estates",
+    "category": "Luxury Real Estate",
+    "description": "A premium property experience with editorial listings, market expertise, agent credibility, private-showing conversion, and mobile-first discovery.",
+    "previewImage": "/assets/previews/monarch-estates.svg",
+    "demoUrl": "/demos/monarch-estates/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/monarch-estates",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-015",
+    "slug": "nexa-systems",
+    "name": "Nexa Systems",
+    "category": "Corporate IT & Technology",
+    "description": "A modern MSP and technology-services site built around vertical fit, cybersecurity trust, managed services, response metrics, and consultation conversion.",
+    "previewImage": "/assets/previews/nexa-systems.svg",
+    "demoUrl": "/demos/nexa-systems/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/nexa-systems",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-016",
+    "slug": "northstar-home-climate-hvac-home-services-website-template",
+    "name": "Northstar Home Climate",
+    "category": "HVAC & Home Services",
+    "description": "A high-conversion home-services site with emergency-first actions, service coverage, maintenance plans, trust proof, and fast scheduling.",
+    "previewImage": "/assets/previews/northstar-home-climate-hvac-home-services-website-template.svg",
+    "demoUrl": "/demos/northstar-home-climate-hvac-home-services-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/northstar-home-climate-hvac-home-services-website-template",
+    "availability": "Available"
+  }
 ]
