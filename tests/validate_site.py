@@ -11,6 +11,7 @@ FORBIDDEN_TEXT = re.compile(
     re.I,
 )
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+PUBLIC_ORIGIN = "https://brioframe.github.io"
 APPROVED_BATCH_ONE = {
     "velvet-nail-atelier": (
         "Velvet Nail Atelier",
@@ -34,6 +35,8 @@ for required_path in (
     "index.html",
     "404.html",
     ".nojekyll",
+    "robots.txt",
+    "sitemap.xml",
     "demos/README.md",
     "docs/operations/publishing-checklist.md",
 ):
@@ -118,10 +121,33 @@ if index_path.exists():
         'rel="stylesheet"': "stylesheet link",
         'src="/assets/js/library.js"': "library script",
         "defer": "deferred script",
+        '<meta name="robots" content="index,follow">': "indexable robots meta",
+        f'<link rel="canonical" href="{PUBLIC_ORIGIN}/">': "canonical link",
     }
     for needle, label in required_markup.items():
         if index_text.count(needle) != 1:
             errors.append(f"index.html must contain one {label}")
+
+robots_path = ROOT / "robots.txt"
+if robots_path.exists():
+    robots_text = robots_path.read_text(encoding="utf-8")
+    for needle in (
+        "User-agent: *",
+        "Allow: /",
+        f"Sitemap: {PUBLIC_ORIGIN}/sitemap.xml",
+    ):
+        if needle not in robots_text:
+            errors.append(f"robots.txt missing: {needle}")
+
+sitemap_path = ROOT / "sitemap.xml"
+if sitemap_path.exists():
+    sitemap_text = sitemap_path.read_text(encoding="utf-8")
+    required_public_urls = [f"{PUBLIC_ORIGIN}/"] + [
+        f"{PUBLIC_ORIGIN}/demos/{slug}/" for slug in APPROVED_BATCH_ONE
+    ]
+    for public_url in required_public_urls:
+        if f"<loc>{public_url}</loc>" not in sitemap_text:
+            errors.append(f"sitemap.xml missing URL: {public_url}")
 
 catalog_by_slug = {
     item.get("slug"): item
