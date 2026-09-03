@@ -1,11 +1,17 @@
 async function startDemo() {
   const slug = location.pathname.split("/").filter(Boolean).pop();
   const fallback = document.querySelector(".runtime-fallback");
-  const purchase = fallback?.querySelector('[data-purchase-link="verified"]')?.href || "/";
+  const purchase = fallback?.querySelector('[data-purchase-link="verified"]')?.href || "";
   try {
-    const response = await fetch("/data/demo-config.json", { credentials: "same-origin" });
-    if (!response.ok) throw new Error(`Demo configuration request failed: ${response.status}`);
-    const cfg = (await response.json())[slug];
+    const localConfig = document.querySelector("[data-demo-config]");
+    let cfg;
+    if (localConfig) {
+      cfg = JSON.parse(localConfig.textContent);
+    } else {
+      const response = await fetch("/data/demo-config.json", { credentials: "same-origin" });
+      if (!response.ok) throw new Error(`Demo configuration request failed: ${response.status}`);
+      cfg = (await response.json())[slug];
+    }
     if (!cfg) throw new Error("Unknown demo");
     fallback.remove();
     document.documentElement.style.setProperty("--bg", cfg.bg);
@@ -23,6 +29,9 @@ async function startDemo() {
     ];
     const services = cfg.sections.map((name,index) =>
       `<article class="service"><span>0${index+1}</span><h3>${name}</h3><p>${serviceCopy[index]}</p></article>`).join("");
+    const purchaseAction = cfg.purchaseMode === "preview"
+      ? '<span class="btn ghost" aria-disabled="true">Premium Preview · Shopify listing coming soon</span>'
+      : `<a class="btn primary" data-live-purchase href="${purchase}">Purchase this BRIOFRAME template</a>`;
 
     document.body.innerHTML = `
       <div class="demo-bar"><span>BRIOFRAME working demo · Simulated demo interactions do not transmit or store data.</span><a href="/">Return to Template Library</a></div>
@@ -35,7 +44,7 @@ async function startDemo() {
         <section class="metrics" aria-label="Key proof points">${metrics}</section>
         <section class="content" id="services"><div class="section-head"><p class="kicker">BUILT AROUND THE DECISION</p><div><h2>Show people what matters before asking them to act.</h2><p>${cfg.proof}</p></div></div><div class="services">${services}</div></section>
         <section class="proof" id="proof"><div><p class="kicker">BRIOFRAME CONVERSION LOGIC</p><h2>Specific beats generic.</h2></div><div class="proof-card"><p>${cfg.proof}</p></div></section>
-        <section class="contact" id="contact"><div><p class="kicker">NEXT STEP</p><h2>${cfg.cta}.</h2><p class="lede">This form demonstrates the intended lead flow only. It does not send or save information in this public demo.</p><div class="actions"><a class="btn primary" data-live-purchase href="${purchase}">Purchase this BRIOFRAME template</a></div></div><form data-demo-form><label for="name">Name</label><input id="name" name="name" autocomplete="name"><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email"><label for="message">What can we help with?</label><textarea id="message" name="message"></textarea><button type="submit">Simulate request</button><p class="sim">Simulated demo — this form does not transmit or store data.</p><p class="sim" data-form-status aria-live="polite"></p></form></section>
+        <section class="contact" id="contact"><div><p class="kicker">NEXT STEP</p><h2>${cfg.cta}.</h2><p class="lede">This form demonstrates the intended lead flow only. It does not send or save information in this public demo.</p><div class="actions">${purchaseAction}</div></div><form data-demo-form><label for="name">Name</label><input id="name" name="name" autocomplete="name"><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email"><label for="message">What can we help with?</label><textarea id="message" name="message"></textarea><button type="submit">Simulate request</button><p class="sim">Simulated demo — this form does not transmit or store data.</p><p class="sim" data-form-status aria-live="polite"></p></form></section>
       </main>
       <footer><span>© 2026 ${cfg.name} demo concept.</span><span>Designed for evaluation by BRIOFRAME Template Studio.</span></footer>`;
     document.querySelector("[data-demo-form]").addEventListener("submit", (event) => {
