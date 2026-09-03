@@ -1,7 +1,7 @@
 async function startDemo() {
   const slug = location.pathname.split("/").filter(Boolean).pop();
   const fallback = document.querySelector(".runtime-fallback");
-  const purchase = fallback?.querySelector('[data-purchase-link="verified"]')?.href || "";
+  let purchase = fallback?.querySelector('[data-purchase-link="verified"]')?.href || "";
   try {
     const localConfig = document.querySelector("[data-demo-config]");
     let cfg;
@@ -13,6 +13,15 @@ async function startDemo() {
       cfg = (await response.json())[slug];
     }
     if (!cfg) throw new Error("Unknown demo");
+
+    if (!purchase) {
+      const manifestResponse = await fetch("/data/templates.json", { credentials: "same-origin" });
+      if (manifestResponse.ok) {
+        const templates = await manifestResponse.json();
+        purchase = templates.find((template) => template.slug === slug)?.shopifyProductUrl || "";
+      }
+    }
+
     fallback.remove();
     document.documentElement.style.setProperty("--bg", cfg.bg);
     document.documentElement.style.setProperty("--fg", cfg.fg);
@@ -29,9 +38,9 @@ async function startDemo() {
     ];
     const services = cfg.sections.map((name,index) =>
       `<article class="service"><span>0${index+1}</span><h3>${name}</h3><p>${serviceCopy[index]}</p></article>`).join("");
-    const purchaseAction = cfg.purchaseMode === "preview"
-      ? '<span class="btn ghost" aria-disabled="true">Premium Preview · Shopify listing coming soon</span>'
-      : `<a class="btn primary" data-live-purchase href="${purchase}">Purchase this BRIOFRAME template</a>`;
+    const purchaseAction = purchase
+      ? `<a class="btn primary" data-live-purchase href="${purchase}">Purchase this BRIOFRAME template</a>`
+      : '<span class="btn ghost" aria-disabled="true">Premium Preview · Shopify listing coming soon</span>';
 
     document.body.innerHTML = `
       <div class="demo-bar"><span>BRIOFRAME working demo · Simulated demo interactions do not transmit or store data.</span><a href="/">Return to Template Library</a></div>
