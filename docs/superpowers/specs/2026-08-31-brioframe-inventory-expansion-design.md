@@ -1,61 +1,136 @@
 # BRIOFRAME Inventory Expansion Design
 
 ## Objective
-Expand the BRIOFRAME Template Studio public working-demo inventory beyond the validated Batch 1 baseline, prioritizing revenue-ready breadth while preserving the secure GitHub Pages → Shopify purchase architecture.
+Expand the BRIOFRAME Template Studio public working-demo inventory to a locked target of **90 total premium templates**. The existing 16 published templates remain the validated commercial foundation, Altitude Aviation Services remains the first aviation preview, and the remaining inventory is built in controlled waves until the catalog reaches 90 distinct entries.
 
-## Approved Starting Wave
-1. Northstar Advisory Group — Professional Services
-2. Maison Élan Catering — Luxury Catering
-3. Pulsewell Studio — Fitness / Wellness
-4. Encore Creator Studio — Creator / Entertainment
+The objective is not raw quantity. Every additional template must be premium, commercially credible, visually and structurally distinct, responsive, sanitized for public demo use, and appropriate to its industry.
 
-This wave is not the stopping point. Subsequent waves should broaden BRIOFRAME into additional approved commercial verticals while maintaining distinct visual and conversion structures.
+## Locked Inventory Target
+- Total target: **90 templates**.
+- Existing verified commercial foundation: **16 Available templates**.
+- Existing premium preview: **1 Aviation template**.
+- Remaining expansion requirement from the current 17-record baseline: **73 additional templates**.
+- Most categories should carry 3–4 genuinely distinct variants where commercially appropriate.
+- Variants must differ in information architecture, hero treatment, section order, conversion path, visual language, and buyer journey—not just color, imagery, or copy.
+
+## Approved Industry Directions
+The 90-template catalog may draw from the approved BRIOFRAME roadmap, including:
+- Nail Salon & Nail Tech
+- Braiding & Hair Stylist
+- Wholesale & Distribution
+- Corporate IT & Technology
+- Law Firm & Legal Services
+- Real Estate & Property
+- Consulting & Coaching
+- Healthcare & Medical
+- Accounting & Tax
+- Financial Advisory & Wealth
+- Auto Detailing & Automotive
+- Logistics & Freight
+- Nonprofit & Community
+- Dental & Medical Practice
+- Daycare & Childcare
+- Photography & Creative Studio
+- HVAC & Home Services
+- Luxury Catering & Events
+- Fitness & Wellness
+- Creator & Entertainment
+- E-commerce
+- Aviation
+- Aviation Services
+- Aircraft Detailing
+- Aviation Catering
+- Aviation Clubs
+- Aviation Knowledge Library / Aviation Education Resource Portal
+- Boating / Marine
+- Fishing / Charter Fishing
+- Clubs / Membership Organizations
+- Villas / Luxury Villa & Vacation Property
+
+Additional closely related commercial sub-verticals may be used when they improve catalog breadth without weakening the approved brand direction.
+
+## Competitor Benchmark Rule
+Before producing variants for a vertical, study current premium competitors and strong commercial website/template patterns. Use that research only to identify expectations, weaknesses, missed opportunities, conversion patterns, visual standards, and differentiation opportunities. Never copy competitor layouts, copy, imagery, branding, or protected creative expression.
+
+Required sequence:
+**Competitor benchmark → identify weaknesses/opportunities → design beyond benchmark → BRIOFRAME QA → publish only when premium standard is met.**
 
 ## Architecture
 The existing GitHub Pages library remains catalog-driven through `data/templates.json`. Each template receives an isolated sanitized demo under `demos/<slug>/` plus a preview asset under `assets/previews/`. Public demos demonstrate layout, responsive behavior, navigation, service/product presentation, and simulated lead/booking interactions without exposing paid source packages, customer information, credentials, or fulfillment data.
 
-Shopify remains the sales and payment destination. A public Shopify CTA may be added only after the exact BRIOFRAME product destination for that template has been verified. Until then, a template may be built and validated without a fabricated purchase URL.
+Shared runtime code may support reusable behaviors, accessibility, form simulation, and catalog mechanics, but it must not force every template into the same structural design. Premium variants may use dedicated markup and stylesheet modules where necessary to preserve meaningful visual and structural differentiation.
+
+Shopify remains the sales and payment destination. A public Shopify CTA may be added only after the exact BRIOFRAME product destination for that template has been verified. Until then, a completed design may be published as `Preview` without a fabricated purchase URL.
 
 ## Design Principles
-- Every template must be structurally and visually distinct, not a reskin of Batch 1 or another expansion template.
-- Premium polish and conversion readiness take priority over raw inventory count.
+- Every template must be structurally and visually distinct from its sibling variants and from the original Batch 1 foundation.
+- Premium polish and conversion readiness take priority over speed.
 - Desktop and mobile layouts must both be intentional and usable.
+- Hero and interior imagery must be equally sharp and appropriate to the industry.
+- Thumbnail imagery must match the actual demo identity and design.
 - Navigation and CTA hierarchy must make the visitor's next action obvious.
 - Forms, booking, checkout, account, quote, and private API behaviors remain simulated in public demos.
-- Each template should reflect the needs of its vertical rather than forcing a generic site structure.
+- Each template must reflect the needs of its vertical rather than forcing a generic site structure.
+- The strongest, most premium templates should become the public face/featured showcase of BRIOFRAME Template Studio.
+- Catalog imagery should remain inclusive across age, gender, and racial representation where people are shown.
 
-## Starting-Wave Concepts
-### Northstar Advisory Group
-Executive professional-services presentation focused on credibility, expertise, service lines, outcomes, insights, and consultation conversion. Corporate editorial structure with restrained premium styling.
+## Initial Expansion Wave After the Existing 17
+The first expansion wave should produce distinct premium concepts in four high-value directions:
+1. Northstar Advisory Group — Professional Services / Consulting
+2. Maison Élan Catering — Luxury Catering
+3. Pulsewell Studio — Fitness / Wellness
+4. Encore Creator Studio — Creator / Entertainment
 
-### Maison Élan Catering
-Editorial luxury-catering presentation focused on events, signature menus, presentation imagery, service occasions, process, testimonials, and inquiry conversion. Hospitality-first structure rather than a generic restaurant layout.
+These four are the first tranche, not the stopping point. Subsequent waves continue until the locked 90-template target is reached.
 
-### Pulsewell Studio
-Energetic wellness studio presentation focused on programs/classes, instructor credibility, schedule discovery, membership pathways, transformation benefits, and simulated trial/booking conversion.
+## Variant Families
+Within a category, use multiple design families rather than repeated skins. Examples include:
+- Editorial authority / trust-led
+- High-conversion service / action-led
+- Immersive visual / portfolio-led
+- Operational / proof-and-metrics-led
+- Boutique luxury / hospitality-led
+- Community / membership-led
+- Knowledge / resource-portal-led
+- Commerce / catalog-led
 
-### Encore Creator Studio
-Media-forward creator/entertainment presentation focused on portfolio/showreel, services, collaborations, audience proof, featured work, and booking/contact conversion. Designed to feel materially different from corporate or commerce templates.
+A category with four variants should normally use at least three materially different structural families.
 
 ## Catalog and Sales Flow
-Each released record uses the established catalog contract: `id`, `slug`, `name`, `category`, `description`, `previewImage`, `demoUrl`, `shopifyProductUrl`, and `availability`. IDs remain unique and slugs remain lowercase and stable. Library → Demo and Demo → exact Shopify product navigation must be verified before a template is labeled Available for purchase.
+Each released record uses the established catalog contract: `id`, `slug`, `name`, `category`, `description`, `previewImage`, `demoUrl`, `shopifyProductUrl`, and `availability`. IDs remain unique and slugs remain lowercase and stable. Library → Demo and Demo → exact Shopify product navigation must be verified before a template is labeled `Available` for purchase.
+
+Industry search/filtering must remain usable as the catalog approaches 90 items; users should not be expected to scroll the entire inventory to find their industry.
 
 ## Security and Separation
-- Repository owner must be `BRIOFRAME` and repository `BRIOFRAME.github.io` on `main` before every public write.
+- Repository owner must be `BRIOFRAME` and repository `BRIOFRAME.github.io` before every public write.
 - No Kia Supreme Kreations material or branding may be accessed or committed.
 - No paid source archives, customer files, credentials, secrets, fulfillment identifiers, or editable commercial masters may be published.
 - No open-source license is added.
 - Public visibility does not grant resale or redistribution rights.
 
 ## Validation and Release
-Every expansion template must pass the existing repository validator, basic JavaScript syntax validation where applicable, responsive/live-browser QA, internal navigation checks, and exact purchase-link verification when a Shopify product URL is present. Batch 1 remains unchanged except for shared-library changes required to display additional validated inventory.
+Every expansion template must pass:
+- catalog-schema and unique-ID/slug validation;
+- preview and demo existence checks;
+- BRIOFRAME demo identity marker validation;
+- simulated-form disclosure validation where a form is shown;
+- legacy/separate-brand text rejection;
+- responsive/mobile QA;
+- interior-image sharpness review;
+- thumbnail-to-demo identity match;
+- navigation and CTA checks;
+- exact Shopify purchase-link verification before `Available` status;
+- no invented Shopify product URL for `Preview` status.
 
-## Expansion Strategy After Starting Wave
-Continue with additional approved verticals in revenue-oriented waves, favoring categories with clear small-business demand and strong visual differentiation. Approved directions include aviation and aviation services, aircraft detailing, aviation catering, aviation clubs/knowledge resources, boating/marine, fishing/charter fishing, clubs/membership organizations, villas/luxury vacation properties, wholesale/distributor, beauty, food/catering, professional services, fitness/wellness, creator/entertainment, and e-commerce.
+The validator must be generalized away from a hard-coded 16/17-record ceiling so the catalog can grow safely to 90.
 
 ## Success Criteria
-- Batch 1 remains functional and unchanged in behavior.
-- Four starting-wave demos are distinct, responsive, sanitized, and validator-clean.
-- The public library can present the new inventory without breaking existing cards.
+- The public catalog contains **90 premium, distinct templates**.
+- The original 16 verified commercial templates remain functional.
+- Existing Altitude Aviation Services remains functional as an aviation preview unless later promoted to Available with a verified Shopify URL.
+- Each added template has a matching preview and working responsive demo.
+- Variants within a category are materially different, not cosmetic reskins.
+- Industry filtering remains fast and understandable at 90 items.
 - Exact Shopify purchase CTAs are never guessed.
-- Expansion can continue in repeatable waves without restructuring the core library architecture.
+- Public demos remain sanitized and safe to expose.
+- The strongest templates are clearly suitable to serve as BRIOFRAME's public showcase.
