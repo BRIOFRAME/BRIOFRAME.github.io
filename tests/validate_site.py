@@ -6,36 +6,18 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 FORBIDDEN_SUFFIXES = {".zip", ".7z", ".rar", ".env", ".liquid", ".psd", ".ai", ".sketch"}
 FORBIDDEN_PARTS = {"customer-files", "paid-source", "shopify-export", "fulfillment"}
-FORBIDDEN_TEXT = re.compile(
-    r"(api[_-]?key|access[_-]?token|private[_-]?key|Kia Supreme Kreations|\bKSK\b)",
-    re.I,
-)
+FORBIDDEN_TEXT = re.compile(r"(api[_-]?key|access[_-]?token|private[_-]?key|Kia Supreme Kreations|\bKSK\b)", re.I)
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 APPROVED_BATCH_ONE = {
-    "velvet-nail-atelier": (
-        "Velvet Nail Atelier",
-        "https://1gsa1w-f1.myshopify.com/products/velvet-nail-atelier",
-    ),
-    "amara-braid-house": (
-        "Amara Braid House",
-        "https://1gsa1w-f1.myshopify.com/products/amara-braid-house",
-    ),
-    "meridian-supply-co": (
-        "Meridian Supply Co.",
-        "https://1gsa1w-f1.myshopify.com/products/meridian-supply-co",
-    ),
+    "velvet-nail-atelier": ("Velvet Nail Atelier", "https://1gsa1w-f1.myshopify.com/products/velvet-nail-atelier"),
+    "amara-braid-house": ("Amara Braid House", "https://1gsa1w-f1.myshopify.com/products/amara-braid-house"),
+    "meridian-supply-co": ("Meridian Supply Co.", "https://1gsa1w-f1.myshopify.com/products/meridian-supply-co"),
 }
 
 errors = []
 for required_path in (
-    "data/templates.json",
-    "assets/js/library.js",
-    "assets/css/site.css",
-    "index.html",
-    "404.html",
-    ".nojekyll",
-    "demos/README.md",
-    "docs/operations/publishing-checklist.md",
+    "data/templates.json", "assets/js/library.js", "assets/css/site.css", "index.html", "404.html",
+    ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md",
 ):
     if not (ROOT / required_path).is_file():
         errors.append(f"missing required file: {required_path}")
@@ -55,22 +37,14 @@ for path in ROOT.rglob("*"):
             errors.append(f"forbidden text: {rel}")
 
 catalog_path = ROOT / "data" / "templates.json"
+catalog = []
 if catalog_path.exists():
     catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
     if not isinstance(catalog, list):
         errors.append("catalog root must be an array")
+        catalog = []
     else:
-        required = {
-            "id",
-            "slug",
-            "name",
-            "category",
-            "description",
-            "previewImage",
-            "demoUrl",
-            "shopifyProductUrl",
-            "availability",
-        }
+        required = {"id", "slug", "name", "category", "description", "previewImage", "demoUrl", "shopifyProductUrl", "availability"}
         ids = set()
         for index, item in enumerate(catalog):
             missing = required - set(item)
@@ -86,8 +60,18 @@ if catalog_path.exists():
                 errors.append(f"catalog[{index}] demoUrl must match slug")
             if "previewImage" in item and not item["previewImage"].startswith("/assets/"):
                 errors.append(f"catalog[{index}] previewImage must start with /assets/")
-            if "shopifyProductUrl" in item and not item["shopifyProductUrl"].startswith("https://"):
-                errors.append(f"catalog[{index}] Shopify URL must use HTTPS")
+
+            availability = item.get("availability")
+            shopify_url = item.get("shopifyProductUrl", "")
+            if availability == "Available":
+                if not shopify_url.startswith("https://"):
+                    errors.append(f"catalog[{index}] Available item Shopify URL must use HTTPS")
+            elif availability == "Preview":
+                if shopify_url:
+                    errors.append(f"catalog[{index}] Preview item must not expose an unverified Shopify URL")
+            else:
+                errors.append(f"catalog[{index}] invalid availability: {availability}")
+
             if "slug" in item:
                 demo_path = ROOT / "demos" / item["slug"] / "index.html"
                 if not demo_path.is_file():
@@ -96,16 +80,11 @@ if catalog_path.exists():
                     demo_text = demo_path.read_text(encoding="utf-8")
                     if 'href="/"' not in demo_text:
                         errors.append(f"catalog[{index}] demo missing return link")
-                    shopify_url = item.get("shopifyProductUrl")
                     if shopify_url and shopify_url not in demo_text:
                         errors.append(f"catalog[{index}] demo missing Shopify URL")
-            for forbidden in {
-                "downloadUrl",
-                "packagePath",
-                "customerId",
-                "fulfillmentId",
-                "protectedFilename",
-            }:
+                    if availability == "Preview" and "myshopify.com/products/" in demo_text:
+                        errors.append(f"catalog[{index}] Preview demo contains unverified Shopify path")
+            for forbidden in {"downloadUrl", "packagePath", "customerId", "fulfillmentId", "protectedFilename"}:
                 if forbidden in item:
                     errors.append(f"catalog[{index}] forbidden key: {forbidden}")
 
@@ -123,10 +102,7 @@ if index_path.exists():
         if index_text.count(needle) != 1:
             errors.append(f"index.html must contain one {label}")
 
-catalog_by_slug = {
-    item.get("slug"): item
-    for item in (catalog if isinstance(catalog, list) else [])
-}
+catalog_by_slug = {item.get("slug"): item for item in catalog}
 for slug, (public_name, product_url) in APPROVED_BATCH_ONE.items():
     demo_path = ROOT / "demos" / slug / "index.html"
     if not demo_path.is_file():
@@ -139,10 +115,8 @@ for slug, (public_name, product_url) in APPROVED_BATCH_ONE.items():
         errors.append(f"pending Batch 1 demo missing BRIOFRAME demo marker: {slug}")
     if 'href="/"' not in demo_text:
         errors.append(f"pending Batch 1 demo missing return-to-library link: {slug}")
-    if "Simulated demo" not in demo_text:
+    if "Simulated demo" not in demo_text or "data-demo-form" not in demo_text:
         errors.append(f"pending Batch 1 demo missing simulated-action disclosure: {slug}")
-    if "data-demo-form" not in demo_text:
-        errors.append(f"pending Batch 1 demo missing simulated form marker: {slug}")
     if demo_text.count(product_url) != 1:
         errors.append(f"Batch 1 demo must contain its exact verified purchase URL once: {slug}")
     if 'data-purchase-link="verified"' not in demo_text:
