@@ -21,6 +21,8 @@ jobs:
           python-version: '3.12'
       - name: Validate public site
         run: python tests/validate_site.py
+      - name: Validate Design Studio services
+        run: python tests/validate_services.py
       - name: Validate 16-template inventory
         run: python tests/validate_inventory.py
       - name: Check library JavaScript syntax
