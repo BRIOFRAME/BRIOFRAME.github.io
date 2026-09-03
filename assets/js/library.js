@@ -43,7 +43,13 @@ function renderTemplate(template) {
   const actions = document.createElement("div");
   actions.className = "template-card__actions";
   addLink(actions, "button button--primary", "View working demo", template.demoUrl);
-  addLink(actions, "button button--secondary", "View in Shopify", template.shopifyProductUrl);
+  if (template.shopifyProductUrl) {
+    addLink(actions, "button button--secondary", "View in Shopify", template.shopifyProductUrl);
+  } else {
+    const preview = addText(actions, "span", "button button--secondary", "Premium Preview");
+    preview.setAttribute("aria-disabled", "true");
+    preview.title = "Shopify listing coming soon";
+  }
   body.append(actions);
   article.append(body);
   grid.append(article);
@@ -76,13 +82,9 @@ function applyFilters() {
 async function loadTemplates() {
   try {
     const response = await fetch("/data/templates.json", { credentials: "same-origin" });
-    if (!response.ok) {
-      throw new Error(`Catalog request failed with status ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`Catalog request failed with status ${response.status}`);
     const templates = await response.json();
-    if (!Array.isArray(templates)) {
-      throw new TypeError("Catalog must be an array");
-    }
+    if (!Array.isArray(templates)) throw new TypeError("Catalog must be an array");
     catalog = templates;
     populateIndustries(catalog);
     applyFilters();
