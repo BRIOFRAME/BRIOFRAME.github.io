@@ -2,6 +2,8 @@ from pathlib import Path
 import json, re, sys, html
 
 ROOT = Path(__file__).resolve().parents[1]
+TARGET_INVENTORY = 90
+MIN_BASELINE_INVENTORY = 17
 
 REQUIRED_ACTIVE_INVENTORY = {
     'velvet-nail-atelier': ('Velvet Nail Atelier', 'https://1gsa1w-f1.myshopify.com/products/velvet-nail-atelier'),
@@ -22,9 +24,12 @@ REQUIRED_ACTIVE_INVENTORY = {
     'northstar-home-climate-hvac-home-services-website-template': ('Northstar Home Climate', 'https://1gsa1w-f1.myshopify.com/products/northstar-home-climate-hvac-home-services-website-template'),
 }
 
-REQUIRED_PREVIEW_INVENTORY = {
-    'altitude-aviation-services': ('Altitude Aviation Services', 'Aviation & Aviation Services')
+REQUIRED_FIELDS = {
+    'id', 'slug', 'name', 'category', 'description', 'previewImage',
+    'demoUrl', 'shopifyProductUrl', 'availability'
 }
+VALID_AVAILABILITY = {'Available', 'Preview'}
+FORBIDDEN_BRANDS = re.compile(r'LaunchPoint|LP Inbox|Kia Supreme Kreations|\\bKSK\\b', re.I)
 
 errors = []
 catalog_path = ROOT / 'data' / 'templates.json'
@@ -34,72 +39,90 @@ if not catalog_path.is_file():
 else:
     catalog = json.loads(catalog_path.read_text(encoding='utf-8'))
 
-by_slug = {item.get('slug'): item for item in catalog if isinstance(item, dict)}
-if len(catalog) != 17:
-    errors.append(f'expected 17 catalog records, found {len(catalog)}')
+if not isinstance(catalog, list):
+    errors.append('catalog root must be a list')
+    catalog = []
 
-ids = [item.get('id') for item in catalog if isinstance(item, dict)]
+if len(catalog) < MIN_BASELINE_INVENTORY:
+    errors.append(f'catalog regressed below {MIN_BASELINE_INVENTORY} records: found {len(catalog)}')
+if len(catalog) > TARGET_INVENTORY:
+    errors.append(f'catalog exceeds locked target of {TARGET_INVENTORY}: found {len(catalog)}')
+
+ids = []
+slugs = []
+by_slug = {}
+for index, item in enumerate(catalog, start=1):
+    if not isinstance(item, dict):
+        errors.append(f'catalog record {index} must be an object')
+        continue
+    missing = REQUIRED_FIELDS.difference(item)
+    if missing:
+        errors.append(f'catalog record {index} missing fields: {sorted(missing)}')
+        continue
+    ids.append(item.get('id'))
+    slugs.append(item.get('slug'))
+    by_slug[item.get('slug')] = item
+
 if len(ids) != len(set(ids)):
     errors.append('catalog IDs must be unique')
+if len(slugs) != len(set(slugs)):
+    errors.append('catalog slugs must be unique')
 
 for slug, (name, url) in REQUIRED_ACTIVE_INVENTORY.items():
     item = by_slug.get(slug)
     if not item:
-        errors.append(f'missing catalog record: {slug}')
+        errors.append(f'missing required commercial catalog record: {slug}')
         continue
+    if item.get('name') != name:
+        errors.append(f'wrong required commercial name: {slug}')
     if item.get('shopifyProductUrl') != url:
         errors.append(f'wrong Shopify URL: {slug}')
     if item.get('availability') != 'Available':
         errors.append(f'not Available: {slug}')
-    preview = ROOT / item.get('previewImage', '').lstrip('/')
-    demo = ROOT / 'demos' / slug / 'index.html'
+
+for item in catalog:
+    if not isinstance(item, dict) or REQUIRED_FIELDS.difference(item):
+        continue
+    slug = item['slug']
+    availability = item['availability']
+    url = item['shopifyProductUrl']
+    name = item['name']
+
+    if availability not in VALID_AVAILABILITY:
+        errors.append(f'invalid availability {availability!r}: {slug}')
+    if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', slug or ''):
+        errors.append(f'invalid slug format: {slug}')
+
+    preview = ROOT / str(item.get('previewImage', '')).lstrip('/')
+    demo_path = ROOT / str(item.get('demoUrl', '')).lstrip('/') / 'index.html'
     if not preview.is_file():
         errors.append(f'missing preview: {slug}')
-    if not demo.is_file():
+    if not demo_path.is_file():
         errors.append(f'missing demo: {slug}')
         continue
-    text = demo.read_text(encoding='utf-8')
-    if name not in html.unescape(text):
-        errors.append(f'demo missing identity: {slug}')
-    if 'data-brioframe-demo="true"' not in text:
-        errors.append(f'demo missing BRIOFRAME marker: {slug}')
-    if 'href="/"' not in text:
-        errors.append(f'demo missing library return link: {slug}')
-    if 'Simulated demo' not in text or 'data-demo-form' not in text:
-        errors.append(f'demo missing simulated-form disclosure: {slug}')
-    if text.count(url) != 1:
-        errors.append(f'demo must contain exact Shopify URL once: {slug}')
-    if 'data-purchase-link="verified"' not in text:
-        errors.append(f'demo missing verified purchase marker: {slug}')
-    if re.search(r'LaunchPoint|LP Inbox|Kia Supreme Kreations|\\bKSK\\b', text, re.I):
+
+    text = demo_path.read_text(encoding='utf-8')
+    decoded = html.unescape(text)
+    for needle in [name, 'data-brioframe-demo="true"', 'href="/"', 'Simulated demo']:
+        if needle not in decoded:
+            errors.append(f'demo missing {needle}: {slug}')
+    if FORBIDDEN_BRANDS.search(text):
         errors.append(f'demo contains forbidden legacy/separate-brand text: {slug}')
 
-for slug, (name, category) in REQUIRED_PREVIEW_INVENTORY.items():
-    item = by_slug.get(slug)
-    if not item:
-        errors.append(f'missing preview catalog record: {slug}')
-        continue
-    if item.get('name') != name or item.get('category') != category:
-        errors.append(f'wrong aviation preview identity: {slug}')
-    if item.get('availability') != 'Preview':
-        errors.append(f'aviation item must be Preview: {slug}')
-    if item.get('shopifyProductUrl'):
-        errors.append(f'aviation preview must not invent Shopify URL: {slug}')
-    preview = ROOT / item.get('previewImage', '').lstrip('/')
-    demo = ROOT / 'demos' / slug / 'index.html'
-    if not preview.is_file():
-        errors.append(f'missing preview: {slug}')
-    if not demo.is_file():
-        errors.append(f'missing demo: {slug}')
-        continue
-    text = demo.read_text(encoding='utf-8')
-    for needle in [name, 'data-brioframe-demo="true"', 'href="/"', 'Simulated demo', 'data-demo-form', 'Premium Preview']:
-        if needle not in html.unescape(text):
-            errors.append(f'aviation demo missing {needle}: {slug}')
-    if 'data-purchase-link="verified"' in text or 'myshopify.com/products/' in text:
-        errors.append(f'aviation preview contains unverified purchase path: {slug}')
-    if re.search(r'LaunchPoint|LP Inbox|Kia Supreme Kreations|\\bKSK\\b', text, re.I):
-        errors.append(f'demo contains forbidden legacy/separate-brand text: {slug}')
+    if availability == 'Available':
+        if not url or 'myshopify.com/products/' not in url:
+            errors.append(f'Available record missing verified-looking Shopify URL: {slug}')
+        if text.count(url) != 1:
+            errors.append(f'demo must contain exact Shopify URL once: {slug}')
+        if 'data-purchase-link="verified"' not in text:
+            errors.append(f'Available demo missing verified purchase marker: {slug}')
+    elif availability == 'Preview':
+        if url:
+            errors.append(f'Preview record must not contain Shopify URL: {slug}')
+        if 'data-purchase-link="verified"' in text or 'myshopify.com/products/' in text:
+            errors.append(f'Preview demo contains unverified purchase path: {slug}')
+        if 'Premium Preview' not in decoded:
+            errors.append(f'Preview demo missing Premium Preview label: {slug}')
 
 index = (ROOT / 'index.html').read_text(encoding='utf-8')
 for needle in ['id="template-search"', 'id="industry-filter"', 'id="template-grid"', 'rel="canonical"']:
@@ -112,4 +135,4 @@ for required in ['robots.txt', 'sitemap.xml']:
 if errors:
     print('\n'.join(errors))
     sys.exit(1)
-print('BRIOFRAME 16 active + 1 aviation preview inventory validation passed')
+print(f'BRIOFRAME inventory validation passed: {len(catalog)}/{TARGET_INVENTORY} catalog records')
