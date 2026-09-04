@@ -147,13 +147,17 @@ if index_path.exists():
     required_markup = {
         'id="template-grid"': "template grid",
         'id="library-status"': "library status",
-        'rel="stylesheet"': "stylesheet link",
+        'href="/assets/css/site.css"': "site stylesheet",
+        'href="/assets/css/fonts.css"': "fonts stylesheet",
         'src="/assets/js/library.js"': "library script",
         "defer": "deferred script",
+        'rel="icon"': "favicon link",
     }
     for needle, label in required_markup.items():
         if index_text.count(needle) != 1:
             errors.append(f"index.html must contain one {label}")
+    if 'rel="stylesheet"' not in index_text:
+        errors.append("index.html missing stylesheet link")
     for needle, label in REQUIRED_INDEX_META:
         if needle not in index_text:
             errors.append(f"index.html missing {label}")
