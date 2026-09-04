@@ -51,7 +51,7 @@
       <div class="library-tools" role="search" aria-label="Template filters">
         <label class="filter-field" for="template-search">
           <span>Search templates</span>
-          <input id="template-search" type="search" placeholder="Search by name, industry, or service" autocomplete="off">
+          <input id="template-search" type="search" placeholder="Search by name, industry, specialty, or service" autocomplete="off">
         </label>
         <label class="filter-field" for="industry-filter">
           <span>Industry</span>
@@ -59,11 +59,31 @@
             <option value="">All industries</option>
           </select>
         </label>
+        <label class="filter-field" for="category-filter">
+          <span>Specialty</span>
+          <select id="category-filter">
+            <option value="">All specialties</option>
+          </select>
+        </label>
+        <label class="filter-field" for="availability-filter">
+          <span>Availability</span>
+          <select id="availability-filter">
+            <option value="">All</option>
+            <option value="Available">Available</option>
+            <option value="Preview">Preview</option>
+          </select>
+        </label>
         <button id="clear-filters" class="filter-clear" type="button">Clear filters</button>
       </div>
 
+      <div id="active-filters" class="active-filters" hidden aria-label="Active filters"></div>
+
       <div id="template-grid" class="template-grid"></div>
-      <p id="empty-state" class="empty-state" hidden>No templates match those filters. Try another industry or keyword.</p>
+      <div id="empty-state" class="empty-state" hidden>
+        <p class="empty-state__title">No templates match those filters.</p>
+        <p id="empty-state-hint" class="empty-state__hint">Try clearing a filter, choosing another industry, or searching by service keyword.</p>
+        <button id="empty-clear-filters" class="filter-clear" type="button">Clear filters</button>
+      </div>
     </section>
 
     <section class="service-note" aria-labelledby="design-studio-title">

@@ -28,4 +28,4 @@ jobs:
       - name: Check demo runtime JavaScript syntax
         run: node --check assets/js/demo-runtime.js
       - name: Check JSON syntax
-        run: python -m json.tool data/templates.json >/dev/null && python -m json.tool data/demo-config.json >/dev/null
+        run: python -m json.tool data/templates.json >/dev/null && python -m json.tool data/demo-config.json >/dev/null && python -m json.tool data/taxonomy.json >/dev/null
