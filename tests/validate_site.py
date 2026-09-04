@@ -31,7 +31,8 @@ REQUIRED_INDEX_META = REQUIRED_DEMO_META + (
 
 errors = []
 for required_path in (
-    "data/templates.json", "data/taxonomy.json", "assets/js/library.js", "assets/css/site.css", "index.html", "404.html",
+    "data/templates.json", "data/taxonomy.json", "assets/js/library.js", "assets/js/template-detail.js",
+    "assets/css/site.css", "index.html", "404.html",
     ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md", "robots.txt", "sitemap.xml",
 ):
     if not (ROOT / required_path).is_file():
@@ -192,6 +193,28 @@ if catalog_path.exists():
                     expected_og_url = f'content="{expected_canonical}"'
                     if 'property="og:url"' in demo_text and expected_og_url not in demo_text:
                         errors.append(f"catalog[{index}] demo og:url must match canonical demo route")
+
+                detail_path = ROOT / "templates" / item["slug"] / "index.html"
+                if not detail_path.is_file():
+                    errors.append(f"catalog[{index}] missing template detail page")
+                else:
+                    detail_text = detail_path.read_text(encoding="utf-8")
+                    for needle, label in REQUIRED_DEMO_META:
+                        if needle not in detail_text:
+                            errors.append(f"catalog[{index}] template detail missing {label}")
+                    expected_detail_canonical = f'{SITE}/templates/{item["slug"]}/'
+                    if f'href="{expected_detail_canonical}"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail canonical must be {expected_detail_canonical}")
+                    if f'content="{expected_detail_canonical}"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail og:url must match canonical route")
+                    if 'src="/assets/js/template-detail.js"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing template-detail.js")
+                    if 'id="template-detail"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing detail root")
+                    if "application/ld+json" not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing JSON-LD")
+                    if item.get("name") and item["name"] not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing template name in metadata")
             for forbidden in {"downloadUrl", "packagePath", "customerId", "fulfillmentId", "protectedFilename"}:
                 if forbidden in item:
                     errors.append(f"catalog[{index}] forbidden key: {forbidden}")
@@ -227,6 +250,7 @@ if index_path.exists():
         'href="/assets/css/site.css"': "site stylesheet",
         'href="/assets/css/fonts.css"': "fonts stylesheet",
         'src="/assets/js/library.js"': "library script",
+        'id="design-studio"': "design studio anchor",
         "defer": "deferred script",
         'rel="icon"': "favicon link",
     }
@@ -247,7 +271,11 @@ if sitemap_path.is_file() and catalog:
         root = ET.fromstring(sitemap_path.read_text(encoding="utf-8"))
         ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
         locs = [node.text.strip() for node in root.findall("sm:url/sm:loc", ns) if node.text]
-        expected = [f"{SITE}/"] + [f"{SITE}/demos/{item['slug']}/" for item in catalog if "slug" in item]
+        expected = (
+            [f"{SITE}/"]
+            + [f"{SITE}/templates/{item['slug']}/" for item in catalog if "slug" in item]
+            + [f"{SITE}/demos/{item['slug']}/" for item in catalog if "slug" in item]
+        )
         missing = [url for url in expected if url not in locs]
         extras = [url for url in locs if url not in expected]
         if missing:

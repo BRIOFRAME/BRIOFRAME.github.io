@@ -165,6 +165,19 @@ for item in catalog:
         errors.append(f'missing demo: {slug}')
         continue
 
+    detail_path = ROOT / 'templates' / slug / 'index.html'
+    if not detail_path.is_file():
+        errors.append(f'missing template detail page: {slug}')
+    else:
+        detail_text = detail_path.read_text(encoding='utf-8')
+        expected_detail_canonical = f'{SITE}/templates/{slug}/'
+        if f'href="{expected_detail_canonical}"' not in detail_text:
+            errors.append(f'template detail canonical mismatch: {slug}')
+        if 'src="/assets/js/template-detail.js"' not in detail_text:
+            errors.append(f'template detail missing runtime script: {slug}')
+        if name not in detail_text:
+            errors.append(f'template detail missing name metadata: {slug}')
+
     text = demo_path.read_text(encoding='utf-8')
     decoded = html.unescape(text)
     for needle in [name, 'data-brioframe-demo="true"', 'href="/"', 'Simulated demo']:
@@ -236,7 +249,11 @@ if sitemap_path.is_file() and catalog:
         root = ET.fromstring(sitemap_path.read_text(encoding='utf-8'))
         ns = {'sm': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
         locs = [node.text.strip() for node in root.findall('sm:url/sm:loc', ns) if node.text]
-        expected = [f'{SITE}/'] + [f'{SITE}/demos/{slug}/' for slug in by_slug]
+        expected = (
+            [f'{SITE}/']
+            + [f'{SITE}/templates/{slug}/' for slug in by_slug]
+            + [f'{SITE}/demos/{slug}/' for slug in by_slug]
+        )
         missing = [url for url in expected if url not in locs]
         extras = [url for url in locs if url not in expected]
         if missing:
