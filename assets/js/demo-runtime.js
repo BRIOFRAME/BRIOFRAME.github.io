@@ -2,6 +2,7 @@ async function startDemo() {
   const slug = location.pathname.split("/").filter(Boolean).pop();
   const fallback = document.querySelector(".runtime-fallback");
   let purchase = fallback?.querySelector('[data-purchase-link="verified"]')?.href || "";
+  let availability = purchase ? "Available" : "";
   try {
     const localConfig = document.querySelector("[data-demo-config]");
     let cfg;
@@ -14,13 +15,19 @@ async function startDemo() {
     }
     if (!cfg) throw new Error("Unknown demo");
 
-    if (!purchase) {
-      const manifestResponse = await fetch("/data/templates.json", { credentials: "same-origin" });
-      if (manifestResponse.ok) {
-        const templates = await manifestResponse.json();
-        purchase = templates.find((template) => template.slug === slug)?.shopifyProductUrl || "";
+    const manifestResponse = await fetch("/data/templates.json", { credentials: "same-origin" });
+    if (manifestResponse.ok) {
+      const templates = await manifestResponse.json();
+      const record = templates.find((template) => template.slug === slug);
+      if (record) {
+        availability = record.availability || availability;
+        if (!purchase && record.shopifyProductUrl) {
+          purchase = record.shopifyProductUrl;
+        }
       }
     }
+
+    const canPurchase = availability === "Available" && Boolean(purchase);
 
     fallback.remove();
     document.documentElement.style.setProperty("--bg", cfg.bg);
@@ -38,8 +45,8 @@ async function startDemo() {
     ];
     const services = cfg.sections.map((name,index) =>
       `<article class="service"><span>0${index+1}</span><h3>${name}</h3><p>${serviceCopy[index]}</p></article>`).join("");
-    const purchaseAction = purchase
-      ? `<a class="btn primary" data-live-purchase href="${purchase}">Purchase this BRIOFRAME template</a>`
+    const purchaseAction = canPurchase
+      ? `<a class="btn primary" data-purchase-link="verified" data-live-purchase href="${purchase}">Purchase this BRIOFRAME template</a>`
       : '<span class="btn ghost" aria-disabled="true">Premium Preview · Shopify listing coming soon</span>';
 
     document.body.innerHTML = `
