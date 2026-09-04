@@ -1,4 +1,5 @@
 from pathlib import Path
+import html
 import json
 import re
 import sys
@@ -31,7 +32,8 @@ REQUIRED_INDEX_META = REQUIRED_DEMO_META + (
 
 errors = []
 for required_path in (
-    "data/templates.json", "data/taxonomy.json", "assets/js/library.js", "assets/css/site.css", "index.html", "404.html",
+    "data/templates.json", "data/taxonomy.json", "assets/js/library.js", "assets/js/template-detail.js",
+    "assets/css/site.css", "index.html", "404.html",
     ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md", "robots.txt", "sitemap.xml",
 ):
     if not (ROOT / required_path).is_file():
@@ -192,6 +194,95 @@ if catalog_path.exists():
                     expected_og_url = f'content="{expected_canonical}"'
                     if 'property="og:url"' in demo_text and expected_og_url not in demo_text:
                         errors.append(f"catalog[{index}] demo og:url must match canonical demo route")
+
+                detail_path = ROOT / "templates" / item["slug"] / "index.html"
+                if not detail_path.is_file():
+                    errors.append(f"catalog[{index}] missing template detail page")
+                else:
+                    detail_text = detail_path.read_text(encoding="utf-8")
+                    for needle, label in REQUIRED_DEMO_META:
+                        if needle not in detail_text:
+                            errors.append(f"catalog[{index}] template detail missing {label}")
+                    expected_detail_canonical = f'{SITE}/templates/{item["slug"]}/'
+                    if f'href="{expected_detail_canonical}"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail canonical must be {expected_detail_canonical}")
+                    if f'content="{expected_detail_canonical}"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail og:url must match canonical route")
+                    if 'src="/assets/js/template-detail.js"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing template-detail.js")
+                    if 'id="template-detail"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing detail root")
+                    if 'data-static-detail="true"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing static detail marker")
+                    if "application/ld+json" not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing JSON-LD")
+                    if item.get("name") and item["name"] not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing template name in metadata")
+
+                    # Static core content must be present without JavaScript.
+                    escaped_name = html.escape(item["name"])
+                    if f'<h1 class="detail-title">{escaped_name}</h1>' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing static H1")
+                    if item.get("description") and html.escape(item["description"]) not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing static description")
+                    if item.get("category") and html.escape(item["category"]) not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing static specialty/category")
+                    if item.get("previewImage") and f'src="{item["previewImage"]}"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing static preview image")
+                    if item.get("demoUrl") and f'href="{item["demoUrl"]}"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing working-demo CTA")
+                    if "View working demo" not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing working-demo CTA label")
+                    if "/#design-studio" not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing Design Studio CTA")
+                    if item.get("availability") == "Available" and item.get("shopifyProductUrl"):
+                        if f'href="{item["shopifyProductUrl"]}"' not in detail_text:
+                            errors.append(f"catalog[{index}] template detail missing Shopify CTA")
+                        if "View in Shopify" not in detail_text:
+                            errors.append(f"catalog[{index}] template detail missing Shopify CTA label")
+
+                    expected_image = f'{SITE}{item.get("previewImage", "")}'
+                    if f'property="og:image" content="{expected_image}"' not in detail_text and f'content="{expected_image}"' not in detail_text:
+                        errors.append(f"catalog[{index}] template detail missing og:image for preview asset")
+                    if f'name="twitter:image" content="{expected_image}"' not in detail_text and f'content="{expected_image}"' not in detail_text:
+                        # allow either attribute order
+                        if 'name="twitter:image"' not in detail_text or expected_image not in detail_text:
+                            errors.append(f"catalog[{index}] template detail missing twitter:image for preview asset")
+
+                    ld_match = re.search(
+                        r'<script type="application/ld\+json">\s*(.*?)\s*</script>',
+                        detail_text,
+                        re.S,
+                    )
+                    if not ld_match:
+                        errors.append(f"catalog[{index}] template detail JSON-LD script missing or empty")
+                    else:
+                        try:
+                            ld = json.loads(ld_match.group(1))
+                        except json.JSONDecodeError:
+                            errors.append(f"catalog[{index}] template detail JSON-LD is invalid JSON")
+                        else:
+                            if ld.get("@type") != "Product":
+                                errors.append(f"catalog[{index}] template detail JSON-LD must be Product")
+                            for field in ("name", "description", "brand", "category", "url", "image"):
+                                if field not in ld:
+                                    errors.append(f"catalog[{index}] template detail JSON-LD missing {field}")
+                            if "offers" in ld:
+                                offers = ld["offers"]
+                                offer_list = offers if isinstance(offers, list) else [offers]
+                                has_auth_price = item.get("price") not in (None, "") and item.get("priceCurrency") not in (None, "")
+                                if not has_auth_price:
+                                    errors.append(
+                                        f"catalog[{index}] template detail JSON-LD offers present without authoritative price/priceCurrency in catalog"
+                                    )
+                                for offer in offer_list:
+                                    if not isinstance(offer, dict):
+                                        errors.append(f"catalog[{index}] template detail JSON-LD offer must be an object")
+                                        continue
+                                    if offer.get("price") in (None, "") or offer.get("priceCurrency") in (None, ""):
+                                        errors.append(
+                                            f"catalog[{index}] template detail JSON-LD offer missing price and priceCurrency"
+                                        )
             for forbidden in {"downloadUrl", "packagePath", "customerId", "fulfillmentId", "protectedFilename"}:
                 if forbidden in item:
                     errors.append(f"catalog[{index}] forbidden key: {forbidden}")
@@ -227,6 +318,7 @@ if index_path.exists():
         'href="/assets/css/site.css"': "site stylesheet",
         'href="/assets/css/fonts.css"': "fonts stylesheet",
         'src="/assets/js/library.js"': "library script",
+        'id="design-studio"': "design studio anchor",
         "defer": "deferred script",
         'rel="icon"': "favicon link",
     }
@@ -247,7 +339,11 @@ if sitemap_path.is_file() and catalog:
         root = ET.fromstring(sitemap_path.read_text(encoding="utf-8"))
         ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
         locs = [node.text.strip() for node in root.findall("sm:url/sm:loc", ns) if node.text]
-        expected = [f"{SITE}/"] + [f"{SITE}/demos/{item['slug']}/" for item in catalog if "slug" in item]
+        expected = (
+            [f"{SITE}/"]
+            + [f"{SITE}/templates/{item['slug']}/" for item in catalog if "slug" in item]
+            + [f"{SITE}/demos/{item['slug']}/" for item in catalog if "slug" in item]
+        )
         missing = [url for url in expected if url not in locs]
         extras = [url for url in locs if url not in expected]
         if missing:

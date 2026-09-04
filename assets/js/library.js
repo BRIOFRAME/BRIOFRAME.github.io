@@ -35,13 +35,22 @@ function renderTemplate(template) {
   article.className = "template-card";
   article.dataset.industry = template.industry || "";
   article.dataset.category = template.category || "";
+  article.dataset.availability = template.availability || "";
+
+  const detailUrl = `/templates/${template.slug}/`;
+
+  const imageLink = document.createElement("a");
+  imageLink.className = "template-card__media";
+  imageLink.href = detailUrl;
+  imageLink.setAttribute("aria-label", `View details for ${template.name}`);
 
   const image = document.createElement("img");
   image.className = "template-card__image";
   image.src = template.previewImage;
   image.alt = `${template.name} template preview`;
   image.loading = "lazy";
-  article.append(image);
+  imageLink.append(image);
+  article.append(imageLink);
 
   const body = document.createElement("div");
   body.className = "template-card__body";
@@ -50,13 +59,30 @@ function renderTemplate(template) {
   meta.className = "template-card__meta";
   addText(meta, "p", "template-card__industry", industryLabel(template.industry));
   addText(meta, "p", "template-card__category", template.category);
+  const availability = addText(meta, "p", "template-card__availability", template.availability || "");
+  availability.dataset.availability = template.availability || "";
   body.append(meta);
 
-  addText(body, "h3", "template-card__title", template.name);
+  const title = document.createElement("h3");
+  title.className = "template-card__title";
+  const titleLink = document.createElement("a");
+  titleLink.className = "template-card__title-link";
+  titleLink.href = detailUrl;
+  titleLink.textContent = template.name;
+  title.append(titleLink);
+  body.append(title);
+
   addText(body, "p", "template-card__description", template.description);
+
+  const details = document.createElement("a");
+  details.className = "template-card__details";
+  details.href = detailUrl;
+  details.textContent = "View template details";
+  body.append(details);
 
   const actions = document.createElement("div");
   actions.className = "template-card__actions";
+  actions.setAttribute("aria-label", `${template.name} purchase actions`);
 
   const demo = document.createElement("a");
   demo.className = "button button--primary";
