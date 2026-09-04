@@ -31,7 +31,7 @@ REQUIRED_INDEX_META = REQUIRED_DEMO_META + (
 
 errors = []
 for required_path in (
-    "data/templates.json", "assets/js/library.js", "assets/css/site.css", "index.html", "404.html",
+    "data/templates.json", "data/taxonomy.json", "assets/js/library.js", "assets/css/site.css", "index.html", "404.html",
     ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md", "robots.txt", "sitemap.xml",
 ):
     if not (ROOT / required_path).is_file():
@@ -85,6 +85,33 @@ for path in ROOT.rglob("*.html"):
             )
 
 catalog_path = ROOT / "data" / "templates.json"
+taxonomy_path = ROOT / "data" / "taxonomy.json"
+taxonomy_ids = set()
+if taxonomy_path.exists():
+    taxonomy = json.loads(taxonomy_path.read_text(encoding="utf-8"))
+    if not isinstance(taxonomy, dict) or not isinstance(taxonomy.get("industries"), list):
+        errors.append("taxonomy.json must contain an industries array")
+        taxonomy = {"industries": []}
+    else:
+        industry_ids = []
+        for index, industry in enumerate(taxonomy["industries"]):
+            if not isinstance(industry, dict):
+                errors.append(f"taxonomy.industries[{index}] must be an object")
+                continue
+            for field in ("id", "label", "order"):
+                if field not in industry:
+                    errors.append(f"taxonomy.industries[{index}] missing {field}")
+            industry_id = industry.get("id")
+            if industry_id:
+                if not SLUG.fullmatch(str(industry_id)):
+                    errors.append(f"taxonomy.industries[{index}] invalid id")
+                if industry_id in industry_ids:
+                    errors.append(f"taxonomy.industries[{index}] duplicate id")
+                industry_ids.append(industry_id)
+        taxonomy_ids = set(industry_ids)
+else:
+    taxonomy = {"industries": []}
+
 catalog = []
 if catalog_path.exists():
     catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
@@ -92,7 +119,10 @@ if catalog_path.exists():
         errors.append("catalog root must be an array")
         catalog = []
     else:
-        required = {"id", "slug", "name", "category", "description", "previewImage", "demoUrl", "shopifyProductUrl", "availability"}
+        required = {
+            "id", "slug", "name", "industry", "category", "tags", "description",
+            "previewImage", "demoUrl", "shopifyProductUrl", "availability",
+        }
         ids = set()
         slugs = set()
         for index, item in enumerate(catalog):
@@ -109,6 +139,16 @@ if catalog_path.exists():
                 if item["slug"] in slugs:
                     errors.append(f"catalog[{index}] duplicate slug")
                 slugs.add(item["slug"])
+            if "industry" in item:
+                if item["industry"] not in taxonomy_ids:
+                    errors.append(f"catalog[{index}] unknown industry: {item['industry']}")
+            if "category" in item and (not isinstance(item["category"], str) or not item["category"].strip()):
+                errors.append(f"catalog[{index}] category must be a non-empty string")
+            if "tags" in item:
+                if not isinstance(item["tags"], list) or not item["tags"]:
+                    errors.append(f"catalog[{index}] tags must be a non-empty array")
+                elif any(not isinstance(tag, str) or not tag.strip() for tag in item["tags"]):
+                    errors.append(f"catalog[{index}] tags must contain non-empty strings")
             if "slug" in item and item.get("demoUrl") != f"/demos/{item['slug']}/":
                 errors.append(f"catalog[{index}] demoUrl must match slug")
             if "previewImage" in item and not item["previewImage"].startswith("/assets/"):
@@ -180,6 +220,10 @@ if index_path.exists():
     required_markup = {
         'id="template-grid"': "template grid",
         'id="library-status"': "library status",
+        'id="industry-filter"': "industry filter",
+        'id="category-filter"': "category filter",
+        'id="availability-filter"': "availability filter",
+        'id="template-search"': "template search",
         'href="/assets/css/site.css"': "site stylesheet",
         'href="/assets/css/fonts.css"': "fonts stylesheet",
         'src="/assets/js/library.js"': "library script",

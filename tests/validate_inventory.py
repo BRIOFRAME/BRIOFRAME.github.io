@@ -27,10 +27,11 @@ REQUIRED_ACTIVE_INVENTORY = {
 }
 
 REQUIRED_FIELDS = {
-    'id', 'slug', 'name', 'category', 'description', 'previewImage',
+    'id', 'slug', 'name', 'industry', 'category', 'tags', 'description', 'previewImage',
     'demoUrl', 'shopifyProductUrl', 'availability'
 }
 VALID_AVAILABILITY = {'Available', 'Preview'}
+SLUG = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 FORBIDDEN_BRANDS = re.compile(r'LaunchPoint|LP Inbox|Kia Supreme Kreations|\bKSK\b', re.I)
 REQUIRED_DEMO_META = (
     'name="description"',
@@ -43,6 +44,34 @@ REQUIRED_DEMO_META = (
 
 errors = []
 catalog_path = ROOT / 'data' / 'templates.json'
+taxonomy_path = ROOT / 'data' / 'taxonomy.json'
+taxonomy_ids = set()
+
+if not taxonomy_path.is_file():
+    errors.append('missing data/taxonomy.json')
+else:
+    taxonomy = json.loads(taxonomy_path.read_text(encoding='utf-8'))
+    if not isinstance(taxonomy, dict) or not isinstance(taxonomy.get('industries'), list):
+        errors.append('taxonomy.json must contain an industries array')
+    else:
+        seen = []
+        for index, industry in enumerate(taxonomy['industries'], start=1):
+            if not isinstance(industry, dict):
+                errors.append(f'taxonomy industry {index} must be an object')
+                continue
+            missing = {'id', 'label', 'order'}.difference(industry)
+            if missing:
+                errors.append(f'taxonomy industry {index} missing fields: {sorted(missing)}')
+                continue
+            if not SLUG.fullmatch(str(industry['id'])):
+                errors.append(f'taxonomy industry invalid id: {industry["id"]}')
+            if industry['id'] in seen:
+                errors.append(f'taxonomy duplicate industry id: {industry["id"]}')
+            seen.append(industry['id'])
+            if not str(industry['label']).strip():
+                errors.append(f'taxonomy industry missing label: {industry["id"]}')
+        taxonomy_ids = set(seen)
+
 if not catalog_path.is_file():
     errors.append('missing data/templates.json')
     catalog = []
@@ -119,6 +148,12 @@ for item in catalog:
         errors.append(f'invalid availability {availability!r}: {slug}')
     if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', slug or ''):
         errors.append(f'invalid slug format: {slug}')
+    if item.get('industry') not in taxonomy_ids:
+        errors.append(f'unknown industry for {slug}: {item.get("industry")}')
+    if not isinstance(item.get('category'), str) or not item['category'].strip():
+        errors.append(f'invalid category for {slug}')
+    if not isinstance(item.get('tags'), list) or not item['tags'] or any(not isinstance(tag, str) or not tag.strip() for tag in item['tags']):
+        errors.append(f'invalid tags for {slug}')
 
     preview = ROOT / str(item.get('previewImage', '')).lstrip('/')
     demo_path = ROOT / str(item.get('demoUrl', '')).lstrip('/') / 'index.html'
@@ -182,7 +217,8 @@ if not index_path.is_file():
     errors.append('missing index.html')
 else:
     index = index_path.read_text(encoding='utf-8')
-    for needle in ['id="template-search"', 'id="industry-filter"', 'id="template-grid"', 'rel="canonical"',
+    for needle in ['id="template-search"', 'id="industry-filter"', 'id="category-filter"',
+                   'id="availability-filter"', 'id="template-grid"', 'rel="canonical"',
                    'property="og:title"', 'property="og:description"', 'property="og:url"',
                    'name="twitter:card"', 'name="description"']:
         if needle not in index:
