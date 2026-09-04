@@ -1,7 +1,7 @@
 # Phase 2 — Template detail experience
 
 Date: 2026-09-04  
-Status: Implemented on branch (pending Nova review)
+Status: Implemented on branch (pending Nova re-review)
 
 ## Goal
 
@@ -13,30 +13,17 @@ Stable canonical detail routes:
 
 `https://brioframe.github.io/templates/<slug>/`
 
-- One thin static HTML shell per catalog slug (unique title, meta description, canonical, Open Graph/Twitter, JSON-LD Product).
-- Shared runtime: `/assets/js/template-detail.js` loads `templates.json` + `taxonomy.json` and renders the detail body.
+- Generated static HTML includes meaningful core commercial content (H1, industry/specialty, description, preview image, demo CTA, Shopify CTA when available, Design Studio CTA).
+- Unique title, meta description, canonical, Open Graph/Twitter (including preview `og:image` / `twitter:image`), and Product JSON-LD.
+- Shared runtime `/assets/js/template-detail.js` progressively enhances with feature/launch notes and must not duplicate the static core.
 - Library cards deep-link to the matching detail route.
-- Phase 1 library filter query params remain on `/` only (`q`, `industry`, `category`, `availability`) and are unchanged.
+- Phase 1 library filter query params remain on `/` only (`q`, `industry`, `category`, `availability`).
 
-## Card upgrades
+## Structured data
 
-Cards keep existing demo and Shopify URLs / availability rules, and add:
+Product JSON-LD includes name, description, brand, category, URL, and image.
 
-- Stronger industry / specialty / availability hierarchy
-- Title + preview image link to template details
-- Explicit “View template details” link
-- Clear primary (“View working demo”) vs secondary (“View in Shopify”) actions
-
-## Detail content (from existing catalog data)
-
-Rendered fields: name, industry label, specialty/category, description, availability, demo CTA, Shopify CTA when Available.
-
-Derived (not new commercial claims):
-
-- Key features from industry, specialty, tags, availability
-- Shared launch notes for responsive/mobile-ready, SEO-ready structure, and Design Studio customization path
-
-Design Studio CTA links to `/#design-studio`.
+`offers` is included only when the catalog record already contains authoritative `price` and `priceCurrency`. Incomplete offers are rejected by validators. Current catalog has no authoritative pricing, so generated pages omit `offers`.
 
 ## Phase 1 risk controls
 

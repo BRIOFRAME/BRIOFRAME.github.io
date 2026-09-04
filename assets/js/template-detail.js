@@ -43,6 +43,7 @@ function renderNotFound(message) {
   if (status) status.textContent = message;
   if (!root) return;
   root.replaceChildren();
+  root.removeAttribute("data-static-detail");
   const panel = document.createElement("div");
   panel.className = "detail-missing";
   addText(panel, "h1", "", "Template not found");
@@ -60,144 +61,89 @@ function renderNotFound(message) {
   root.append(panel);
 }
 
-function renderDetail(template, taxonomy) {
+function enhanceStaticDetail(template, taxonomy) {
   const industryName = industryLabel(taxonomy, template.industry);
-  if (status) {
-    status.textContent = `${industryName} · ${template.category}`;
+  if (status) status.textContent = `${industryName} · ${template.category}`;
+  if (root.dataset.enhanced === "true") return;
+
+  const content = root.querySelector(".detail-content");
+  if (!content) return;
+  const actions = content.querySelector(".detail-actions");
+
+  if (!content.querySelector("#detail-highlights-title")) {
+    const highlightsSection = document.createElement("section");
+    highlightsSection.className = "detail-section";
+    highlightsSection.setAttribute("aria-labelledby", "detail-highlights-title");
+    const highlightsTitle = addText(highlightsSection, "h2", "detail-section__title", "Key features");
+    highlightsTitle.id = "detail-highlights-title";
+    const list = document.createElement("ul");
+    list.className = "detail-list";
+    buildHighlights(template, industryName).forEach((item) => addText(list, "li", "", item));
+    highlightsSection.append(list);
+    if (actions) content.insertBefore(highlightsSection, actions);
+    else content.append(highlightsSection);
   }
 
-  root.replaceChildren();
+  if (!content.querySelector("#detail-notes-title")) {
+    const notes = document.createElement("section");
+    notes.className = "detail-section detail-notes";
+    notes.setAttribute("aria-labelledby", "detail-notes-title");
+    const notesTitle = addText(notes, "h2", "detail-section__title", "Launch notes");
+    notesTitle.id = "detail-notes-title";
 
-  const layout = document.createElement("div");
-  layout.className = "detail-layout";
+    const noteGrid = document.createElement("div");
+    noteGrid.className = "detail-note-grid";
 
-  const media = document.createElement("div");
-  media.className = "detail-media";
-  const image = document.createElement("img");
-  image.className = "detail-media__image";
-  image.src = template.previewImage;
-  image.alt = `${template.name} template preview`;
-  media.append(image);
-  layout.append(media);
+    const responsive = document.createElement("article");
+    responsive.className = "detail-note";
+    addText(responsive, "h3", "", "Responsive / mobile-ready");
+    addText(
+      responsive,
+      "p",
+      "",
+      "Designed for desktop and mobile viewing so you can evaluate the experience on common devices."
+    );
+    noteGrid.append(responsive);
 
-  const content = document.createElement("div");
-  content.className = "detail-content";
+    const seo = document.createElement("article");
+    seo.className = "detail-note";
+    addText(seo, "h3", "", "SEO-ready structure");
+    addText(
+      seo,
+      "p",
+      "",
+      "Uses a clear page hierarchy and content sections suited to search-oriented website launches."
+    );
+    noteGrid.append(seo);
 
-  const meta = document.createElement("div");
-  meta.className = "detail-meta";
-  addText(meta, "p", "detail-meta__industry", industryName);
-  addText(meta, "p", "detail-meta__category", template.category);
-  const availability = addText(meta, "p", "detail-meta__availability", template.availability);
-  availability.dataset.availability = template.availability;
-  content.append(meta);
-
-  addText(content, "h1", "detail-title", template.name);
-  addText(content, "p", "detail-description", template.description);
-
-  const highlightsSection = document.createElement("section");
-  highlightsSection.className = "detail-section";
-  highlightsSection.setAttribute("aria-labelledby", "detail-highlights-title");
-  const highlightsTitle = addText(highlightsSection, "h2", "detail-section__title", "Key features");
-  highlightsTitle.id = "detail-highlights-title";
-  const list = document.createElement("ul");
-  list.className = "detail-list";
-  buildHighlights(template, industryName).forEach((item) => {
-    addText(list, "li", "", item);
-  });
-  highlightsSection.append(list);
-  content.append(highlightsSection);
-
-  const notes = document.createElement("section");
-  notes.className = "detail-section detail-notes";
-  notes.setAttribute("aria-labelledby", "detail-notes-title");
-  const notesTitle = addText(notes, "h2", "detail-section__title", "Launch notes");
-  notesTitle.id = "detail-notes-title";
-
-  const noteGrid = document.createElement("div");
-  noteGrid.className = "detail-note-grid";
-
-  const responsive = document.createElement("article");
-  responsive.className = "detail-note";
-  addText(responsive, "h3", "", "Responsive / mobile-ready");
-  addText(
-    responsive,
-    "p",
-    "",
-    "Designed for desktop and mobile viewing so you can evaluate the experience on common devices."
-  );
-  noteGrid.append(responsive);
-
-  const seo = document.createElement("article");
-  seo.className = "detail-note";
-  addText(seo, "h3", "", "SEO-ready structure");
-  addText(
-    seo,
-    "p",
-    "",
-    "Uses a clear page hierarchy and content sections suited to search-oriented website launches."
-  );
-  noteGrid.append(seo);
-
-  const launch = document.createElement("article");
-  launch.className = "detail-note";
-  addText(launch, "h3", "", "Launch & customization");
-  addText(
-    launch,
-    "p",
-    "",
-    "Start from the working demo and purchase path, or engage BRIOFRAME Design Studio when you need tailored design and launch support."
-  );
-  noteGrid.append(launch);
-  notes.append(noteGrid);
-  content.append(notes);
-
-  const actions = document.createElement("div");
-  actions.className = "detail-actions";
-  actions.setAttribute("aria-label", "Template actions");
-
-  const demo = document.createElement("a");
-  demo.className = "button button--primary";
-  demo.href = template.demoUrl;
-  demo.textContent = "View working demo";
-  actions.append(demo);
-
-  if (template.availability === "Available" && template.shopifyProductUrl) {
-    const shopify = document.createElement("a");
-    shopify.className = "button button--secondary";
-    shopify.href = template.shopifyProductUrl;
-    shopify.rel = "noopener noreferrer";
-    shopify.textContent = "View in Shopify";
-    actions.append(shopify);
-  } else {
-    const preview = addText(actions, "span", "button button--secondary", "Premium Preview");
-    preview.setAttribute("aria-disabled", "true");
-    preview.title = "Shopify listing coming soon";
+    const launch = document.createElement("article");
+    launch.className = "detail-note";
+    addText(launch, "h3", "", "Launch & customization");
+    addText(
+      launch,
+      "p",
+      "",
+      "Start from the working demo and purchase path, or engage BRIOFRAME Design Studio when you need tailored design and launch support."
+    );
+    noteGrid.append(launch);
+    notes.append(noteGrid);
+    if (actions) content.insertBefore(notes, actions);
+    else content.append(notes);
   }
 
-  const studio = document.createElement("a");
-  studio.className = "button button--ghost";
-  studio.href = "/#design-studio";
-  studio.textContent = "Need customization? Design Studio";
-  actions.append(studio);
-
-  const back = document.createElement("a");
-  back.className = "text-link detail-back";
-  back.href = `/#templates`;
-  if (template.industry) {
-    back.href = `/?industry=${encodeURIComponent(template.industry)}#templates`;
-  }
-  back.textContent = "Back to library";
-  actions.append(back);
-
-  content.append(actions);
-  layout.append(content);
-  root.append(layout);
+  root.dataset.enhanced = "true";
 }
 
 async function loadDetail() {
-  const slug = slugFromPath();
+  if (!root) return;
+
+  const slug = root.dataset.slug || slugFromPath();
+  const hasStaticCore = root.getAttribute("data-static-detail") === "true"
+    && Boolean(root.querySelector(".detail-layout"))
+    && Boolean(root.querySelector(".detail-title"));
+
   if (!slug) {
-    renderNotFound("Missing template slug.");
+    if (!hasStaticCore) renderNotFound("Missing template slug.");
     return;
   }
 
@@ -218,12 +164,21 @@ async function loadDetail() {
 
     const template = templates.find((item) => item.slug === slug);
     if (!template) {
-      renderNotFound(`No catalog match for “${slug}”.`);
+      if (!hasStaticCore) renderNotFound(`No catalog match for “${slug}”.`);
       return;
     }
 
-    renderDetail(template, taxonomy);
+    if (hasStaticCore) {
+      enhanceStaticDetail(template, taxonomy);
+      return;
+    }
+
+    renderNotFound("Template detail markup is incomplete.");
   } catch (error) {
+    if (hasStaticCore) {
+      console.error("BRIOFRAME template detail enhancement failed", error);
+      return;
+    }
     renderNotFound("The template detail page could not load. Please refresh and try again.");
     console.error("BRIOFRAME template detail load failed", error);
   }

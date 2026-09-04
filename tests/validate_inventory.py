@@ -177,6 +177,43 @@ for item in catalog:
             errors.append(f'template detail missing runtime script: {slug}')
         if name not in detail_text:
             errors.append(f'template detail missing name metadata: {slug}')
+        if 'data-static-detail="true"' not in detail_text:
+            errors.append(f'template detail missing static core marker: {slug}')
+        if f'<h1 class="detail-title">{html.escape(name)}</h1>' not in detail_text:
+            errors.append(f'template detail missing static H1: {slug}')
+        if item.get('demoUrl') and f'href="{item["demoUrl"]}"' not in detail_text:
+            errors.append(f'template detail missing demo CTA: {slug}')
+        if '/#design-studio' not in detail_text:
+            errors.append(f'template detail missing Design Studio CTA: {slug}')
+        if availability == 'Available' and url and f'href="{url}"' not in detail_text:
+            errors.append(f'template detail missing Shopify CTA: {slug}')
+        expected_image = f'{SITE}{item.get("previewImage", "")}'
+        if 'property="og:image"' not in detail_text or expected_image not in detail_text:
+            errors.append(f'template detail missing og:image: {slug}')
+        if 'name="twitter:image"' not in detail_text or expected_image not in detail_text:
+            errors.append(f'template detail missing twitter:image: {slug}')
+        ld_match = re.search(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', detail_text, re.S)
+        if not ld_match:
+            errors.append(f'template detail missing JSON-LD: {slug}')
+        else:
+            try:
+                ld = json.loads(ld_match.group(1))
+            except json.JSONDecodeError:
+                errors.append(f'template detail JSON-LD invalid: {slug}')
+            else:
+                if 'offers' in ld:
+                    has_auth_price = item.get('price') not in (None, '') and item.get('priceCurrency') not in (None, '')
+                    if not has_auth_price:
+                        errors.append(f'template detail JSON-LD offers without authoritative pricing: {slug}')
+                    offers = ld['offers'] if isinstance(ld['offers'], list) else [ld['offers']]
+                    for offer in offers:
+                        if (
+                            not isinstance(offer, dict)
+                            or offer.get('price') in (None, '')
+                            or offer.get('priceCurrency') in (None, '')
+                        ):
+                            errors.append(f'template detail incomplete Offer markup: {slug}')
+                            break
 
     text = demo_path.read_text(encoding='utf-8')
     decoded = html.unescape(text)
