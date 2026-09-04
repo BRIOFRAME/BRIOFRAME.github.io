@@ -21,7 +21,7 @@ jobs:
           python-version: '3.12'
       - name: Validate public site
         run: python tests/validate_site.py
-      - name: Validate 16-template inventory
+      - name: Validate template inventory
         run: python tests/validate_inventory.py
       - name: Check library JavaScript syntax
         run: node --check assets/js/library.js

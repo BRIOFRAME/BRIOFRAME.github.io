@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="BRIOFRAME">
+  <rect width="64" height="64" fill="#10243e"/>
+  <rect x="4" y="4" width="56" height="56" fill="none" stroke="#c39a4a" stroke-width="2"/>
+  <text x="32" y="40" text-anchor="middle" fill="#c39a4a" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="1">BR</text>
+</svg>

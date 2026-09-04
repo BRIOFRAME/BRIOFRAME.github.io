@@ -37,14 +37,19 @@ function renderTemplate(template) {
   const body = document.createElement("div");
   body.className = "template-card__body";
   addText(body, "p", "template-card__category", template.category);
-  addText(body, "h2", "template-card__title", template.name);
+  addText(body, "h3", "template-card__title", template.name);
   addText(body, "p", "template-card__description", template.description);
 
   const actions = document.createElement("div");
   actions.className = "template-card__actions";
   addLink(actions, "button button--primary", "View working demo", template.demoUrl);
   if (template.shopifyProductUrl) {
-    addLink(actions, "button button--secondary", "View in Shopify", template.shopifyProductUrl);
+    const shopify = document.createElement("a");
+    shopify.className = "button button--secondary";
+    shopify.textContent = "View in Shopify";
+    shopify.href = template.shopifyProductUrl;
+    shopify.rel = "noopener noreferrer";
+    actions.append(shopify);
   } else {
     const preview = addText(actions, "span", "button button--secondary", "Premium Preview");
     preview.setAttribute("aria-disabled", "true");
