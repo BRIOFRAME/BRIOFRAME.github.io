@@ -51,6 +51,39 @@ for path in ROOT.rglob("*"):
         if FORBIDDEN_TEXT.search(text):
             errors.append(f"forbidden text: {rel}")
 
+SOCIAL_IMAGE_META = re.compile(
+    r'''<meta\s+(?:property|name)=["'](?:og:image|twitter:image)["']\s+content=["']([^"']+)["']'''
+    r'''|<meta\s+content=["']([^"']+)["']\s+(?:property|name)=["'](?:og:image|twitter:image)["']''',
+    re.I,
+)
+
+def resolve_local_social_image(url: str) -> Path | None:
+    """Return a repo path for local social images; None for external URLs."""
+    value = url.strip()
+    if not value:
+        return None
+    if value.startswith(f"{SITE}/"):
+        return ROOT / value[len(SITE) + 1 :]
+    if value.startswith("/"):
+        return ROOT / value.lstrip("/")
+    if value.startswith(("http://", "https://")):
+        return None
+    return ROOT / value
+
+for path in ROOT.rglob("*.html"):
+    if ".git" in path.parts:
+        continue
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    for match in SOCIAL_IMAGE_META.finditer(text):
+        image_url = match.group(1) or match.group(2)
+        local_path = resolve_local_social_image(image_url)
+        if local_path is None:
+            continue
+        if not local_path.is_file():
+            errors.append(
+                f"{path.relative_to(ROOT)} references missing social image asset: {image_url}"
+            )
+
 catalog_path = ROOT / "data" / "templates.json"
 catalog = []
 if catalog_path.exists():
