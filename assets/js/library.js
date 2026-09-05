@@ -279,6 +279,9 @@ function applyFilters({ syncUrl = true } = {}) {
 
   renderActiveFilters(matches.length);
   if (syncUrl) writeFiltersToUrl();
+  import("/assets/js/phase3-motion.js")
+    .then(({ applyMotion }) => applyMotion())
+    .catch((error) => console.error("BRIOFRAME Phase 3 motion failed", error));
 }
 
 function resetFilters() {
@@ -311,7 +314,6 @@ async function loadCatalog() {
     taxonomy = taxonomyData;
     populateIndustryOptions();
     readFiltersFromUrl();
-    // Ensure industry/category combo remains valid after URL hydration
     if (industryFilter.value && !catalog.some((template) => template.industry === industryFilter.value)) {
       industryFilter.value = "";
       populateCategoryOptions("");
