@@ -54,7 +54,17 @@ for slug, required_markers in flagship_static_demos.items():
 
 # Catalog cards are part of the sales product. Flagship preview art must look
 # like a finished website/device presentation rather than the old flat SVG art.
-for slug in ("velvet-nail-atelier", "amara-braid-house", "meridian-supply-co", "altitude-aviation-services", "nexa-systems", "avery-cole-law", "monarch-estates"):
+for slug in (
+    "velvet-nail-atelier",
+    "amara-braid-house",
+    "meridian-supply-co",
+    "altitude-aviation-services",
+    "nexa-systems",
+    "avery-cole-law",
+    "monarch-estates",
+    "crescent-private-wealth",
+    "elevate-catering",
+):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
         errors.append(f"missing premium catalog preview for {slug}")
@@ -64,7 +74,14 @@ for slug in ("velvet-nail-atelier", "amara-braid-house", "meridian-supply-co", "
         if marker not in preview:
             errors.append(f"{slug} catalog preview missing {marker}")
 
-for slug, visual in (("altitude-aviation-services", "aviation"), ("nexa-systems", "tech"), ("avery-cole-law", "legal"), ("monarch-estates", "realestate")):
+for slug, visual in (
+    ("altitude-aviation-services", "aviation"),
+    ("nexa-systems", "tech"),
+    ("avery-cole-law", "legal"),
+    ("monarch-estates", "realestate"),
+    ("crescent-private-wealth", "wealth"),
+    ("elevate-catering", "catering"),
+):
     item = config.get(slug, {})
     hero_image = item.get("heroImage", "")
     if not hero_image.startswith("https://images.unsplash.com/"):
