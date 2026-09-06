@@ -91,6 +91,7 @@ for slug, visual in (
     ("crescent-private-wealth", "wealth"),
     ("elevate-catering", "catering"),
     ("common-ground-foundation-nonprofit-community-website-template", "nonprofit"),
+    ("harbor-dental-studio-dental-medical-practice-website-template", "dental"),
     ("ledgerline-tax-accounting-accounting-firm-website-template", "accounting"),
     ("little-grove-early-learning-daycare-childcare-website-template", "childcare"),
     ("apex-auto-detail-auto-detailing-website-template", "auto"),
