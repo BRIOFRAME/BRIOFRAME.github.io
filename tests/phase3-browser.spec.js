@@ -23,8 +23,8 @@ test('catalog loads and industry shortcuts preserve Phase 1 filtering', async ({
 test('detail page exposes conversion path and same-industry discovery', async ({ page }) => {
   await page.goto(`${baseURL}/templates/amara-braid-house/`);
   await expect(page.locator('#detail-path-title')).toHaveText('Choose the right BRIOFRAME path');
-  await expect(page.getByText('Template Studio', { exact: true })).toBeVisible();
-  await expect(page.getByText('Design Studio', { exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Template Studio', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Design Studio', exact: true })).toBeVisible();
   await expect(page.locator('#detail-related-title')).toBeVisible();
   await expect(page.locator('.detail-related a').first()).toHaveAttribute('href', /\/templates\//);
 });
