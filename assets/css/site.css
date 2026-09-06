@@ -86,7 +86,7 @@ h2 { font-size: clamp(2rem,4vw,3.6rem); }
 .detail-page__status { margin: 0 0 1.5rem; color: var(--muted); }
 .detail-layout { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); gap: clamp(1.5rem,4vw,3rem); align-items: start; }
 .detail-media { border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow); overflow: hidden; }
-.detail-media__image { width: 100%; aspect-ratio: 16/10; object-fit: cover; background: var(--cream); }
+.detail-media__image { width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; background: var(--cream); }
 .detail-content { display: grid; gap: 1.25rem; }
 .detail-meta { display: flex; flex-wrap: wrap; gap: .55rem .9rem; align-items: center; }
 .detail-meta__industry,.detail-meta__category,.detail-meta__availability { margin: 0; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
