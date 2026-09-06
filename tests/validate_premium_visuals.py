@@ -33,7 +33,32 @@ for needle, label in {
     if needle not in css.replace(" ", ""):
         errors.append(f"demo-runtime.css missing {label}")
 
-# Altitude Aviation is the first recovery reference implementation because the
+# Phase 3 recovery gate: the three flagship static demos must render actual
+# photographic imagery at the hero and content-card level. Gradient-only art
+# is an automatic failure because it does not match the approved BRIOFRAME
+# concept direction.
+flagship_static_demos = {
+    "velvet-nail-atelier": ["data-premium-hero-photo", "data-premium-gallery"],
+    "amara-braid-house": ["data-premium-hero-photo", "data-premium-gallery"],
+    "meridian-supply-co": ["data-premium-hero-photo", "data-premium-gallery"],
+}
+for slug, required_markers in flagship_static_demos.items():
+    page_path = ROOT / "demos" / slug / "index.html"
+    style_path = ROOT / "demos" / slug / "assets" / "style.css"
+    if not page_path.is_file() or not style_path.is_file():
+        errors.append(f"missing flagship recovery files for {slug}")
+        continue
+    page = page_path.read_text(encoding="utf-8")
+    style = style_path.read_text(encoding="utf-8").replace(" ", "")
+    for marker in required_markers:
+        if marker not in page:
+            errors.append(f"{slug} missing {marker}")
+    if "<img" not in page:
+        errors.append(f"{slug} must include real image elements")
+    if "object-fit:cover" not in style:
+        errors.append(f"{slug} must preserve photographic proportions with object-fit: cover")
+
+# Altitude Aviation is the first shared-runtime recovery reference because the
 # approved BRIOFRAME concepts explicitly call for cinematic aircraft imagery.
 altitude = config.get("altitude-aviation-services", {})
 hero_image = altitude.get("heroImage", "")
