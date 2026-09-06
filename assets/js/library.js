@@ -9,6 +9,7 @@ const emptyClearFilters = document.querySelector("#empty-clear-filters");
 const emptyState = document.querySelector("#empty-state");
 const emptyHint = document.querySelector("#empty-state-hint");
 const activeFilters = document.querySelector("#active-filters");
+const industryShortcuts = document.querySelector("#industry-shortcuts");
 
 let catalog = [];
 let taxonomy = { industries: [] };
@@ -124,6 +125,31 @@ function populateIndustryOptions() {
       option.value = industry.id;
       option.textContent = `${industry.label} (${count})`;
       industryFilter.append(option);
+    });
+}
+
+function populateIndustryDiscovery() {
+  if (!industryShortcuts) return;
+  const used = new Set(catalog.map((template) => template.industry));
+  industryShortcuts.replaceChildren();
+
+  sortedIndustries()
+    .filter((industry) => used.has(industry.id))
+    .forEach((industry) => {
+      const count = catalog.filter((template) => template.industry === industry.id).length;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "filter-chip";
+      button.textContent = `${industry.label} · ${count}`;
+      button.setAttribute("aria-label", `Show ${industry.label} templates`);
+      button.addEventListener("click", () => {
+        searchInput.value = "";
+        industryFilter.value = industry.id;
+        populateCategoryOptions(industry.id);
+        categoryFilter.value = "";
+        applyFilters();
+      });
+      industryShortcuts.append(button);
     });
 }
 
@@ -313,6 +339,7 @@ async function loadCatalog() {
     catalog = templates;
     taxonomy = taxonomyData;
     populateIndustryOptions();
+    populateIndustryDiscovery();
     readFiltersFromUrl();
     if (industryFilter.value && !catalog.some((template) => template.industry === industryFilter.value)) {
       industryFilter.value = "";
