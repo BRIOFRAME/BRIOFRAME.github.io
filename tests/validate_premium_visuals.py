@@ -69,6 +69,7 @@ for slug in (
     "little-grove-early-learning-daycare-childcare-website-template",
     "tidalmark-yacht-charter",
     "bluewater-charter-fishing",
+    "apex-auto-detail-auto-detailing-website-template",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
@@ -89,6 +90,7 @@ for slug, visual in (
     ("common-ground-foundation-nonprofit-community-website-template", "nonprofit"),
     ("ledgerline-tax-accounting-accounting-firm-website-template", "accounting"),
     ("little-grove-early-learning-daycare-childcare-website-template", "childcare"),
+    ("apex-auto-detail-auto-detailing-website-template", "auto"),
 ):
     item = config.get(slug, {})
     hero_image = item.get("heroImage", "")
@@ -106,9 +108,9 @@ for slug, visual in (
         errors.append(f"missing inline premium demo for {slug}")
         continue
     demo = demo_path.read_text(encoding="utf-8")
-    if '"heroImage":"https://images.unsplash.com/' not in demo:
+    if '\"heroImage\":\"https://images.unsplash.com/' not in demo:
         errors.append(f"{slug} must use a verified photographic hero image")
-    if f'"visual":"{visual}"' not in demo:
+    if f'\"visual\":\"{visual}\"' not in demo:
         errors.append(f"{slug} must retain the {visual} visual identity")
 
 # AeroLustre is an inline-config runtime demo. It was explicitly rejected in
@@ -118,9 +120,9 @@ if not aerolustre_path.is_file():
     errors.append("missing AeroLustre aircraft-detailing demo")
 else:
     aerolustre = aerolustre_path.read_text(encoding="utf-8")
-    if '"heroImage":"https://images.unsplash.com/' not in aerolustre:
+    if '\"heroImage\":\"https://images.unsplash.com/' not in aerolustre:
         errors.append("aerolustre-aircraft-detailing must use a verified photographic hero image")
-    if '"visual":"aviation"' not in aerolustre:
+    if '\"visual\":\"aviation\"' not in aerolustre:
         errors.append("aerolustre-aircraft-detailing must retain the aviation visual identity")
 
 if errors:
