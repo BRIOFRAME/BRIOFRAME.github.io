@@ -23,10 +23,14 @@ jobs:
         run: python tests/validate_site.py
       - name: Validate template inventory
         run: python tests/validate_inventory.py
+      - name: Validate Phase 3 premium experience
+        run: python tests/validate_phase3.py
       - name: Check library JavaScript syntax
         run: node --check assets/js/library.js
       - name: Check template detail JavaScript syntax
         run: node --check assets/js/template-detail.js
+      - name: Check Phase 3 motion JavaScript syntax
+        run: node --check assets/js/phase3-motion.js
       - name: Check demo runtime JavaScript syntax
         run: node --check assets/js/demo-runtime.js
       - name: Check JSON syntax
