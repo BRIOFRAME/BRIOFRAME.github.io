@@ -38,8 +38,9 @@ conversion_requirements = {
     "Template Studio": "Template Studio guidance",
     "Design Studio": "Design Studio guidance",
     "Evaluate before you decide": "trust/evaluation guidance",
-    "Related templates": "same-industry related-template section",
-    "/templates/${related.slug}/": "internal related-template links",
+    "addRelatedTemplates": "same-industry related-template section",
+    "item.industry === template.industry": "same-industry related-template filtering",
+    "/templates/${item.slug}/": "internal related-template links",
     'import("/assets/js/phase3-motion.js")': "Phase 3 motion integration",
 }
 for needle, label in conversion_requirements.items():
