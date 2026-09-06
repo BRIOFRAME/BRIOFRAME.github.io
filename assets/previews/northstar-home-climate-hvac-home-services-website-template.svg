@@ -1,1 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750"><rect width="1200" height="750" fill="#f4f8fb"/><circle cx="895" cy="345" r="78" fill="none" stroke="#e4633a" stroke-width="10"/><path d="M895 205v80M895 405v80M755 345h80M955 345h80M795 245l58 58M937 387l58 58M995 245l-58 58M853 387l-58 58" stroke="#e4633a" stroke-width="10"/><text x="80" y="130" fill="#e4633a" font-family="Arial" font-size="20" font-weight="700">COMFORT, WITHOUT THE RUNAROUND</text><text x="80" y="250" fill="#17324d" font-family="Georgia" font-size="62">Northstar Home Climate</text><text x="80" y="310" fill="#17324d" opacity=".65" font-family="Arial" font-size="28">HVAC &amp; Home Services</text><rect x="80" y="370" width="460" height="12" fill="#e4633a"/><text x="80" y="660" fill="#17324d" opacity=".6" font-family="Arial" font-size="20">BRIOFRAME TEMPLATE STUDIO</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" data-premium-preview="true">
+  <defs>
+    <clipPath id="screen"><rect x="108" y="108" width="790" height="493" rx="8"/></clipPath>
+    <clipPath id="phone"><rect x="848" y="177" width="214" height="380" rx="24"/></clipPath>
+    <linearGradient id="overlay" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#17324d" stop-opacity=".90"/><stop offset=".62" stop-color="#17324d" stop-opacity=".28"/><stop offset="1" stop-color="#17324d" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="#eaf2f7"/>
+  <rect x="70" y="70" width="900" height="585" rx="24" fill="#101820" data-device-frame="laptop"/>
+  <rect x="88" y="88" width="864" height="535" rx="14" fill="#f4f8fb"/>
+  <g clip-path="url(#screen)">
+    <image href="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=1600" x="108" y="108" width="790" height="493" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="108" y="108" width="790" height="493" fill="url(#overlay)"/>
+    <text x="152" y="174" fill="#ffffff" font-family="Arial" font-size="17" font-weight="700" letter-spacing="3">NORTHSTAR HOME CLIMATE</text>
+    <text x="152" y="276" fill="#ffffff" font-family="Arial" font-size="52" font-weight="800">Comfort restored.</text>
+    <text x="152" y="336" fill="#ffffff" font-family="Arial" font-size="52" font-weight="800">Without the runaround.</text>
+    <text x="152" y="389" fill="#eef6fb" font-family="Arial" font-size="18">Heating · Cooling · Indoor Air Quality</text>
+    <rect x="152" y="438" width="194" height="54" rx="5" fill="#e4633a"/>
+    <text x="181" y="472" fill="#ffffff" font-family="Arial" font-size="16" font-weight="800">SCHEDULE SERVICE</text>
+    <text x="152" y="548" fill="#ffffff" font-family="Arial" font-size="15" font-weight="700">24/7 RESPONSE</text>
+    <text x="300" y="548" fill="#ffffff" font-family="Arial" font-size="15" font-weight="700">SAME-DAY OPTIONS</text>
+    <text x="485" y="548" fill="#ffffff" font-family="Arial" font-size="15" font-weight="700">UPFRONT GUIDANCE</text>
+  </g>
+  <path d="M44 655h952l-42 35H86z" fill="#8796a3"/>
+  <rect x="815" y="145" width="280" height="445" rx="34" fill="#101820" data-device-frame="mobile"/>
+  <g clip-path="url(#phone)">
+    <image href="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=900" x="848" y="177" width="214" height="380" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="848" y="177" width="214" height="380" fill="#17324d" opacity=".64"/>
+    <text x="871" y="225" fill="#ffffff" font-family="Arial" font-size="12" font-weight="700">NORTHSTAR</text>
+    <text x="871" y="313" fill="#ffffff" font-family="Arial" font-size="28" font-weight="800">Fast help.</text>
+    <text x="871" y="348" fill="#ffffff" font-family="Arial" font-size="28" font-weight="800">Clear options.</text>
+    <rect x="871" y="397" width="143" height="44" rx="4" fill="#e4633a"/>
+    <text x="893" y="425" fill="#ffffff" font-family="Arial" font-size="12" font-weight="800">BOOK SERVICE</text>
+  </g>
+  <text x="76" y="724" fill="#17324d" opacity=".62" font-family="Arial" font-size="17" letter-spacing="2">BRIOFRAME TEMPLATE STUDIO · HVAC &amp; HOME SERVICES</text>
+</svg>
