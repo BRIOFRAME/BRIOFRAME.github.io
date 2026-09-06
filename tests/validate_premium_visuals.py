@@ -70,6 +70,7 @@ for slug in (
     "tidalmark-yacht-charter",
     "bluewater-charter-fishing",
     "apex-auto-detail-auto-detailing-website-template",
+    "atlas-freight-logistics-logistics-freight-website-template",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
@@ -91,6 +92,7 @@ for slug, visual in (
     ("ledgerline-tax-accounting-accounting-firm-website-template", "accounting"),
     ("little-grove-early-learning-daycare-childcare-website-template", "childcare"),
     ("apex-auto-detail-auto-detailing-website-template", "auto"),
+    ("atlas-freight-logistics-logistics-freight-website-template", "freight"),
 ):
     item = config.get(slug, {})
     hero_image = item.get("heroImage", "")
