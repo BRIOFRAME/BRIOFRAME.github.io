@@ -59,6 +59,7 @@ for slug in (
     "amara-braid-house",
     "meridian-supply-co",
     "altitude-aviation-services",
+    "aerolustre-aircraft-detailing",
     "nexa-systems",
     "avery-cole-law",
     "monarch-estates",
@@ -88,6 +89,18 @@ for slug, visual in (
         errors.append(f"{slug} must use a verified photographic hero image")
     if item.get("visual") != visual:
         errors.append(f"{slug} must retain the {visual} visual identity")
+
+# AeroLustre is an inline-config runtime demo. It was explicitly rejected in
+# desktop visual QA and must independently prove photographic aviation recovery.
+aerolustre_path = ROOT / "demos" / "aerolustre-aircraft-detailing" / "index.html"
+if not aerolustre_path.is_file():
+    errors.append("missing AeroLustre aircraft-detailing demo")
+else:
+    aerolustre = aerolustre_path.read_text(encoding="utf-8")
+    if '"heroImage":"https://images.unsplash.com/' not in aerolustre:
+        errors.append("aerolustre-aircraft-detailing must use a verified photographic hero image")
+    if '"visual":"aviation"' not in aerolustre:
+        errors.append("aerolustre-aircraft-detailing must retain the aviation visual identity")
 
 if errors:
     print("\n".join(errors))
