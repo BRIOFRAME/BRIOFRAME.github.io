@@ -68,6 +68,7 @@ for slug in (
     "common-ground-foundation-nonprofit-community-website-template",
     "harbor-dental-studio-dental-medical-practice-website-template",
     "ledgerline-tax-accounting-accounting-firm-website-template",
+    "little-grove-early-learning-daycare-childcare-website-template",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
@@ -87,6 +88,7 @@ for slug, visual in (
     ("elevate-catering", "catering"),
     ("common-ground-foundation-nonprofit-community-website-template", "nonprofit"),
     ("ledgerline-tax-accounting-accounting-firm-website-template", "accounting"),
+    ("little-grove-early-learning-daycare-childcare-website-template", "childcare"),
 ):
     item = config.get(slug, {})
     hero_image = item.get("heroImage", "")
