@@ -36,19 +36,25 @@ test('reduced motion makes revealed content immediately visible', async ({ page 
   await expect(page.locator('.template-card').first()).toHaveClass(/phase3-reveal--visible/);
 });
 
-test('mobile catalog and detail pages avoid horizontal overflow', async ({ browser }) => {
+test('mobile catalog, detail and recovery demos avoid horizontal overflow', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
 
-  await page.goto(`${baseURL}/`);
-  await expect(page.locator('.template-card').first()).toBeVisible();
-  const homeOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-  expect(homeOverflow).toBeLessThanOrEqual(1);
+  const paths = [
+    '/',
+    '/templates/amara-braid-house/',
+    '/demos/velvet-nail-atelier/',
+    '/demos/amara-braid-house/',
+    '/demos/meridian-supply-co/',
+    '/demos/altitude-aviation-services/'
+  ];
 
-  await page.goto(`${baseURL}/templates/amara-braid-house/`);
-  await expect(page.locator('#detail-path-title')).toBeVisible();
-  const detailOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-  expect(detailOverflow).toBeLessThanOrEqual(1);
+  for (const path of paths) {
+    await page.goto(`${baseURL}${path}`);
+    await page.waitForLoadState('networkidle');
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow, `${path} horizontal overflow`).toBeLessThanOrEqual(1);
+  }
 
   await context.close();
 });
