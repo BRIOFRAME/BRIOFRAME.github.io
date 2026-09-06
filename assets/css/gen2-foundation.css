@@ -1,0 +1,23 @@
+:root {
+  --gen2-focus: 3px solid currentColor;
+  --gen2-radius-sm: .75rem;
+  --gen2-radius-md: 1.5rem;
+  --gen2-page-inline: clamp(1rem, 4vw, 5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a, button, input, textarea, select { font: inherit; }
+:focus-visible { outline: var(--gen2-focus); outline-offset: 4px; }
+.skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 9999; }
+.skip-link:focus { top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
