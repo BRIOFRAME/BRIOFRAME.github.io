@@ -66,6 +66,7 @@ for slug in (
     "crescent-private-wealth",
     "elevate-catering",
     "common-ground-foundation-nonprofit-community-website-template",
+    "harbor-dental-studio-dental-medical-practice-website-template",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
