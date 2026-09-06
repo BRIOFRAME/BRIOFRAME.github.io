@@ -65,6 +65,7 @@ for slug in (
     "monarch-estates",
     "crescent-private-wealth",
     "elevate-catering",
+    "common-ground-foundation-nonprofit-community-website-template",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
@@ -82,6 +83,7 @@ for slug, visual in (
     ("monarch-estates", "realestate"),
     ("crescent-private-wealth", "wealth"),
     ("elevate-catering", "catering"),
+    ("common-ground-foundation-nonprofit-community-website-template", "nonprofit"),
 ):
     item = config.get(slug, {})
     hero_image = item.get("heroImage", "")
