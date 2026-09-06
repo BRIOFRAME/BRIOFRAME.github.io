@@ -8,18 +8,20 @@ errors = []
 motion_path = ROOT / "assets" / "js" / "phase3-motion.js"
 library_path = ROOT / "assets" / "js" / "library.js"
 detail_path = ROOT / "assets" / "js" / "template-detail.js"
+site_css_path = ROOT / "assets" / "css" / "site.css"
 index_path = ROOT / "index.html"
 templates_path = ROOT / "data" / "templates.json"
 sitemap_path = ROOT / "sitemap.xml"
 robots_path = ROOT / "robots.txt"
 
-for path in (motion_path, library_path, detail_path, index_path, templates_path, sitemap_path, robots_path):
+for path in (motion_path, library_path, detail_path, site_css_path, index_path, templates_path, sitemap_path, robots_path):
     if not path.is_file():
         errors.append(f"missing Phase 3 file: {path.relative_to(ROOT)}")
 
 motion = motion_path.read_text(encoding="utf-8") if motion_path.is_file() else ""
 library = library_path.read_text(encoding="utf-8") if library_path.is_file() else ""
 detail = detail_path.read_text(encoding="utf-8") if detail_path.is_file() else ""
+site_css = site_css_path.read_text(encoding="utf-8") if site_css_path.is_file() else ""
 index = index_path.read_text(encoding="utf-8") if index_path.is_file() else ""
 sitemap = sitemap_path.read_text(encoding="utf-8") if sitemap_path.is_file() else ""
 robots = robots_path.read_text(encoding="utf-8") if robots_path.is_file() else ""
@@ -54,6 +56,11 @@ conversion_requirements = {
 for needle, label in conversion_requirements.items():
     if needle not in detail:
         errors.append(f"template-detail.js missing {label}")
+
+# Detail previews include width/height attributes for layout stability. CSS must
+# explicitly return height to auto so responsive sizing cannot stretch the artwork.
+if ".detail-media__image { width: 100%; height: auto;" not in site_css:
+    errors.append("site.css must keep template detail preview images proportional with height: auto")
 
 # Phase 3 catalog presentation: expose industry-first discovery without replacing
 # or bypassing the Phase 1 URL/filter behavior.
