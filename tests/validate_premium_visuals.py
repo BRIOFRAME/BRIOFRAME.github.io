@@ -52,8 +52,6 @@ for slug, required_markers in flagship_static_demos.items():
     if "object-fit:cover" not in style:
         errors.append(f"{slug} must preserve photographic proportions with object-fit: cover")
 
-# Catalog cards are part of the sales product. Flagship preview art must look
-# like a finished website/device presentation rather than the old flat SVG art.
 for slug in (
     "velvet-nail-atelier",
     "amara-braid-house",
@@ -69,6 +67,8 @@ for slug in (
     "harbor-dental-studio-dental-medical-practice-website-template",
     "ledgerline-tax-accounting-accounting-firm-website-template",
     "little-grove-early-learning-daycare-childcare-website-template",
+    "tidalmark-yacht-charter",
+    "bluewater-charter-fishing",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
@@ -95,6 +95,20 @@ for slug, visual in (
     if not hero_image.startswith("https://images.unsplash.com/"):
         errors.append(f"{slug} must use a verified photographic hero image")
     if item.get("visual") != visual:
+        errors.append(f"{slug} must retain the {visual} visual identity")
+
+for slug, visual in (
+    ("tidalmark-yacht-charter", "marine"),
+    ("bluewater-charter-fishing", "fishing"),
+):
+    demo_path = ROOT / "demos" / slug / "index.html"
+    if not demo_path.is_file():
+        errors.append(f"missing inline premium demo for {slug}")
+        continue
+    demo = demo_path.read_text(encoding="utf-8")
+    if '"heroImage":"https://images.unsplash.com/' not in demo:
+        errors.append(f"{slug} must use a verified photographic hero image")
+    if f'"visual":"{visual}"' not in demo:
         errors.append(f"{slug} must retain the {visual} visual identity")
 
 # AeroLustre is an inline-config runtime demo. It was explicitly rejected in
