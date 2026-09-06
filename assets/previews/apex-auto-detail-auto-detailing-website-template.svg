@@ -1,1 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750"><rect width="1200" height="750" fill="#0b0d10"/><path d="M720 420h360l-55-125-100-52H795l-75 52z" fill="none" stroke="#ff7a1a" stroke-width="12"/><circle cx="805" cy="430" r="42" fill="none" stroke="#ff7a1a" stroke-width="12"/><circle cx="990" cy="430" r="42" fill="none" stroke="#ff7a1a" stroke-width="12"/><text x="80" y="130" fill="#ff7a1a" font-family="Arial" font-size="22" font-weight="700">PRECISION DETAILING</text><text x="80" y="250" fill="#f7f7f4" font-family="Georgia" font-size="78">Apex Auto Detail</text><text x="80" y="310" fill="#f7f7f4" opacity=".65" font-family="Arial" font-size="28">Auto Detailing &amp; Automotive</text><rect x="80" y="370" width="460" height="12" fill="#ff7a1a"/><text x="80" y="660" fill="#f7f7f4" opacity=".6" font-family="Arial" font-size="20">BRIOFRAME TEMPLATE STUDIO</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" data-premium-preview="true">
+  <defs>
+    <clipPath id="screen"><rect x="118" y="123" width="710" height="430" rx="14"/></clipPath>
+    <clipPath id="phone"><rect x="871" y="179" width="203" height="404" rx="28"/></clipPath>
+    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b0d10"/><stop offset="1" stop-color="#171b20"/></linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#shade)"/>
+  <text x="80" y="76" fill="#ff7a1a" font-family="Arial" font-size="20" font-weight="700" letter-spacing="3">APEX AUTO DETAIL</text>
+  <rect x="92" y="96" width="762" height="486" rx="28" fill="#050607" stroke="#30343a" stroke-width="8" data-device-frame="laptop"/>
+  <g clip-path="url(#screen)">
+    <image href="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=1800" x="118" y="123" width="710" height="430" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="118" y="123" width="710" height="430" fill="#050607" opacity=".42"/>
+    <text x="162" y="195" fill="#ff7a1a" font-family="Arial" font-size="17" font-weight="700">PRECISION DETAILING</text>
+    <text x="162" y="258" fill="#fff" font-family="Georgia" font-size="52">Finish that earns</text>
+    <text x="162" y="314" fill="#fff" font-family="Georgia" font-size="52">a second look.</text>
+    <rect x="162" y="354" width="180" height="48" rx="24" fill="#ff7a1a"/>
+    <text x="197" y="385" fill="#111" font-family="Arial" font-size="16" font-weight="700">RESERVE A DETAIL</text>
+  </g>
+  <path d="M62 585h822l-45 58H108z" fill="#aeb3b9"/>
+  <rect x="850" y="151" width="245" height="462" rx="38" fill="#090b0d" stroke="#3b4148" stroke-width="8" data-device-frame="mobile"/>
+  <g clip-path="url(#phone)">
+    <image href="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=900" x="871" y="179" width="203" height="404" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="871" y="179" width="203" height="404" fill="#050607" opacity=".46"/>
+    <text x="893" y="237" fill="#ff7a1a" font-family="Arial" font-size="12" font-weight="700">APEX AUTO</text>
+    <text x="893" y="292" fill="#fff" font-family="Georgia" font-size="27">Precision</text>
+    <text x="893" y="324" fill="#fff" font-family="Georgia" font-size="27">in every</text>
+    <text x="893" y="356" fill="#fff" font-family="Georgia" font-size="27">reflection.</text>
+    <rect x="893" y="391" width="132" height="38" rx="19" fill="#ff7a1a"/>
+    <text x="914" y="416" fill="#111" font-family="Arial" font-size="11" font-weight="700">BOOK DETAIL</text>
+  </g>
+  <text x="80" y="700" fill="#f7f7f4" opacity=".62" font-family="Arial" font-size="18" letter-spacing="2">BRIOFRAME TEMPLATE STUDIO · AUTO DETAILING</text>
+</svg>
