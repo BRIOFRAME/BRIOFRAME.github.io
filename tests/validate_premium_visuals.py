@@ -78,6 +78,7 @@ for slug in (
     "pulsewell-studio",
     "encore-creator-studio",
     "solara-villa-collection",
+    "founders-circle-club",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
@@ -119,6 +120,7 @@ for slug, visual in (
     ("pulsewell-studio", "wellness"),
     ("encore-creator-studio", "photo"),
     ("solara-villa-collection", "villa"),
+    ("founders-circle-club", "club"),
 ):
     demo_path = ROOT / "demos" / slug / "index.html"
     if not demo_path.is_file():
