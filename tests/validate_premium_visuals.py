@@ -75,6 +75,7 @@ for slug in (
     "northstar-home-climate-hvac-home-services-website-template",
     "northstar-advisory-group",
     "maison-elan-catering",
+    "pulsewell-studio",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
@@ -113,6 +114,7 @@ for slug, visual in (
     ("bluewater-charter-fishing", "fishing"),
     ("northstar-advisory-group", "advisory"),
     ("maison-elan-catering", "catering"),
+    ("pulsewell-studio", "wellness"),
 ):
     demo_path = ROOT / "demos" / slug / "index.html"
     if not demo_path.is_file():
