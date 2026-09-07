@@ -1,28 +1,1567 @@
 [
-{"id":"bf-001","slug":"velvet-nail-atelier","name":"Velvet Nail Atelier","industry":"beauty-personal-care","category":"Nail Salon & Nail Tech","tags":["nails","salon","booking","beauty"],"description":"A luxury booking-first salon experience with services, lookbook, policies, testimonials, and a simulated appointment flow.","previewImage":"/assets/previews/velvet-nail-atelier.svg","demoUrl":"/demos/velvet-nail-atelier/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/velvet-nail-atelier","availability":"Available"},
-{"id":"bf-002","slug":"amara-braid-house","name":"Amara Braid House","industry":"beauty-personal-care","category":"Braiding & Hair Stylist","tags":["braids","hair","stylist","booking"],"description":"A distinctive stylist-led site with a style catalog, starting prices, preparation guidance, brand story, and simulated booking.","previewImage":"/assets/previews/amara-braid-house.svg","demoUrl":"/demos/amara-braid-house/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/amara-braid-house","availability":"Available"},
-{"id":"bf-003","slug":"meridian-supply-co","name":"Meridian Supply Co.","industry":"commerce-operations","category":"Wholesale & Distributor","tags":["wholesale","b2b","distributor","catalog"],"description":"A B2B purchasing experience with catalog filters, MOQ and case quantities, volume tiers, logistics, RFQ, and dealer application flows.","previewImage":"/assets/previews/meridian-supply-co.svg","demoUrl":"/demos/meridian-supply-co/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/meridian-supply-co","availability":"Available"},
-{"id":"bf-004","slug":"apex-auto-detail-auto-detailing-website-template","name":"Apex Auto Detail","industry":"automotive","category":"Auto Detailing & Automotive","tags":["auto","detailing","ceramic","mobile"],"description":"A high-impact automotive service experience for detailing, ceramic coating, paint correction, and mobile-service conversion.","previewImage":"/assets/previews/apex-auto-detail-auto-detailing-website-template.svg","demoUrl":"/demos/apex-auto-detail-auto-detailing-website-template/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/apex-auto-detail-auto-detailing-website-template","availability":"Available"},
-{"id":"bf-005","slug":"atlas-freight-logistics-logistics-freight-website-template","name":"Atlas Freight & Logistics","industry":"commerce-operations","category":"Logistics & Freight","tags":["freight","logistics","shipping","b2b"],"description":"A B2B logistics experience built around lane coverage, service capability, proof metrics, quote conversion, and operational trust.","previewImage":"/assets/previews/atlas-freight-logistics-logistics-freight-website-template.svg","demoUrl":"/demos/atlas-freight-logistics-logistics-freight-website-template/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/atlas-freight-logistics-logistics-freight-website-template","availability":"Available"},
-{"id":"bf-006","slug":"avery-cole-law","name":"Avery Cole Law","industry":"professional-services","category":"Law Firm & Legal Services","tags":["law","legal","attorney","consultation"],"description":"A credibility-first legal site with practice areas, attorney authority, case-result context, resources, and consultation conversion.","previewImage":"/assets/previews/avery-cole-law.svg","demoUrl":"/demos/avery-cole-law/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/avery-cole-law","availability":"Available"},
-{"id":"bf-007","slug":"common-ground-foundation-nonprofit-community-website-template","name":"Common Ground Foundation","industry":"community-nonprofit","category":"Nonprofit & Community","tags":["nonprofit","community","donate","volunteer"],"description":"A mission-led nonprofit experience that makes impact visible and guides visitors toward volunteering, giving, and community action.","previewImage":"/assets/previews/common-ground-foundation-nonprofit-community-website-template.svg","demoUrl":"/demos/common-ground-foundation-nonprofit-community-website-template/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/common-ground-foundation-nonprofit-community-website-template","availability":"Available"},
-{"id":"bf-008","slug":"crescent-private-wealth","name":"Crescent Private Wealth","industry":"professional-services","category":"Financial Advisory & Wealth","tags":["wealth","advisory","finance","planning"],"description":"A refined wealth-management site focused on fiduciary trust, planning depth, client fit, insights, and consultation conversion.","previewImage":"/assets/previews/crescent-private-wealth.svg","demoUrl":"/demos/crescent-private-wealth/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/crescent-private-wealth","availability":"Available"},
-{"id":"bf-009","slug":"elevate-catering","name":"Elevate Catering","industry":"hospitality-events","category":"Luxury Catering & Events","tags":["catering","events","wedding","hospitality"],"description":"An editorial hospitality experience showcasing event occasions, signature menus, presentation, process, and inquiry conversion.","previewImage":"/assets/previews/elevate-catering.svg","demoUrl":"/demos/elevate-catering/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/elevate-catering","availability":"Available"},
-{"id":"bf-010","slug":"harbor-dental-studio-dental-medical-practice-website-template","name":"Harbor Dental Studio","industry":"health-family","category":"Dental & Medical Practice","tags":["dental","medical","patients","appointment"],"description":"A reassuring patient-first practice site with services, new-patient guidance, trust signals, and a frictionless appointment path.","previewImage":"/assets/previews/harbor-dental-studio-dental-medical-practice-website-template.svg","demoUrl":"/demos/harbor-dental-studio-dental-medical-practice-website-template/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/harbor-dental-studio-dental-medical-practice-website-template","availability":"Available"},
-{"id":"bf-011","slug":"ledgerline-tax-accounting-accounting-firm-website-template","name":"Ledgerline Tax & Accounting","industry":"professional-services","category":"Accounting & Tax","tags":["accounting","tax","bookkeeping","advisory"],"description":"A professional accounting site that clarifies expertise, deadlines, advisory services, industries served, and consultation options.","previewImage":"/assets/previews/ledgerline-tax-accounting-accounting-firm-website-template.svg","demoUrl":"/demos/ledgerline-tax-accounting-accounting-firm-website-template/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/ledgerline-tax-accounting-accounting-firm-website-template","availability":"Available"},
-{"id":"bf-012","slug":"little-grove-early-learning-daycare-childcare-website-template","name":"Little Grove Early Learning","industry":"health-family","category":"Daycare & Childcare","tags":["daycare","childcare","preschool","family"],"description":"A warm family-focused childcare site with age-group programs, safety reassurance, curriculum highlights, tour booking, and enrollment guidance.","previewImage":"/assets/previews/little-grove-early-learning-daycare-childcare-website-template.svg","demoUrl":"/demos/little-grove-early-learning-daycare-childcare-website-template/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/little-grove-early-learning-daycare-childcare-website-template","availability":"Available"},
-{"id":"bf-013","slug":"lumiere-photography-studio-photography-website-template","name":"Lumiere Photography Studio","industry":"creative-entertainment","category":"Photography & Creative Studio","tags":["photography","portfolio","studio","creative"],"description":"An editorial portfolio experience for photographers and visual storytellers with immersive work, packages, proof, and booking conversion.","previewImage":"/assets/previews/lumiere-photography-studio-photography-website-template.svg","demoUrl":"/demos/lumiere-photography-studio-photography-website-template/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/lumiere-photography-studio-photography-website-template","availability":"Available"},
-{"id":"bf-014","slug":"monarch-estates","name":"Monarch Estates","industry":"real-estate-stays","category":"Luxury Real Estate","tags":["real estate","luxury","listings","property"],"description":"A premium property experience with editorial listings, market expertise, agent credibility, private-showing conversion, and mobile-first discovery.","previewImage":"/assets/previews/monarch-estates.svg","demoUrl":"/demos/monarch-estates/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/monarch-estates","availability":"Available"},
-{"id":"bf-015","slug":"nexa-systems","name":"Nexa Systems","industry":"technology","category":"Corporate IT & Technology","tags":["it","msp","cybersecurity","technology"],"description":"A modern MSP and technology-services site built around vertical fit, cybersecurity trust, managed services, response metrics, and consultation conversion.","previewImage":"/assets/previews/nexa-systems.svg","demoUrl":"/demos/nexa-systems/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/nexa-systems","availability":"Available"},
-{"id":"bf-016","slug":"northstar-home-climate-hvac-home-services-website-template","name":"Northstar Home Climate","industry":"home-services","category":"HVAC & Home Services","tags":["hvac","heating","cooling","home services"],"description":"A high-conversion home-services site with emergency-first actions, service coverage, maintenance plans, trust proof, and fast scheduling.","previewImage":"/assets/previews/northstar-home-climate-hvac-home-services-website-template.svg","demoUrl":"/demos/northstar-home-climate-hvac-home-services-website-template/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/northstar-home-climate-hvac-home-services-website-template","availability":"Available"},
-{"id":"bf-017","slug":"altitude-aviation-services","name":"Altitude Aviation Services","industry":"aviation","category":"Aviation & Aviation Services","tags":["aviation","aircraft","charter","management"],"description":"A premium aviation-services showcase for aircraft management, charter coordination, detailing and owner support, designed around discretion, operational trust and high-value inquiry conversion.","previewImage":"/assets/previews/altitude-aviation-services.svg","demoUrl":"/demos/altitude-aviation-services/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/altitude-aviation-services-aviation-services-website-template","availability":"Available"},
-{"id":"bf-018","slug":"northstar-advisory-group","name":"Northstar Advisory Group","industry":"professional-services","category":"Consulting & Coaching","tags":["consulting","coaching","advisory","strategy"],"description":"An executive advisory template built around authority, strategic clarity, outcome proof, thought leadership, and consultation conversion.","previewImage":"/assets/previews/northstar-advisory-group.svg","demoUrl":"/demos/northstar-advisory-group/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/northstar-advisory-group-consulting-coaching-website-template","availability":"Available"},
-{"id":"bf-019","slug":"maison-elan-catering","name":"Maison Élan Catering","industry":"hospitality-events","category":"Luxury Catering & Events","tags":["catering","events","private dining","hospitality"],"description":"A boutique hospitality template with editorial menu storytelling, event pathways, presentation-led proof, and high-touch inquiry conversion.","previewImage":"/assets/previews/maison-elan-catering.svg","demoUrl":"/demos/maison-elan-catering/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/maison-elan-catering-luxury-catering-website-template","availability":"Available"},
-{"id":"bf-020","slug":"pulsewell-studio","name":"Pulsewell Studio","industry":"health-family","category":"Fitness & Wellness","tags":["fitness","wellness","studio","membership"],"description":"A modern wellness-studio template focused on programs, instructor credibility, schedule discovery, membership pathways, and trial conversion.","previewImage":"/assets/previews/pulsewell-studio.svg","demoUrl":"/demos/pulsewell-studio/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/pulsewell-studio-fitness-wellness-website-template","availability":"Available"},
-{"id":"bf-021","slug":"encore-creator-studio","name":"Encore Creator Studio","industry":"creative-entertainment","category":"Creator & Entertainment","tags":["creator","entertainment","portfolio","media"],"description":"A media-forward creator template combining featured work, collaborations, audience proof, services, and booking conversion.","previewImage":"/assets/previews/encore-creator-studio.svg","demoUrl":"/demos/encore-creator-studio/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/encore-creator-studio-creator-entertainment-website-template","availability":"Available"},
-{"id":"bf-022","slug":"solara-villa-collection","name":"Solara Villa Collection","industry":"real-estate-stays","category":"Villas & Luxury Vacation Properties","tags":["villa","vacation","rental","luxury"],"description":"A cinematic villa-rental experience built around curated stays, concierge service, destination discovery, and high-value direct inquiry.","previewImage":"/assets/previews/solara-villa-collection.svg","demoUrl":"/demos/solara-villa-collection/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/solara-villa-collection-luxury-villa-website-template","availability":"Available"},
-{"id":"bf-023","slug":"tidalmark-yacht-charter","name":"Tidalmark Yacht Charter","industry":"marine","category":"Boating & Marine","tags":["yacht","charter","boating","marine"],"description":"A luxury charter experience that leads with vessel fit, destination planning, service standards, and frictionless private-trip inquiry.","previewImage":"/assets/previews/tidalmark-yacht-charter.svg","demoUrl":"/demos/tidalmark-yacht-charter/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/tidalmark-yacht-charter-boating-marine-website-template","availability":"Available"},
-{"id":"bf-024","slug":"bluewater-charter-fishing","name":"Bluewater Charter Fishing","industry":"marine","category":"Fishing & Charter Fishing","tags":["fishing","charter","boat","marine"],"description":"A booking-focused charter-fishing template organized around trip types, target species, captain credibility, gear guidance, and clear reservation paths.","previewImage":"/assets/previews/bluewater-charter-fishing.svg","demoUrl":"/demos/bluewater-charter-fishing/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/bluewater-charter-fishing-charter-fishing-website-template","availability":"Available"},
-{"id":"bf-025","slug":"aerolustre-aircraft-detailing","name":"AeroLustre Aircraft Detailing","industry":"aviation","category":"Aircraft Detailing","tags":["aircraft","detailing","aviation","hangar"],"description":"A specialist aircraft-care experience highlighting cabin, exterior, coating, and hangar-service expertise with owner-operator trust signals.","previewImage":"/assets/previews/aerolustre-aircraft-detailing.svg","demoUrl":"/demos/aerolustre-aircraft-detailing/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/aerolustre-aircraft-detailing-aircraft-detailing-website-template","availability":"Available"},
-{"id":"bf-026","slug":"founders-circle-club","name":"Founders Circle Club","industry":"hospitality-events","category":"Clubs & Membership Organizations","tags":["club","membership","private","events"],"description":"A refined membership-club template centered on belonging, member value, programming, private events, and qualification-led applications.","previewImage":"/assets/previews/founders-circle-club.svg","demoUrl":"/demos/founders-circle-club/","shopifyProductUrl":"https://1gsa1w-f1.myshopify.com/products/founders-circle-club-membership-organization-website-template","availability":"Available"}
+  {
+    "id": "bf-001",
+    "slug": "velvet-nail-atelier",
+    "name": "Velvet Nail Atelier",
+    "industry": "beauty-personal-care",
+    "category": "Nail Salon & Nail Tech",
+    "tags": [
+      "nails",
+      "salon",
+      "booking",
+      "beauty"
+    ],
+    "description": "A luxury booking-first salon experience with services, lookbook, policies, testimonials, and a simulated appointment flow.",
+    "previewImage": "/assets/images/premium/92422b2358ea08.jpg",
+    "demoUrl": "/demos/velvet-nail-atelier/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/velvet-nail-atelier",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-002",
+    "slug": "amara-braid-house",
+    "name": "Amara Braid House",
+    "industry": "beauty-personal-care",
+    "category": "Braiding & Hair Stylist",
+    "tags": [
+      "braids",
+      "hair",
+      "stylist",
+      "booking"
+    ],
+    "description": "A distinctive stylist-led site with a style catalog, starting prices, preparation guidance, brand story, and simulated booking.",
+    "previewImage": "/assets/images/premium/210e4f5e184dbe.jpg",
+    "demoUrl": "/demos/amara-braid-house/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/amara-braid-house",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-003",
+    "slug": "meridian-supply-co",
+    "name": "Meridian Supply Co.",
+    "industry": "commerce-operations",
+    "category": "Wholesale & Distributor",
+    "tags": [
+      "wholesale",
+      "b2b",
+      "distributor",
+      "catalog"
+    ],
+    "description": "A B2B purchasing experience with catalog filters, MOQ and case quantities, volume tiers, logistics, RFQ, and dealer application flows.",
+    "previewImage": "/assets/images/premium/feda408230a863.jpg",
+    "demoUrl": "/demos/meridian-supply-co/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/meridian-supply-co",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-004",
+    "slug": "apex-auto-detail-auto-detailing-website-template",
+    "name": "Apex Auto Detail",
+    "industry": "automotive",
+    "category": "Auto Detailing & Automotive",
+    "tags": [
+      "auto",
+      "detailing",
+      "ceramic",
+      "mobile"
+    ],
+    "description": "A high-impact automotive service experience for detailing, ceramic coating, paint correction, and mobile-service conversion.",
+    "previewImage": "/assets/images/premium/7199a355453e92.jpg",
+    "demoUrl": "/demos/apex-auto-detail-auto-detailing-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/apex-auto-detail-auto-detailing-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-005",
+    "slug": "atlas-freight-logistics-logistics-freight-website-template",
+    "name": "Atlas Freight & Logistics",
+    "industry": "commerce-operations",
+    "category": "Logistics & Freight",
+    "tags": [
+      "freight",
+      "logistics",
+      "shipping",
+      "b2b"
+    ],
+    "description": "A B2B logistics experience built around lane coverage, service capability, proof metrics, quote conversion, and operational trust.",
+    "previewImage": "/assets/images/premium/7bf886f64ba887.jpg",
+    "demoUrl": "/demos/atlas-freight-logistics-logistics-freight-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/atlas-freight-logistics-logistics-freight-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-006",
+    "slug": "avery-cole-law",
+    "name": "Avery Cole Law",
+    "industry": "professional-services",
+    "category": "Law Firm & Legal Services",
+    "tags": [
+      "law",
+      "legal",
+      "attorney",
+      "consultation"
+    ],
+    "description": "A credibility-first legal site with practice areas, attorney authority, case-result context, resources, and consultation conversion.",
+    "previewImage": "/assets/images/premium/783be8547d70fe.jpg",
+    "demoUrl": "/demos/avery-cole-law/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/avery-cole-law",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-007",
+    "slug": "common-ground-foundation-nonprofit-community-website-template",
+    "name": "Common Ground Foundation",
+    "industry": "community-nonprofit",
+    "category": "Nonprofit & Community",
+    "tags": [
+      "nonprofit",
+      "community",
+      "donate",
+      "volunteer"
+    ],
+    "description": "A mission-led nonprofit experience that makes impact visible and guides visitors toward volunteering, giving, and community action.",
+    "previewImage": "/assets/images/premium/834301cd375235.jpg",
+    "demoUrl": "/demos/common-ground-foundation-nonprofit-community-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/common-ground-foundation-nonprofit-community-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-008",
+    "slug": "crescent-private-wealth",
+    "name": "Crescent Private Wealth",
+    "industry": "professional-services",
+    "category": "Financial Advisory & Wealth",
+    "tags": [
+      "wealth",
+      "advisory",
+      "finance",
+      "planning"
+    ],
+    "description": "A refined wealth-management site focused on fiduciary trust, planning depth, client fit, insights, and consultation conversion.",
+    "previewImage": "/assets/images/premium/c68a5a39d388d6.jpg",
+    "demoUrl": "/demos/crescent-private-wealth/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/crescent-private-wealth",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-009",
+    "slug": "elevate-catering",
+    "name": "Elevate Catering",
+    "industry": "hospitality-events",
+    "category": "Luxury Catering & Events",
+    "tags": [
+      "catering",
+      "events",
+      "wedding",
+      "hospitality"
+    ],
+    "description": "An editorial hospitality experience showcasing event occasions, signature menus, presentation, process, and inquiry conversion.",
+    "previewImage": "/assets/images/premium/2b1a22e05b3992.jpg",
+    "demoUrl": "/demos/elevate-catering/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/elevate-catering",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-010",
+    "slug": "harbor-dental-studio-dental-medical-practice-website-template",
+    "name": "Harbor Dental Studio",
+    "industry": "health-family",
+    "category": "Dental & Medical Practice",
+    "tags": [
+      "dental",
+      "medical",
+      "patients",
+      "appointment"
+    ],
+    "description": "A reassuring patient-first practice site with services, new-patient guidance, trust signals, and a frictionless appointment path.",
+    "previewImage": "/assets/images/premium/366fefc76e2833.jpg",
+    "demoUrl": "/demos/harbor-dental-studio-dental-medical-practice-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/harbor-dental-studio-dental-medical-practice-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-011",
+    "slug": "ledgerline-tax-accounting-accounting-firm-website-template",
+    "name": "Ledgerline Tax & Accounting",
+    "industry": "professional-services",
+    "category": "Accounting & Tax",
+    "tags": [
+      "accounting",
+      "tax",
+      "bookkeeping",
+      "advisory"
+    ],
+    "description": "A professional accounting site that clarifies expertise, deadlines, advisory services, industries served, and consultation options.",
+    "previewImage": "/assets/images/premium/c1a353d51f62dc.jpg",
+    "demoUrl": "/demos/ledgerline-tax-accounting-accounting-firm-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/ledgerline-tax-accounting-accounting-firm-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-012",
+    "slug": "little-grove-early-learning-daycare-childcare-website-template",
+    "name": "Little Grove Early Learning",
+    "industry": "health-family",
+    "category": "Daycare & Childcare",
+    "tags": [
+      "daycare",
+      "childcare",
+      "preschool",
+      "family"
+    ],
+    "description": "A warm family-focused childcare site with age-group programs, safety reassurance, curriculum highlights, tour booking, and enrollment guidance.",
+    "previewImage": "/assets/images/premium/2fa969af382a1f.jpg",
+    "demoUrl": "/demos/little-grove-early-learning-daycare-childcare-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/little-grove-early-learning-daycare-childcare-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-013",
+    "slug": "lumiere-photography-studio-photography-website-template",
+    "name": "Lumiere Photography Studio",
+    "industry": "creative-entertainment",
+    "category": "Photography & Creative Studio",
+    "tags": [
+      "photography",
+      "portfolio",
+      "studio",
+      "creative"
+    ],
+    "description": "An editorial portfolio experience for photographers and visual storytellers with immersive work, packages, proof, and booking conversion.",
+    "previewImage": "/assets/images/premium/9bec200a67bf09.jpg",
+    "demoUrl": "/demos/lumiere-photography-studio-photography-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/lumiere-photography-studio-photography-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-014",
+    "slug": "monarch-estates",
+    "name": "Monarch Estates",
+    "industry": "real-estate-stays",
+    "category": "Luxury Real Estate",
+    "tags": [
+      "real estate",
+      "luxury",
+      "listings",
+      "property"
+    ],
+    "description": "A premium property experience with editorial listings, market expertise, agent credibility, private-showing conversion, and mobile-first discovery.",
+    "previewImage": "/assets/images/premium/5f89035fada27c.jpg",
+    "demoUrl": "/demos/monarch-estates/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/monarch-estates",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-015",
+    "slug": "nexa-systems",
+    "name": "Nexa Systems",
+    "industry": "technology",
+    "category": "Corporate IT & Technology",
+    "tags": [
+      "it",
+      "msp",
+      "cybersecurity",
+      "technology"
+    ],
+    "description": "A modern MSP and technology-services site built around vertical fit, cybersecurity trust, managed services, response metrics, and consultation conversion.",
+    "previewImage": "/assets/images/premium/6e78f9197d2e41.jpg",
+    "demoUrl": "/demos/nexa-systems/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/nexa-systems",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-016",
+    "slug": "northstar-home-climate-hvac-home-services-website-template",
+    "name": "Northstar Home Climate",
+    "industry": "home-services",
+    "category": "HVAC & Home Services",
+    "tags": [
+      "hvac",
+      "heating",
+      "cooling",
+      "home services"
+    ],
+    "description": "A high-conversion home-services site with emergency-first actions, service coverage, maintenance plans, trust proof, and fast scheduling.",
+    "previewImage": "/assets/images/premium/d98ef60d62706a.jpg",
+    "demoUrl": "/demos/northstar-home-climate-hvac-home-services-website-template/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/northstar-home-climate-hvac-home-services-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-017",
+    "slug": "altitude-aviation-services",
+    "name": "Altitude Aviation Services",
+    "industry": "aviation",
+    "category": "Aviation & Aviation Services",
+    "tags": [
+      "aviation",
+      "aircraft",
+      "charter",
+      "management"
+    ],
+    "description": "A premium aviation-services showcase for aircraft management, charter coordination, detailing and owner support, designed around discretion, operational trust and high-value inquiry conversion.",
+    "previewImage": "/assets/images/premium/c7c8978aa273b6.jpg",
+    "demoUrl": "/demos/altitude-aviation-services/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/altitude-aviation-services-aviation-services-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-018",
+    "slug": "northstar-advisory-group",
+    "name": "Northstar Advisory Group",
+    "industry": "professional-services",
+    "category": "Consulting & Coaching",
+    "tags": [
+      "consulting",
+      "coaching",
+      "advisory",
+      "strategy"
+    ],
+    "description": "An executive advisory template built around authority, strategic clarity, outcome proof, thought leadership, and consultation conversion.",
+    "previewImage": "/assets/images/premium/4905419c5829e0.jpg",
+    "demoUrl": "/demos/northstar-advisory-group/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/northstar-advisory-group-consulting-coaching-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-019",
+    "slug": "maison-elan-catering",
+    "name": "Maison Élan Catering",
+    "industry": "hospitality-events",
+    "category": "Luxury Catering & Events",
+    "tags": [
+      "catering",
+      "events",
+      "private dining",
+      "hospitality"
+    ],
+    "description": "A boutique hospitality template with editorial menu storytelling, event pathways, presentation-led proof, and high-touch inquiry conversion.",
+    "previewImage": "/assets/images/premium/3c9b0f51cfe67c.jpg",
+    "demoUrl": "/demos/maison-elan-catering/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/maison-elan-catering-luxury-catering-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-020",
+    "slug": "pulsewell-studio",
+    "name": "Pulsewell Studio",
+    "industry": "health-family",
+    "category": "Fitness & Wellness",
+    "tags": [
+      "fitness",
+      "wellness",
+      "studio",
+      "membership"
+    ],
+    "description": "A modern wellness-studio template focused on programs, instructor credibility, schedule discovery, membership pathways, and trial conversion.",
+    "previewImage": "/assets/images/premium/37fab2657558c4.jpg",
+    "demoUrl": "/demos/pulsewell-studio/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/pulsewell-studio-fitness-wellness-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-021",
+    "slug": "encore-creator-studio",
+    "name": "Encore Creator Studio",
+    "industry": "creative-entertainment",
+    "category": "Creator & Entertainment",
+    "tags": [
+      "creator",
+      "entertainment",
+      "portfolio",
+      "media"
+    ],
+    "description": "A media-forward creator template combining featured work, collaborations, audience proof, services, and booking conversion.",
+    "previewImage": "/assets/images/premium/f2a7a8a2fa316c.jpg",
+    "demoUrl": "/demos/encore-creator-studio/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/encore-creator-studio-creator-entertainment-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-022",
+    "slug": "solara-villa-collection",
+    "name": "Solara Villa Collection",
+    "industry": "real-estate-stays",
+    "category": "Villas & Luxury Vacation Properties",
+    "tags": [
+      "villa",
+      "vacation",
+      "rental",
+      "luxury"
+    ],
+    "description": "A cinematic villa-rental experience built around curated stays, concierge service, destination discovery, and high-value direct inquiry.",
+    "previewImage": "/assets/images/premium/ce62efca6451f4.jpg",
+    "demoUrl": "/demos/solara-villa-collection/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/solara-villa-collection-luxury-villa-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-023",
+    "slug": "tidalmark-yacht-charter",
+    "name": "Tidalmark Yacht Charter",
+    "industry": "marine",
+    "category": "Boating & Marine",
+    "tags": [
+      "yacht",
+      "charter",
+      "boating",
+      "marine"
+    ],
+    "description": "A luxury charter experience that leads with vessel fit, destination planning, service standards, and frictionless private-trip inquiry.",
+    "previewImage": "/assets/images/premium/218eefc1097ddb.jpg",
+    "demoUrl": "/demos/tidalmark-yacht-charter/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/tidalmark-yacht-charter-boating-marine-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-024",
+    "slug": "bluewater-charter-fishing",
+    "name": "Bluewater Charter Fishing",
+    "industry": "marine",
+    "category": "Fishing & Charter Fishing",
+    "tags": [
+      "fishing",
+      "charter",
+      "boat",
+      "marine"
+    ],
+    "description": "A booking-focused charter-fishing template organized around trip types, target species, captain credibility, gear guidance, and clear reservation paths.",
+    "previewImage": "/assets/images/premium/ca1d888811e002.jpg",
+    "demoUrl": "/demos/bluewater-charter-fishing/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/bluewater-charter-fishing-charter-fishing-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-025",
+    "slug": "aerolustre-aircraft-detailing",
+    "name": "AeroLustre Aircraft Detailing",
+    "industry": "aviation",
+    "category": "Aircraft Detailing",
+    "tags": [
+      "aircraft",
+      "detailing",
+      "aviation",
+      "hangar"
+    ],
+    "description": "A specialist aircraft-care experience highlighting cabin, exterior, coating, and hangar-service expertise with owner-operator trust signals.",
+    "previewImage": "/assets/images/premium/7738523f36e768.jpg",
+    "demoUrl": "/demos/aerolustre-aircraft-detailing/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/aerolustre-aircraft-detailing-aircraft-detailing-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-026",
+    "slug": "founders-circle-club",
+    "name": "Founders Circle Club",
+    "industry": "hospitality-events",
+    "category": "Clubs & Membership Organizations",
+    "tags": [
+      "club",
+      "membership",
+      "private",
+      "events"
+    ],
+    "description": "A refined membership-club template centered on belonging, member value, programming, private events, and qualification-led applications.",
+    "previewImage": "/assets/images/premium/5a98c76e33005d.jpg",
+    "demoUrl": "/demos/founders-circle-club/",
+    "shopifyProductUrl": "https://1gsa1w-f1.myshopify.com/products/founders-circle-club-membership-organization-website-template",
+    "availability": "Available"
+  },
+  {
+    "id": "bf-027",
+    "slug": "skybridge-aviation-club",
+    "name": "Skybridge Aviation Club",
+    "industry": "aviation",
+    "category": "Aviation Clubs",
+    "tags": [
+      "aviation",
+      "club",
+      "membership",
+      "pilots"
+    ],
+    "description": "A membership-led aviation club experience for pilots and enthusiasts, with events, fleet access, safety culture, and member pathways.",
+    "previewImage": "/assets/images/premium/672f839da518c4.jpg",
+    "demoUrl": "/demos/skybridge-aviation-club/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-028",
+    "slug": "flightline-knowledge-center",
+    "name": "Flightline Knowledge Center",
+    "industry": "aviation",
+    "category": "Aviation Knowledge Library",
+    "tags": [
+      "aviation",
+      "knowledge",
+      "training",
+      "resources"
+    ],
+    "description": "A resource-first aviation knowledge hub for training content, safety briefings, aircraft guides, and structured learning journeys.",
+    "previewImage": "/assets/images/premium/672f839da518c4.jpg",
+    "demoUrl": "/demos/flightline-knowledge-center/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-029",
+    "slug": "celeste-aviation-catering",
+    "name": "Celeste Aviation Catering",
+    "industry": "hospitality-events",
+    "category": "Aviation Catering",
+    "tags": [
+      "aviation",
+      "catering",
+      "private jet",
+      "hospitality"
+    ],
+    "description": "A high-touch aviation catering experience built around flight timing, menu curation, dietary precision, and FBO-ready service.",
+    "previewImage": "/assets/images/premium/3c9b0f51cfe67c.jpg",
+    "demoUrl": "/demos/celeste-aviation-catering/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-030",
+    "slug": "harborline-marine-services",
+    "name": "Harborline Marine Services",
+    "industry": "marine",
+    "category": "Marine Services",
+    "tags": [
+      "marine",
+      "yacht",
+      "service",
+      "maintenance"
+    ],
+    "description": "A polished marine-services site for yacht care, seasonal readiness, dockside support, and owner inquiries.",
+    "previewImage": "/assets/images/premium/f9b3391160dd38.jpg",
+    "demoUrl": "/demos/harborline-marine-services/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-031",
+    "slug": "casa-aurelia-villas",
+    "name": "Casa Aurelia Villas",
+    "industry": "real-estate-stays",
+    "category": "Villas & Luxury Vacation Properties",
+    "tags": [
+      "villa",
+      "luxury",
+      "vacation",
+      "hospitality"
+    ],
+    "description": "An editorial villa collection focused on destination mood, property fit, concierge planning, and direct high-value inquiries.",
+    "previewImage": "/assets/images/premium/ce62efca6451f4.jpg",
+    "demoUrl": "/demos/casa-aurelia-villas/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-032",
+    "slug": "sterling-legal-partners",
+    "name": "Sterling Legal Partners",
+    "industry": "professional-services",
+    "category": "Law Firm & Legal Services",
+    "tags": [
+      "law",
+      "legal",
+      "attorney",
+      "business"
+    ],
+    "description": "A modern legal-services variant built around business counsel, attorney authority, matter pathways, and consultation conversion.",
+    "previewImage": "/assets/images/premium/d6ab4aef0c53ce.jpg",
+    "demoUrl": "/demos/sterling-legal-partners/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-033",
+    "slug": "vantage-it-partners",
+    "name": "Vantage IT Partners",
+    "industry": "technology",
+    "category": "Corporate IT & Technology",
+    "tags": [
+      "it",
+      "msp",
+      "cybersecurity",
+      "cloud"
+    ],
+    "description": "A conversion-led technology partner site emphasizing managed services, security maturity, industry fit, and executive-level trust.",
+    "previewImage": "/assets/images/premium/d7c6b74a1a5606.jpg",
+    "demoUrl": "/demos/vantage-it-partners/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-034",
+    "slug": "house-of-nia-beauty",
+    "name": "House of Nia Beauty",
+    "industry": "beauty-personal-care",
+    "category": "Beauty & Personal Services",
+    "tags": [
+      "beauty",
+      "salon",
+      "services",
+      "booking"
+    ],
+    "description": "A premium beauty-service experience with signature services, stylist authority, visual proof, policies, and booking conversion.",
+    "previewImage": "/assets/images/premium/b654989108f76c.jpg",
+    "demoUrl": "/demos/house-of-nia-beauty/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-035",
+    "slug": "axis-performance-studio",
+    "name": "Axis Performance Studio",
+    "industry": "health-family",
+    "category": "Fitness & Wellness",
+    "tags": [
+      "fitness",
+      "wellness",
+      "training",
+      "membership"
+    ],
+    "description": "A performance-led fitness studio experience built around programs, coaches, schedules, memberships, and trial conversion.",
+    "previewImage": "/assets/images/premium/37fab2657558c4.jpg",
+    "demoUrl": "/demos/axis-performance-studio/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-036",
+    "slug": "runway-executive-charter",
+    "name": "Runway Executive Charter",
+    "industry": "aviation",
+    "category": "Private Aviation & Charter",
+    "tags": [
+      "aviation",
+      "charter",
+      "private jet"
+    ],
+    "description": "A discreet charter-first experience built around aircraft fit, route confidence, trip planning, and high-value inquiry conversion.",
+    "previewImage": "/assets/images/premium/672f839da518c4.jpg",
+    "demoUrl": "/demos/runway-executive-charter/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-037",
+    "slug": "hangar-seven-maintenance",
+    "name": "Hangar Seven Maintenance",
+    "industry": "aviation",
+    "category": "Aircraft Maintenance & MRO",
+    "tags": [
+      "aviation",
+      "maintenance",
+      "mro"
+    ],
+    "description": "An operations-led aircraft maintenance site focused on capability, certifications, turnaround expectations, and owner trust.",
+    "previewImage": "/assets/images/premium/7199a355453e92.jpg",
+    "demoUrl": "/demos/hangar-seven-maintenance/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-038",
+    "slug": "aerovista-flight-school",
+    "name": "AeroVista Flight School",
+    "industry": "aviation",
+    "category": "Flight Training & Flight School",
+    "tags": [
+      "aviation",
+      "flight school",
+      "training"
+    ],
+    "description": "A student-focused flight training experience with program paths, fleet visibility, instructor credibility, and discovery-flight conversion.",
+    "previewImage": "/assets/images/premium/672f839da518c4.jpg",
+    "demoUrl": "/demos/aerovista-flight-school/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-039",
+    "slug": "gatehouse-fbo-services",
+    "name": "Gatehouse FBO Services",
+    "industry": "aviation",
+    "category": "FBO & Ground Services",
+    "tags": [
+      "aviation",
+      "fbo",
+      "ground handling"
+    ],
+    "description": "A premium FBO experience designed around arrival services, fuel, lounge amenities, crew support, and fast operational coordination.",
+    "previewImage": "/assets/images/premium/672f839da518c4.jpg",
+    "demoUrl": "/demos/gatehouse-fbo-services/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-040",
+    "slug": "jetset-aviation-concierge",
+    "name": "JetSet Aviation Concierge",
+    "industry": "aviation",
+    "category": "Aviation Concierge",
+    "tags": [
+      "aviation",
+      "concierge",
+      "travel"
+    ],
+    "description": "A white-glove aviation concierge site for ground transport, catering, lodging, special requests, and seamless trip support.",
+    "previewImage": "/assets/images/premium/672f839da518c4.jpg",
+    "demoUrl": "/demos/jetset-aviation-concierge/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-041",
+    "slug": "blue-meridian-yacht-sales",
+    "name": "Blue Meridian Yacht Sales",
+    "industry": "marine",
+    "category": "Yacht Brokerage & Sales",
+    "tags": [
+      "yacht",
+      "brokerage",
+      "marine"
+    ],
+    "description": "A luxury yacht brokerage experience built around vessel discovery, advisor authority, private viewings, and qualified buyer inquiries.",
+    "previewImage": "/assets/images/premium/f9b3391160dd38.jpg",
+    "demoUrl": "/demos/blue-meridian-yacht-sales/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-042",
+    "slug": "dockline-boat-care",
+    "name": "Dockline Boat Care",
+    "industry": "marine",
+    "category": "Boat Care & Marine Maintenance",
+    "tags": [
+      "marine",
+      "maintenance",
+      "boat care"
+    ],
+    "description": "A service-first marine maintenance site for detailing, mechanical care, seasonal prep, and dockside owner support.",
+    "previewImage": "/assets/images/premium/f9b3391160dd38.jpg",
+    "demoUrl": "/demos/dockline-boat-care/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-043",
+    "slug": "current-coast-excursions",
+    "name": "Current & Coast Excursions",
+    "industry": "marine",
+    "category": "Boat Tours & Excursions",
+    "tags": [
+      "marine",
+      "tours",
+      "excursions"
+    ],
+    "description": "A destination-led excursion site with trip types, group fit, local highlights, and frictionless booking inquiry.",
+    "previewImage": "/assets/images/premium/f9b3391160dd38.jpg",
+    "demoUrl": "/demos/current-coast-excursions/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-044",
+    "slug": "pelican-bay-fishing-lodge",
+    "name": "Pelican Bay Fishing Lodge",
+    "industry": "marine",
+    "category": "Fishing Lodge & Charter",
+    "tags": [
+      "fishing",
+      "lodge",
+      "charter"
+    ],
+    "description": "A lodge-and-charter experience combining destination storytelling, species seasons, guides, accommodations, and package inquiries.",
+    "previewImage": "/assets/images/premium/3217e8c5dc68c9.jpg",
+    "demoUrl": "/demos/pelican-bay-fishing-lodge/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-045",
+    "slug": "mariner-clubhouse",
+    "name": "Mariner Clubhouse",
+    "industry": "marine",
+    "category": "Boating Clubs & Membership",
+    "tags": [
+      "marine",
+      "club",
+      "membership"
+    ],
+    "description": "A members-first boating club site centered on marina access, social programming, member benefits, and applications.",
+    "previewImage": "/assets/images/premium/5a98c76e33005d.jpg",
+    "demoUrl": "/demos/mariner-clubhouse/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-046",
+    "slug": "aurelia-coastal-realty",
+    "name": "Aurelia Coastal Realty",
+    "industry": "real-estate-stays",
+    "category": "Coastal Real Estate",
+    "tags": [
+      "real estate",
+      "coastal",
+      "property"
+    ],
+    "description": "An editorial coastal-property experience with curated listings, local expertise, buyer guidance, and private showing conversion.",
+    "previewImage": "/assets/images/premium/ce62efca6451f4.jpg",
+    "demoUrl": "/demos/aurelia-coastal-realty/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-047",
+    "slug": "haven-row-property-group",
+    "name": "Haven Row Property Group",
+    "industry": "real-estate-stays",
+    "category": "Real Estate & Property",
+    "tags": [
+      "real estate",
+      "property",
+      "brokerage"
+    ],
+    "description": "A trust-led property group site balancing listings, neighborhood knowledge, advisor credibility, and consultation pathways.",
+    "previewImage": "/assets/images/premium/0c42fb1d63e23d.jpg",
+    "demoUrl": "/demos/haven-row-property-group/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-048",
+    "slug": "summit-stay-management",
+    "name": "Summit Stay Management",
+    "industry": "real-estate-stays",
+    "category": "Vacation Rental Management",
+    "tags": [
+      "vacation rental",
+      "property management",
+      "hospitality"
+    ],
+    "description": "An owner-focused property management site built around revenue stewardship, guest experience, operations, and consultation conversion.",
+    "previewImage": "/assets/images/premium/ce62efca6451f4.jpg",
+    "demoUrl": "/demos/summit-stay-management/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-049",
+    "slug": "ivory-palm-resort",
+    "name": "Ivory Palm Resort",
+    "industry": "hospitality-events",
+    "category": "Boutique Hotel & Resort",
+    "tags": [
+      "hotel",
+      "resort",
+      "hospitality"
+    ],
+    "description": "A refined boutique-hotel experience built around rooms, destination mood, amenities, experiences, and direct-stay inquiries.",
+    "previewImage": "/assets/images/premium/1fd034de70fb71.jpg",
+    "demoUrl": "/demos/ivory-palm-resort/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-050",
+    "slug": "veranda-event-house",
+    "name": "Veranda Event House",
+    "industry": "hospitality-events",
+    "category": "Event Venue",
+    "tags": [
+      "events",
+      "venue",
+      "weddings"
+    ],
+    "description": "A venue-led hospitality site showcasing spaces, occasions, capacity, planning support, and tour inquiries.",
+    "previewImage": "/assets/images/premium/93ad03193fb5b6.jpg",
+    "demoUrl": "/demos/veranda-event-house/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-051",
+    "slug": "briar-bloom-salon",
+    "name": "Briar & Bloom Salon",
+    "industry": "beauty-personal-care",
+    "category": "Hair Salon & Stylist",
+    "tags": [
+      "hair",
+      "salon",
+      "stylist"
+    ],
+    "description": "A polished salon experience with signature services, stylist profiles, care guidance, proof, and appointment conversion.",
+    "previewImage": "/assets/images/premium/b654989108f76c.jpg",
+    "demoUrl": "/demos/briar-bloom-salon/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-052",
+    "slug": "studio-lumi-skin",
+    "name": "Studio Lumi Skin",
+    "industry": "beauty-personal-care",
+    "category": "Esthetics & Spa",
+    "tags": [
+      "spa",
+      "skin",
+      "esthetics"
+    ],
+    "description": "A serene skincare and esthetics experience built around treatments, practitioner trust, consultation, and repeat-care pathways.",
+    "previewImage": "/assets/images/premium/c0416efca1a501.jpg",
+    "demoUrl": "/demos/studio-lumi-skin/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-053",
+    "slug": "crowned-loc-studio",
+    "name": "Crowned Loc Studio",
+    "industry": "beauty-personal-care",
+    "category": "Natural Hair & Locs",
+    "tags": [
+      "locs",
+      "natural hair",
+      "salon"
+    ],
+    "description": "A culture-aware loc and natural-hair studio site with service clarity, stylist credibility, care expectations, and booking conversion.",
+    "previewImage": "/assets/images/premium/b654989108f76c.jpg",
+    "demoUrl": "/demos/crowned-loc-studio/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-054",
+    "slug": "atelier-bridal-beauty",
+    "name": "Atelier Bridal Beauty",
+    "industry": "beauty-personal-care",
+    "category": "Bridal Beauty",
+    "tags": [
+      "bridal",
+      "beauty",
+      "makeup"
+    ],
+    "description": "A bridal-beauty experience designed around packages, artist portfolios, wedding-day logistics, and consultation inquiries.",
+    "previewImage": "/assets/images/premium/d5020dfad05964.jpg",
+    "demoUrl": "/demos/atelier-bridal-beauty/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-055",
+    "slug": "sage-stone-wellness",
+    "name": "Sage & Stone Wellness",
+    "industry": "health-family",
+    "category": "Wellness & Holistic Health",
+    "tags": [
+      "wellness",
+      "holistic",
+      "health"
+    ],
+    "description": "A calm, education-led wellness site with practitioner authority, service pathways, resources, and consultation conversion.",
+    "previewImage": "/assets/images/premium/89ae16687a4ead.jpg",
+    "demoUrl": "/demos/sage-stone-wellness/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-056",
+    "slug": "forge-training-lab",
+    "name": "Forge Training Lab",
+    "industry": "health-family",
+    "category": "Gym & Performance Training",
+    "tags": [
+      "fitness",
+      "gym",
+      "training"
+    ],
+    "description": "A performance-first training site with programs, coaching proof, schedules, memberships, and trial conversion.",
+    "previewImage": "/assets/images/premium/37fab2657558c4.jpg",
+    "demoUrl": "/demos/forge-training-lab/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-057",
+    "slug": "kinship-therapy-group",
+    "name": "Kinship Therapy Group",
+    "industry": "health-family",
+    "category": "Therapy & Counseling",
+    "tags": [
+      "therapy",
+      "counseling",
+      "mental health"
+    ],
+    "description": "A reassuring therapy-group site built around specialties, clinician fit, care expectations, insurance guidance, and inquiry.",
+    "previewImage": "/assets/images/premium/d39390a0114b71.jpg",
+    "demoUrl": "/demos/kinship-therapy-group/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-058",
+    "slug": "elm-pediatrics",
+    "name": "Elm Pediatrics",
+    "industry": "health-family",
+    "category": "Pediatrics & Family Health",
+    "tags": [
+      "pediatrics",
+      "health",
+      "family"
+    ],
+    "description": "A family-centered pediatric practice experience with services, age-stage guidance, reassurance, and appointment pathways.",
+    "previewImage": "/assets/images/premium/3ef13846bbbe32.jpg",
+    "demoUrl": "/demos/elm-pediatrics/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-059",
+    "slug": "arcview-consulting",
+    "name": "Arcview Consulting",
+    "industry": "professional-services",
+    "category": "Consulting & Strategy",
+    "tags": [
+      "consulting",
+      "strategy",
+      "advisory"
+    ],
+    "description": "An executive consulting site built around point of view, transformation priorities, proof, insights, and senior-level inquiry conversion.",
+    "previewImage": "/assets/images/premium/4905419c5829e0.jpg",
+    "demoUrl": "/demos/arcview-consulting/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-060",
+    "slug": "cipherworks-security",
+    "name": "CipherWorks Security",
+    "industry": "technology",
+    "category": "Cybersecurity Services",
+    "tags": [
+      "cybersecurity",
+      "security",
+      "technology"
+    ],
+    "description": "A security-first B2B site emphasizing risk clarity, managed defense, incident readiness, trust evidence, and executive consultation.",
+    "previewImage": "/assets/images/premium/d7c6b74a1a5606.jpg",
+    "demoUrl": "/demos/cipherworks-security/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-061",
+    "slug": "orbit-cloud-partners",
+    "name": "Orbit Cloud Partners",
+    "industry": "technology",
+    "category": "Cloud & Modern Work",
+    "tags": [
+      "cloud",
+      "microsoft 365",
+      "technology"
+    ],
+    "description": "A cloud-consulting template focused on migration clarity, security, adoption, and executive confidence.",
+    "previewImage": "/assets/images/premium/f23f608c94883f.jpg",
+    "demoUrl": "/demos/orbit-cloud-partners/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-062",
+    "slug": "relay-it-support",
+    "name": "Relay IT Support",
+    "industry": "technology",
+    "category": "Managed IT Support",
+    "tags": [
+      "it support",
+      "msp",
+      "help desk"
+    ],
+    "description": "A responsive MSP template built around support expectations, user experience, security, and service accountability.",
+    "previewImage": "/assets/images/premium/d7c6b74a1a5606.jpg",
+    "demoUrl": "/demos/relay-it-support/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-063",
+    "slug": "beacon-hr-advisors",
+    "name": "Beacon HR Advisors",
+    "industry": "professional-services",
+    "category": "HR Consulting",
+    "tags": [
+      "hr",
+      "consulting",
+      "people operations"
+    ],
+    "description": "A people-operations advisory site for compliance, talent strategy, leadership support, and executive consultation.",
+    "previewImage": "/assets/images/premium/ee907a55098696.jpg",
+    "demoUrl": "/demos/beacon-hr-advisors/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-064",
+    "slug": "mercer-strategy-co",
+    "name": "Mercer Strategy Co.",
+    "industry": "professional-services",
+    "category": "Strategy Consulting",
+    "tags": [
+      "strategy",
+      "consulting",
+      "growth"
+    ],
+    "description": "An authority-led strategy consultancy experience with point of view, transformation priorities, proof, and senior-level inquiry.",
+    "previewImage": "/assets/images/premium/4905419c5829e0.jpg",
+    "demoUrl": "/demos/mercer-strategy-co/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-065",
+    "slug": "alder-accounting",
+    "name": "Alder Accounting",
+    "industry": "professional-services",
+    "category": "Accounting & Advisory",
+    "tags": [
+      "accounting",
+      "advisory",
+      "bookkeeping"
+    ],
+    "description": "A modern accounting template balancing year-round advisory, bookkeeping, reporting, and clear client fit.",
+    "previewImage": "/assets/images/premium/dbd33bd54c5ea7.jpg",
+    "demoUrl": "/demos/alder-accounting/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-066",
+    "slug": "northline-tax-advisors",
+    "name": "Northline Tax Advisors",
+    "industry": "professional-services",
+    "category": "Tax Strategy",
+    "tags": [
+      "tax",
+      "accounting",
+      "advisory"
+    ],
+    "description": "A tax-focused advisory site centered on proactive planning, deadlines, business-owner needs, and consultation conversion.",
+    "previewImage": "/assets/images/premium/dbd33bd54c5ea7.jpg",
+    "demoUrl": "/demos/northline-tax-advisors/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-067",
+    "slug": "heritage-estate-law",
+    "name": "Heritage Estate Law",
+    "industry": "professional-services",
+    "category": "Estate Planning Law",
+    "tags": [
+      "estate law",
+      "legal",
+      "planning"
+    ],
+    "description": "A refined estate-planning legal experience built around family clarity, process education, attorney trust, and consultation.",
+    "previewImage": "/assets/images/premium/d6ab4aef0c53ce.jpg",
+    "demoUrl": "/demos/heritage-estate-law/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-068",
+    "slug": "stonebridge-family-law",
+    "name": "Stonebridge Family Law",
+    "industry": "professional-services",
+    "category": "Family Law",
+    "tags": [
+      "family law",
+      "legal",
+      "attorney"
+    ],
+    "description": "A calm, credibility-first family-law site focused on understanding options, attorney fit, process clarity, and next steps.",
+    "previewImage": "/assets/images/premium/d6ab4aef0c53ce.jpg",
+    "demoUrl": "/demos/stonebridge-family-law/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-069",
+    "slug": "core-medical-group",
+    "name": "Core Medical Group",
+    "industry": "health-family",
+    "category": "Medical Practice",
+    "tags": [
+      "medical",
+      "practice",
+      "health"
+    ],
+    "description": "A modern medical-practice template with specialties, physician credibility, patient guidance, and appointment conversion.",
+    "previewImage": "/assets/images/premium/44f11a965ec3ad.jpg",
+    "demoUrl": "/demos/core-medical-group/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-070",
+    "slug": "solace-counseling",
+    "name": "Solace Counseling",
+    "industry": "health-family",
+    "category": "Counseling & Therapy",
+    "tags": [
+      "therapy",
+      "counseling",
+      "wellness"
+    ],
+    "description": "A welcoming counseling template centered on clinician fit, specialties, care expectations, and low-friction inquiries.",
+    "previewImage": "/assets/images/premium/d39390a0114b71.jpg",
+    "demoUrl": "/demos/solace-counseling/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-071",
+    "slug": "brightpath-orthodontics",
+    "name": "BrightPath Orthodontics",
+    "industry": "health-family",
+    "category": "Orthodontics",
+    "tags": [
+      "orthodontics",
+      "dental",
+      "appointments"
+    ],
+    "description": "A confidence-led orthodontic site with treatment options, family guidance, financing context, and consultation pathways.",
+    "previewImage": "/assets/images/premium/adf5508056e94e.jpg",
+    "demoUrl": "/demos/brightpath-orthodontics/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-072",
+    "slug": "maple-main-dental",
+    "name": "Maple & Main Dental",
+    "industry": "health-family",
+    "category": "Dental Practice",
+    "tags": [
+      "dental",
+      "family",
+      "appointments"
+    ],
+    "description": "A neighborhood dental template balancing warmth, preventive care, cosmetic services, and patient conversion.",
+    "previewImage": "/assets/images/premium/adf5508056e94e.jpg",
+    "demoUrl": "/demos/maple-main-dental/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-073",
+    "slug": "urban-bloom-nails",
+    "name": "Urban Bloom Nails",
+    "industry": "beauty-personal-care",
+    "category": "Nail Salon & Nail Tech",
+    "tags": [
+      "nails",
+      "salon",
+      "booking"
+    ],
+    "description": "A stylish nail-salon variant with service menus, lookbook proof, artist credibility, policies, and appointment flow.",
+    "previewImage": "/assets/images/premium/2090f47456bb6a.jpg",
+    "demoUrl": "/demos/urban-bloom-nails/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-074",
+    "slug": "gloss-lab-nail-bar",
+    "name": "Gloss Lab Nail Bar",
+    "industry": "beauty-personal-care",
+    "category": "Nail Bar",
+    "tags": [
+      "nails",
+      "beauty",
+      "booking"
+    ],
+    "description": "A trend-forward nail-bar experience centered on signature looks, memberships, artist work, and booking conversion.",
+    "previewImage": "/assets/images/premium/2090f47456bb6a.jpg",
+    "demoUrl": "/demos/gloss-lab-nail-bar/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-075",
+    "slug": "maison-braids",
+    "name": "Maison Braids",
+    "industry": "beauty-personal-care",
+    "category": "Braiding & Hair Stylist",
+    "tags": [
+      "braids",
+      "hair",
+      "stylist"
+    ],
+    "description": "A premium braiding template with style discovery, preparation guidance, stylist authority, and appointment conversion.",
+    "previewImage": "/assets/images/premium/b654989108f76c.jpg",
+    "demoUrl": "/demos/maison-braids/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-076",
+    "slug": "halo-hair-collective",
+    "name": "Halo Hair Collective",
+    "industry": "beauty-personal-care",
+    "category": "Hair Salon & Stylist",
+    "tags": [
+      "hair",
+      "salon",
+      "stylist"
+    ],
+    "description": "A contemporary salon collective site with stylist specialties, service discovery, visual proof, and booking conversion.",
+    "previewImage": "/assets/images/premium/b654989108f76c.jpg",
+    "demoUrl": "/demos/halo-hair-collective/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-077",
+    "slug": "ember-events-catering",
+    "name": "Ember Events Catering",
+    "industry": "hospitality-events",
+    "category": "Luxury Catering & Events",
+    "tags": [
+      "catering",
+      "events",
+      "weddings"
+    ],
+    "description": "A modern catering template built around event types, menus, presentation, planning confidence, and inquiry conversion.",
+    "previewImage": "/assets/images/premium/93ad03193fb5b6.jpg",
+    "demoUrl": "/demos/ember-events-catering/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-078",
+    "slug": "table-thyme-catering",
+    "name": "Table & Thyme Catering",
+    "industry": "hospitality-events",
+    "category": "Boutique Catering",
+    "tags": [
+      "catering",
+      "private dining",
+      "events"
+    ],
+    "description": "An editorial catering variant centered on seasonal menus, intimate events, chef story, and high-touch inquiry.",
+    "previewImage": "/assets/images/premium/3c9b0f51cfe67c.jpg",
+    "demoUrl": "/demos/table-thyme-catering/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-079",
+    "slug": "atelier-photo-house",
+    "name": "Atelier Photo House",
+    "industry": "creative-entertainment",
+    "category": "Photography & Creative Studio",
+    "tags": [
+      "photography",
+      "portfolio",
+      "studio"
+    ],
+    "description": "A refined photography portfolio site where visual work leads and services, process, and availability follow naturally.",
+    "previewImage": "/assets/images/premium/9bec200a67bf09.jpg",
+    "demoUrl": "/demos/atelier-photo-house/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-080",
+    "slug": "frame-field-photography",
+    "name": "Frame & Field Photography",
+    "industry": "creative-entertainment",
+    "category": "Photography & Creative Studio",
+    "tags": [
+      "photography",
+      "weddings",
+      "portraits"
+    ],
+    "description": "A story-first photography template with immersive galleries, session guidance, packages, and booking conversion.",
+    "previewImage": "/assets/images/premium/9bec200a67bf09.jpg",
+    "demoUrl": "/demos/frame-field-photography/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-081",
+    "slug": "studio-north-creator",
+    "name": "Studio North Creator",
+    "industry": "creative-entertainment",
+    "category": "Creator & Entertainment",
+    "tags": [
+      "creator",
+      "media",
+      "portfolio"
+    ],
+    "description": "A bold creator portfolio experience for featured work, collaborations, audience proof, and brand inquiries.",
+    "previewImage": "/assets/images/premium/f2a7a8a2fa316c.jpg",
+    "demoUrl": "/demos/studio-north-creator/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-082",
+    "slug": "signal-media-collective",
+    "name": "Signal Media Collective",
+    "industry": "creative-entertainment",
+    "category": "Media & Production Studio",
+    "tags": [
+      "media",
+      "production",
+      "creative"
+    ],
+    "description": "A production-studio template built around reels, capabilities, client proof, project types, and creative inquiries.",
+    "previewImage": "/assets/images/premium/03b1d6d44d1b68.jpg",
+    "demoUrl": "/demos/signal-media-collective/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-083",
+    "slug": "grandview-estates",
+    "name": "Grandview Estates",
+    "industry": "real-estate-stays",
+    "category": "Luxury Real Estate",
+    "tags": [
+      "real estate",
+      "luxury",
+      "listings"
+    ],
+    "description": "A cinematic luxury-property variant with curated listings, market insight, advisor positioning, and private showing conversion.",
+    "previewImage": "/assets/images/premium/ce62efca6451f4.jpg",
+    "demoUrl": "/demos/grandview-estates/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-084",
+    "slug": "meridian-property-advisors",
+    "name": "Meridian Property Advisors",
+    "industry": "real-estate-stays",
+    "category": "Real Estate & Property",
+    "tags": [
+      "real estate",
+      "property",
+      "advisory"
+    ],
+    "description": "A strategy-led real-estate advisory template for buyers, sellers, investors, market insight, and consultation.",
+    "previewImage": "/assets/images/premium/0c42fb1d63e23d.jpg",
+    "demoUrl": "/demos/meridian-property-advisors/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-085",
+    "slug": "driftwood-villas",
+    "name": "Driftwood Villas",
+    "industry": "real-estate-stays",
+    "category": "Villas & Luxury Vacation Properties",
+    "tags": [
+      "villa",
+      "vacation",
+      "luxury"
+    ],
+    "description": "A relaxed luxury-villa experience combining property discovery, destination mood, concierge support, and direct inquiries.",
+    "previewImage": "/assets/images/premium/ce62efca6451f4.jpg",
+    "demoUrl": "/demos/driftwood-villas/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-086",
+    "slug": "azure-key-rentals",
+    "name": "Azure Key Rentals",
+    "industry": "real-estate-stays",
+    "category": "Luxury Vacation Rentals",
+    "tags": [
+      "vacation rental",
+      "villa",
+      "hospitality"
+    ],
+    "description": "A curated vacation-rental template with stay collections, local guidance, guest services, and direct inquiry conversion.",
+    "previewImage": "/assets/images/premium/1fd034de70fb71.jpg",
+    "demoUrl": "/demos/azure-key-rentals/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-087",
+    "slug": "foundry-members-club",
+    "name": "Foundry Members Club",
+    "industry": "hospitality-events",
+    "category": "Clubs & Membership Organizations",
+    "tags": [
+      "club",
+      "membership",
+      "events"
+    ],
+    "description": "A contemporary private-club experience built around community, programming, benefits, and membership applications.",
+    "previewImage": "/assets/images/premium/5a98c76e33005d.jpg",
+    "demoUrl": "/demos/foundry-members-club/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-088",
+    "slug": "elevation-aviation-society",
+    "name": "Elevation Aviation Society",
+    "industry": "aviation",
+    "category": "Aviation Clubs",
+    "tags": [
+      "aviation",
+      "club",
+      "membership"
+    ],
+    "description": "A sophisticated aviation society template centered on member access, events, flight culture, networking, and applications.",
+    "previewImage": "/assets/images/premium/672f839da518c4.jpg",
+    "demoUrl": "/demos/elevation-aviation-society/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-089",
+    "slug": "pilotbrief-academy",
+    "name": "PilotBrief Academy",
+    "industry": "aviation",
+    "category": "Aviation Knowledge Library",
+    "tags": [
+      "aviation",
+      "knowledge",
+      "training"
+    ],
+    "description": "A structured aviation-learning portal for briefings, guides, training resources, and knowledge-based member journeys.",
+    "previewImage": "/assets/images/premium/672f839da518c4.jpg",
+    "demoUrl": "/demos/pilotbrief-academy/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  },
+  {
+    "id": "bf-090",
+    "slug": "horizon-aviation-catering",
+    "name": "Horizon Aviation Catering",
+    "industry": "hospitality-events",
+    "category": "Aviation Catering",
+    "tags": [
+      "aviation",
+      "catering",
+      "private jet"
+    ],
+    "description": "A premium aviation catering variant built around menu planning, timing precision, dietary detail, and trip coordination.",
+    "previewImage": "/assets/images/premium/3c9b0f51cfe67c.jpg",
+    "demoUrl": "/demos/horizon-aviation-catering/",
+    "shopifyProductUrl": "",
+    "availability": "Preview"
+  }
 ]
