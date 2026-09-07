@@ -1,1 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750"><rect width="1200" height="750" fill="#eef1f3"/><rect x="700" y="255" width="250" height="180" fill="none" stroke="#d79b22" stroke-width="12"/><path d="M950 325h90l90 80v30H950z" fill="none" stroke="#d79b22" stroke-width="12"/><circle cx="790" cy="450" r="38" fill="none" stroke="#d79b22" stroke-width="12"/><circle cx="1035" cy="450" r="38" fill="none" stroke="#d79b22" stroke-width="12"/><text x="80" y="130" fill="#d79b22" font-family="Arial" font-size="22" font-weight="700">FREIGHT WITHOUT FRICTION</text><text x="80" y="250" fill="#13202b" font-family="Georgia" font-size="68">Atlas Freight &amp; Logistics</text><text x="80" y="310" fill="#13202b" opacity=".65" font-family="Arial" font-size="28">Logistics &amp; Freight</text><rect x="80" y="370" width="460" height="12" fill="#d79b22"/><text x="80" y="660" fill="#13202b" opacity=".6" font-family="Arial" font-size="20">BRIOFRAME TEMPLATE STUDIO</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" data-premium-preview="true">
+  <defs>
+    <clipPath id="screen"><rect x="108" y="108" width="790" height="493" rx="8"/></clipPath>
+    <clipPath id="phone"><rect x="848" y="177" width="214" height="380" rx="24"/></clipPath>
+    <linearGradient id="overlay" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#10202d" stop-opacity=".90"/><stop offset=".65" stop-color="#10202d" stop-opacity=".20"/><stop offset="1" stop-color="#10202d" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="#e9edf0"/>
+  <rect x="70" y="70" width="900" height="585" rx="24" fill="#111820" data-device-frame="laptop"/>
+  <rect x="88" y="88" width="864" height="535" rx="14" fill="#f5f7f8"/>
+  <g clip-path="url(#screen)">
+    <image href="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=1600" x="108" y="108" width="790" height="493" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="108" y="108" width="790" height="493" fill="url(#overlay)"/>
+    <text x="152" y="174" fill="#f7f9fa" font-family="Arial" font-size="17" font-weight="700" letter-spacing="3">ATLAS FREIGHT &amp; LOGISTICS</text>
+    <text x="152" y="285" fill="#ffffff" font-family="Arial" font-size="54" font-weight="800">Freight without</text>
+    <text x="152" y="345" fill="#ffffff" font-family="Arial" font-size="54" font-weight="800">the unknowns.</text>
+    <text x="152" y="395" fill="#eef2f4" font-family="Arial" font-size="19">Coverage. Tracking. Quote response.</text>
+    <rect x="152" y="442" width="202" height="54" rx="4" fill="#d79b22"/>
+    <text x="181" y="476" fill="#13202b" font-family="Arial" font-size="17" font-weight="800">REQUEST A QUOTE</text>
+    <rect x="152" y="532" width="116" height="3" fill="#d79b22"/>
+    <text x="152" y="572" fill="#ffffff" font-family="Arial" font-size="15">48 STATES</text>
+    <text x="282" y="572" fill="#ffffff" font-family="Arial" font-size="15">24/7 TRACKING</text>
+    <text x="433" y="572" fill="#ffffff" font-family="Arial" font-size="15">FAST RESPONSE</text>
+  </g>
+  <path d="M44 655h952l-42 35H86z" fill="#8d969f"/>
+  <rect x="815" y="145" width="280" height="445" rx="34" fill="#111820" data-device-frame="mobile"/>
+  <g clip-path="url(#phone)">
+    <image href="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=900" x="848" y="177" width="214" height="380" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="848" y="177" width="214" height="380" fill="#10202d" opacity=".58"/>
+    <text x="871" y="224" fill="#ffffff" font-family="Arial" font-size="12" font-weight="700">ATLAS FREIGHT</text>
+    <text x="871" y="315" fill="#ffffff" font-family="Arial" font-size="29" font-weight="800">Move freight.</text>
+    <text x="871" y="350" fill="#ffffff" font-family="Arial" font-size="29" font-weight="800">Know more.</text>
+    <rect x="871" y="396" width="142" height="44" rx="4" fill="#d79b22"/>
+    <text x="890" y="424" fill="#13202b" font-family="Arial" font-size="12" font-weight="800">GET A LANE QUOTE</text>
+  </g>
+  <text x="76" y="724" fill="#13202b" opacity=".62" font-family="Arial" font-size="17" letter-spacing="2">BRIOFRAME TEMPLATE STUDIO · LOGISTICS &amp; FREIGHT</text>
+</svg>
