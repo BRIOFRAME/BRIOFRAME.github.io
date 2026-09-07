@@ -76,6 +76,7 @@ for slug in (
     "northstar-advisory-group",
     "maison-elan-catering",
     "pulsewell-studio",
+    "encore-creator-studio",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
@@ -115,6 +116,7 @@ for slug, visual in (
     ("northstar-advisory-group", "advisory"),
     ("maison-elan-catering", "catering"),
     ("pulsewell-studio", "wellness"),
+    ("encore-creator-studio", "photo"),
 ):
     demo_path = ROOT / "demos" / slug / "index.html"
     if not demo_path.is_file():
