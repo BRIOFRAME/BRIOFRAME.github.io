@@ -74,6 +74,7 @@ for slug in (
     "lumiere-photography-studio-photography-website-template",
     "northstar-home-climate-hvac-home-services-website-template",
     "northstar-advisory-group",
+    "maison-elan-catering",
 ):
     preview_path = ROOT / "assets" / "previews" / f"{slug}.svg"
     if not preview_path.is_file():
@@ -111,6 +112,7 @@ for slug, visual in (
     ("tidalmark-yacht-charter", "marine"),
     ("bluewater-charter-fishing", "fishing"),
     ("northstar-advisory-group", "advisory"),
+    ("maison-elan-catering", "catering"),
 ):
     demo_path = ROOT / "demos" / slug / "index.html"
     if not demo_path.is_file():
