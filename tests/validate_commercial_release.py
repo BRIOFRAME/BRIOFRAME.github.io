@@ -83,6 +83,29 @@ if seen != catalog_slugs:
 if len(commerce) != len(catalog):
     errors.append(f"commercial contract record count {len(commerce)} != catalog count {len(catalog)}")
 
+for item in commerce:
+    if not isinstance(item, dict) or not item.get("slug"):
+        continue
+    slug = item["slug"]
+    detail_path = ROOT / "templates" / slug / "index.html"
+    if not detail_path.is_file():
+        errors.append(f"{slug}: missing generated detail page")
+        continue
+    detail = detail_path.read_text(encoding="utf-8")
+    for heading in ("Built for this business", "What the working demo proves", "Customization path"):
+        if heading not in detail:
+            errors.append(f"{slug}: missing commercial detail section {heading!r}")
+    status = item.get("commercialStatus")
+    url = item.get("shopifyProductUrl", "")
+    if status == "live":
+        if f'href="{url}"' not in detail or "View in Shopify" not in detail:
+            errors.append(f"{slug}: live detail page missing verified Shopify CTA")
+    else:
+        if "myshopify.com/products/" in detail:
+            errors.append(f"{slug}: non-live detail page exposes a Shopify product URL")
+        if "Premium Preview" not in detail:
+            errors.append(f"{slug}: non-live detail page missing Premium Preview state")
+
 if errors:
     print("BRIOFRAME commercial release validation failed:")
     for error in errors:
