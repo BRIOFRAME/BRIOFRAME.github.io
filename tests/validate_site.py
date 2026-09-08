@@ -34,7 +34,8 @@ errors = []
 for required_path in (
     "data/templates.json", "data/taxonomy.json", "data/commerce.json", "assets/js/library.js", "assets/js/template-detail.js",
     "assets/css/site.css", "index.html", "404.html",
-    ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md", "tests/validate_commercial_release.py", "robots.txt", "sitemap.xml",
+    ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md", "docs/operations/commercial-release-checklist.md",
+    "scripts/init_private_delivery.py", "tests/validate_commercial_release.py", "tests/validate_private_delivery.py", "robots.txt", "sitemap.xml",
 ):
     if not (ROOT / required_path).is_file():
         errors.append(f"missing required file: {required_path}")
