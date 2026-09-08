@@ -1,35 +1,19 @@
 # BRIOFRAME Quality-First Release Strategy
 
 ## Locked Direction
-- Long-term inventory destination remains **90 templates**.
-- The first public expansion milestone is **35 premium templates**.
-- BRIOFRAME will not delay quality in order to expose all 90 at once.
-- After the 35-template milestone passes full QA, expansion continues toward 90 in controlled waves.
+- The active public milestone is **35 premium templates**.
+- The former fixed 90-template target is retired and must not drive future work.
+- Future catalog expansion happens only when a new template adds clear commercial or industry value.
+- Quality, visual distinction, conversion usefulness, and maintainability take priority over inventory count.
 
 ## Release Principle
-A smaller group of exceptional templates is preferable to a larger catalog of repetitive or rushed variants. Every public-facing template must be commercially credible, visually distinctive, mobile-ready, conversion-aware, and appropriate to its industry.
+Every public-facing template must be commercially credible, visually distinctive, mobile-ready, conversion-aware, and appropriate to its industry. Variants count only when they materially differ in layout, content hierarchy, buyer journey, or interaction model.
 
-## Milestone 1 — 35 Premium Templates
-Prioritize the categories with the strongest combination of business demand, visual differentiation, and BRIOFRAME credibility:
-1. Professional services and consulting
-2. Corporate IT and technology
-3. Legal, accounting, wealth, and healthcare
-4. Beauty and personal services
-5. Luxury catering and hospitality
-6. Fitness and wellness
-7. Creator and photography
-8. Aviation services and aircraft detailing
-9. Boating, yacht charter, and charter fishing
-10. Villas and luxury vacation properties
-11. Clubs and membership organizations
+## Current Premium Catalog
+The 35-template catalog covers professional services, technology, legal, finance, healthcare, beauty, hospitality, fitness, creator, aviation, marine, villas, real estate, and membership experiences.
 
-Variants count only when they materially differ in layout, content hierarchy, buyer journey, or interaction model. Color swaps, image swaps, and superficial reskins do not count as separate premium variants.
-
-## Milestone 2 — 60 Templates
-After the first 35 pass QA and the strongest templates are featured publicly, add deeper variants within proven verticals and expand approved specialty categories such as aviation knowledge/resources, aviation catering, marine services, additional property/hospitality formats, and e-commerce/catalog experiences.
-
-## Milestone 3 — 90 Templates
-Complete the approved inventory roadmap while preserving quality. Do not add filler simply to reach the number. The final 90 must represent useful commercial choices, not artificial duplication.
+## Future Expansion
+Add templates in controlled waves when supported by customer demand, SEO opportunity, an approved specialty gap, or a genuinely stronger design concept. Do not create filler, cosmetic reskins, or templates solely to reach a numeric target.
 
 ## QA Gate
 Before a template is promoted from Preview to Available or Featured, verify:
@@ -44,4 +28,4 @@ Before a template is promoted from Preview to Available or Featured, verify:
 - public demo contains only sanitized content
 
 ## Current Build State
-The expansion branch is `brioframe-90-template-expansion`. The quality-first milestone is 35; the long-term locked destination remains 90.
+Phase 4 establishes the 35-template premium catalog. New additions remain Preview until their exact Shopify destination is verified.
