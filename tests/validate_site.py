@@ -8,7 +8,7 @@ from xml.etree import ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://brioframe.github.io"
 FORBIDDEN_SUFFIXES = {".zip", ".7z", ".rar", ".env", ".liquid", ".psd", ".ai", ".sketch"}
-FORBIDDEN_PARTS = {"customer-files", "paid-source", "shopify-export", "fulfillment"}
+FORBIDDEN_PARTS = {"customer-files", "paid-source", "protected-packages", "shopify-export", "fulfillment", "vendor-private", "credentials"}
 FORBIDDEN_TEXT = re.compile(r"(api[_-]?key|access[_-]?token|private[_-]?key|Kia Supreme Kreations|\bKSK\b)", re.I)
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 APPROVED_BATCH_ONE = {
@@ -32,9 +32,9 @@ REQUIRED_INDEX_META = REQUIRED_DEMO_META + (
 
 errors = []
 for required_path in (
-    "data/templates.json", "data/taxonomy.json", "assets/js/library.js", "assets/js/template-detail.js",
+    "data/templates.json", "data/taxonomy.json", "data/commerce.json", "assets/js/library.js", "assets/js/template-detail.js",
     "assets/css/site.css", "index.html", "404.html",
-    ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md", "robots.txt", "sitemap.xml",
+    ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md", "tests/validate_commercial_release.py", "robots.txt", "sitemap.xml",
 ):
     if not (ROOT / required_path).is_file():
         errors.append(f"missing required file: {required_path}")
