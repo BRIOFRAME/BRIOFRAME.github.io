@@ -4,7 +4,6 @@ from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = 'https://brioframe.github.io'
-TARGET_INVENTORY = 90
 MIN_BASELINE_INVENTORY = 17
 
 REQUIRED_ACTIVE_INVENTORY = {
@@ -84,8 +83,6 @@ if not isinstance(catalog, list):
 
 if len(catalog) < MIN_BASELINE_INVENTORY:
     errors.append(f'catalog regressed below {MIN_BASELINE_INVENTORY} records: found {len(catalog)}')
-if len(catalog) > TARGET_INVENTORY:
-    errors.append(f'catalog exceeds locked target of {TARGET_INVENTORY}: found {len(catalog)}')
 
 ids = []
 slugs = []
@@ -307,4 +304,4 @@ if robots_path.is_file() and f'Sitemap: {SITE}/sitemap.xml' not in robots_path.r
 if errors:
     print('\n'.join(errors))
     sys.exit(1)
-print(f'BRIOFRAME inventory validation passed: {len(catalog)}/{TARGET_INVENTORY} catalog records')
+print(f'BRIOFRAME inventory validation passed: {len(catalog)} premium catalog records')

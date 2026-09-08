@@ -6,7 +6,7 @@ Repository: `BRIOFRAME/BRIOFRAME.github.io`
 
 ## Purpose
 
-Provide a stable industry taxonomy so the public demo library can scale toward 90 templates without hardcoding filter logic into page markup.
+Provide a stable industry taxonomy so the public demo library can expand without hardcoding filter logic into page markup or relying on a fixed inventory target.
 
 ## Model
 
