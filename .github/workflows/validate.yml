@@ -25,8 +25,16 @@ jobs:
         run: python tests/validate_inventory.py
       - name: Validate Phase 3 premium experience
         run: python tests/validate_phase3.py
+      - name: Validate Phase 4 inventory
+        run: python tests/validate_phase4_inventory.py
       - name: Validate premium visual acceptance
         run: python tests/validate_premium_visuals.py
+      - name: Validate commercial release contract
+        run: python tests/validate_commercial_release.py
+      - name: Validate private delivery tooling
+        run: |
+          python scripts/init_private_delivery.py --root "$RUNNER_TEMP/brioframe-private-delivery"
+          python tests/validate_private_delivery.py --root "$RUNNER_TEMP/brioframe-private-delivery"
       - name: Check library JavaScript syntax
         run: node --check assets/js/library.js
       - name: Check template detail JavaScript syntax
@@ -36,7 +44,7 @@ jobs:
       - name: Check demo runtime JavaScript syntax
         run: node --check assets/js/demo-runtime.js
       - name: Check JSON syntax
-        run: python -m json.tool data/templates.json >/dev/null && python -m json.tool data/demo-config.json >/dev/null && python -m json.tool data/taxonomy.json >/dev/null
+        run: python -m json.tool data/templates.json >/dev/null && python -m json.tool data/demo-config.json >/dev/null && python -m json.tool data/taxonomy.json >/dev/null && python -m json.tool data/commerce.json >/dev/null
       - name: Install Playwright test runner
         run: npm install --no-save @playwright/test@1.55.0
       - name: Install Chromium for Playwright

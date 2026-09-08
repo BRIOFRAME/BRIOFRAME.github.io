@@ -8,8 +8,9 @@ from xml.etree import ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://brioframe.github.io"
 FORBIDDEN_SUFFIXES = {".zip", ".7z", ".rar", ".env", ".liquid", ".psd", ".ai", ".sketch"}
-FORBIDDEN_PARTS = {"customer-files", "paid-source", "shopify-export", "fulfillment"}
+FORBIDDEN_PARTS = {"customer-files", "paid-source", "protected-packages", "shopify-export", "fulfillment", "vendor-private", "credentials"}
 FORBIDDEN_TEXT = re.compile(r"(api[_-]?key|access[_-]?token|private[_-]?key|Kia Supreme Kreations|\bKSK\b)", re.I)
+LOCAL_TOOL_PARTS = {".git", "node_modules", "test-results", "playwright-report"}
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 APPROVED_BATCH_ONE = {
     "velvet-nail-atelier": ("Velvet Nail Atelier", "https://1gsa1w-f1.myshopify.com/products/velvet-nail-atelier"),
@@ -32,17 +33,20 @@ REQUIRED_INDEX_META = REQUIRED_DEMO_META + (
 
 errors = []
 for required_path in (
-    "data/templates.json", "data/taxonomy.json", "assets/js/library.js", "assets/js/template-detail.js",
+    "data/templates.json", "data/taxonomy.json", "data/commerce.json", "assets/js/library.js", "assets/js/template-detail.js",
     "assets/css/site.css", "index.html", "404.html",
-    ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md", "robots.txt", "sitemap.xml",
+    ".nojekyll", "demos/README.md", "docs/operations/publishing-checklist.md", "docs/operations/commercial-release-checklist.md",
+    "scripts/init_private_delivery.py", "tests/validate_commercial_release.py", "tests/validate_private_delivery.py", "robots.txt", "sitemap.xml",
 ):
     if not (ROOT / required_path).is_file():
         errors.append(f"missing required file: {required_path}")
 
 for path in ROOT.rglob("*"):
-    if ".git" in path.parts or not path.is_file():
+    if not path.is_file():
         continue
     rel = path.relative_to(ROOT)
+    if any(part in LOCAL_TOOL_PARTS for part in rel.parts):
+        continue
     if path.suffix.lower() in FORBIDDEN_SUFFIXES:
         errors.append(f"forbidden file type: {rel}")
     if any(part.lower() in FORBIDDEN_PARTS for part in rel.parts):
@@ -73,7 +77,8 @@ def resolve_local_social_image(url: str) -> Path | None:
     return ROOT / value
 
 for path in ROOT.rglob("*.html"):
-    if ".git" in path.parts:
+    rel = path.relative_to(ROOT)
+    if any(part in LOCAL_TOOL_PARTS for part in rel.parts):
         continue
     text = path.read_text(encoding="utf-8", errors="ignore")
     for match in SOCIAL_IMAGE_META.finditer(text):

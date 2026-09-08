@@ -67,7 +67,7 @@ def escape(value: str) -> str:
     return html.escape(value, quote=True)
 
 
-def build_product_ld(item: dict, canonical: str) -> dict:
+def build_product_ld(item: dict, canonical: str, commerce: dict) -> dict:
     """Build Product JSON-LD without inventing commercial Offer pricing."""
     ld = {
         "@context": "https://schema.org",
@@ -82,9 +82,9 @@ def build_product_ld(item: dict, canonical: str) -> dict:
 
     price = item.get("price")
     currency = item.get("priceCurrency")
-    shopify_url = item.get("shopifyProductUrl") or ""
+    shopify_url = commerce.get("shopifyProductUrl") or ""
     if (
-        item.get("availability") == "Available"
+        commerce.get("commercialStatus") == "live"
         and shopify_url
         and price not in (None, "")
         and currency not in (None, "")
@@ -100,7 +100,7 @@ def build_product_ld(item: dict, canonical: str) -> dict:
     return ld
 
 
-def build_static_body(item: dict, industry_label: str) -> str:
+def build_static_body(item: dict, industry_label: str, commerce: dict) -> str:
     name = escape(item["name"])
     industry = escape(industry_label)
     category = escape(item["category"])
@@ -109,10 +109,27 @@ def build_static_body(item: dict, industry_label: str) -> str:
     preview = escape(item["previewImage"])
     demo_url = escape(item["demoUrl"])
     library_href = escape(f"/?industry={item['industry']}#templates")
+    focus = ", ".join(escape(str(tag)) for tag in item.get("tags", [])[:4])
+    commercial_status = commerce.get("commercialStatus", "preview")
+    commercial_url = commerce.get("shopifyProductUrl", "")
+    commercial_sections = f"""
+          <section class="detail-section detail-commercial" aria-labelledby="built-for-title">
+            <h2 class="detail-section__title" id="built-for-title">Built for this business</h2>
+            <p>{name} is positioned for {category} businesses that need a clear, credible digital path around {focus}.</p>
+          </section>
+          <section class="detail-section detail-commercial" aria-labelledby="demo-proves-title">
+            <h2 class="detail-section__title" id="demo-proves-title">What the working demo proves</h2>
+            <p>The public demo shows the page hierarchy, responsive presentation, content flow, calls to action, and industry-specific experience before any purchase decision.</p>
+          </section>
+          <section class="detail-section detail-commercial" aria-labelledby="customization-path-title">
+            <h2 class="detail-section__title" id="customization-path-title">Customization path</h2>
+            <p>Use the template as the evaluated starting point, or move to BRIOFRAME Design Studio when the business requires a more tailored design and launch engagement.</p>
+          </section>
+"""
 
     shopify_block = ""
-    if item.get("availability") == "Available" and item.get("shopifyProductUrl"):
-        shopify_url = escape(item["shopifyProductUrl"])
+    if commercial_status == "live" and commercial_url:
+        shopify_url = escape(commercial_url)
         shopify_block = (
             f'          <a class="button button--secondary" href="{shopify_url}" '
             f'rel="noopener noreferrer">View in Shopify</a>\n'
@@ -135,7 +152,7 @@ def build_static_body(item: dict, industry_label: str) -> str:
           </div>
           <h1 class="detail-title">{name}</h1>
           <p class="detail-description">{description}</p>
-          <div class="detail-actions" aria-label="Template actions">
+{commercial_sections}          <div class="detail-actions" aria-label="Template actions">
             <a class="button button--primary" href="{demo_url}">View working demo</a>
 {shopify_block}            <a class="button button--ghost" href="/#design-studio">Need customization? Design Studio</a>
             <a class="text-link detail-back" href="{library_href}">Back to library</a>
@@ -147,6 +164,8 @@ def build_static_body(item: dict, industry_label: str) -> str:
 def main() -> None:
     catalog = json.loads((ROOT / "data" / "templates.json").read_text(encoding="utf-8"))
     taxonomy = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
+    commerce = json.loads((ROOT / "data" / "commerce.json").read_text(encoding="utf-8"))
+    commerce_by_slug = {item["slug"]: item for item in commerce}
     labels = {item["id"]: item["label"] for item in taxonomy["industries"]}
 
     for item in catalog:
@@ -166,7 +185,8 @@ def main() -> None:
                 "Review details, explore the working demo, and purchase via Shopify."
             )
 
-        ld = build_product_ld(item, canonical)
+        commerce_record = commerce_by_slug[slug]
+        ld = build_product_ld(item, canonical, commerce_record)
         page = PAGE.format(
             meta_description=escape(meta_description),
             canonical=canonical,
@@ -176,7 +196,7 @@ def main() -> None:
             ld_json=json.dumps(ld, ensure_ascii=True, separators=(",", ":")),
             status_text=escape(f"{industry} · {item['category']}"),
             slug=escape(slug),
-            static_body=build_static_body(item, industry),
+            static_body=build_static_body(item, industry, commerce_record),
         )
         out = ROOT / "templates" / slug / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)

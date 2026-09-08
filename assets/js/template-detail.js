@@ -21,7 +21,7 @@ function slugFromPath() {
   return parts[templatesIndex + 1];
 }
 
-function buildHighlights(template, industryName) {
+function buildHighlights(template, industryName, commerce) {
   const highlights = [
     `Positioned for ${industryName} businesses in the ${template.category} specialty.`,
   ];
@@ -29,8 +29,8 @@ function buildHighlights(template, industryName) {
     highlights.push(`Covers common service themes such as ${template.tags.slice(0, 4).join(", ")}.`);
   }
   highlights.push("Includes a public working demo so you can evaluate the live experience before purchase.");
-  if (template.availability === "Available" && template.shopifyProductUrl) {
-    highlights.push("Available to purchase securely through Shopify.");
+  if (commerce?.commercialStatus === "live" && commerce.shopifyProductUrl) {
+    highlights.push("Available to purchase securely through the verified Shopify product path.");
   } else {
     highlights.push("Listed as a premium preview while the Shopify listing is prepared.");
   }
@@ -116,7 +116,7 @@ function addRelatedTemplates(content, actions, template, templates, taxonomy) {
   else content.append(section);
 }
 
-function enhanceStaticDetail(template, taxonomy, templates) {
+function enhanceStaticDetail(template, taxonomy, templates, commerce) {
   const industryName = industryLabel(taxonomy, template.industry);
   if (status) status.textContent = `${industryName} · ${template.category}`;
   if (root.dataset.enhanced === "true") return;
@@ -133,7 +133,7 @@ function enhanceStaticDetail(template, taxonomy, templates) {
     highlightsTitle.id = "detail-highlights-title";
     const list = document.createElement("ul");
     list.className = "detail-list";
-    buildHighlights(template, industryName).forEach((item) => addText(list, "li", "", item));
+    buildHighlights(template, industryName, commerce).forEach((item) => addText(list, "li", "", item));
     highlightsSection.append(list);
     if (actions) content.insertBefore(highlightsSection, actions);
     else content.append(highlightsSection);
@@ -187,26 +187,31 @@ async function loadDetail() {
   }
 
   try {
-    const [templatesResponse, taxonomyResponse] = await Promise.all([
+    const [templatesResponse, taxonomyResponse, commerceResponse] = await Promise.all([
       fetch("/data/templates.json", { credentials: "same-origin" }),
       fetch("/data/taxonomy.json", { credentials: "same-origin" }),
+      fetch("/data/commerce.json", { credentials: "same-origin" }),
     ]);
     if (!templatesResponse.ok) throw new Error(`Catalog request failed with status ${templatesResponse.status}`);
     if (!taxonomyResponse.ok) throw new Error(`Taxonomy request failed with status ${taxonomyResponse.status}`);
+    if (!commerceResponse.ok) throw new Error(`Commerce request failed with status ${commerceResponse.status}`);
 
     const templates = await templatesResponse.json();
     const taxonomy = await taxonomyResponse.json();
+    const commerce = await commerceResponse.json();
     if (!Array.isArray(templates)) throw new TypeError("Catalog must be an array");
     if (!taxonomy || !Array.isArray(taxonomy.industries)) throw new TypeError("Taxonomy must include an industries array");
+    if (!Array.isArray(commerce)) throw new TypeError("Commerce contract must be an array");
 
     const template = templates.find((item) => item.slug === slug);
-    if (!template) {
+    const commerceRecord = commerce.find((item) => item.slug === slug);
+    if (!template || !commerceRecord) {
       if (!hasStaticCore) renderNotFound(`No catalog match for “${slug}”.`);
       return;
     }
 
     if (hasStaticCore) {
-      enhanceStaticDetail(template, taxonomy, templates);
+      enhanceStaticDetail(template, taxonomy, templates, commerceRecord);
       return;
     }
 
