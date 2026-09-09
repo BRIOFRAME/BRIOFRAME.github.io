@@ -16,7 +16,6 @@
 - Do not expose paid source, customer files, credentials, Shopify exports, or delivery ZIPs publicly.
 - Do not invent Shopify product URLs, pricing, licensing terms, support promises, or package contents.
 - Preview templates must remain non-purchasable until a verified Shopify product destination exists.
-- Preserve all 35 premium demos and the retired status of the obsolete 90-template target.
 - The private delivery workspace must live outside the public repository.
 
 ---
@@ -126,7 +125,7 @@ Initialize `C:\Users\NOVA\BRIOFRAME-private-delivery` and validate it. Existing 
 
 - [ ] **Step 6: Document release promotion**
 
-Checklist sequence: demo verified → private package prepared → package validator green → Shopify product verified → commerce status promoted → public validators green → publish.
+Checklist sequence: demo verified â†’ private package prepared â†’ package validator green â†’ Shopify product verified â†’ commerce status promoted â†’ public validators green â†’ publish.
 
 - [ ] **Step 7: Commit Task 3**
 

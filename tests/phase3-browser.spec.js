@@ -42,6 +42,7 @@ test('mobile catalog, detail and recovery demos avoid horizontal overflow', asyn
 
   const paths = [
     '/',
+    '/design-studio/',
     '/templates/amara-braid-house/',
     '/demos/velvet-nail-atelier/',
     '/demos/amara-braid-house/',

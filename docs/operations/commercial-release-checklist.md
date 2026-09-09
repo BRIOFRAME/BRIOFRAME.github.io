@@ -47,5 +47,3 @@ Use this checklist before promoting any template from Preview to a live purchasa
 - `preview`: public evaluation only; no Shopify product URL is exposed.
 - `ready_for_sale`: private preparation may be complete, but the public page remains non-purchasable until Shopify verification.
 - `live`: exact Shopify product path is verified and matches the public catalog.
-
-The public catalog count is quality- and demand-driven. There is no 90-template completion target.
