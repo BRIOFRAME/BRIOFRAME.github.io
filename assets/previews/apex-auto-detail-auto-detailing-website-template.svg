@@ -8,7 +8,7 @@
   <text x="80" y="76" fill="#ff7a1a" font-family="Arial" font-size="20" font-weight="700" letter-spacing="3">APEX AUTO DETAIL</text>
   <rect x="92" y="96" width="762" height="486" rx="28" fill="#050607" stroke="#30343a" stroke-width="8" data-device-frame="laptop"/>
   <g clip-path="url(#screen)">
-    <image href="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=1800" x="118" y="123" width="710" height="430" preserveAspectRatio="xMidYMid slice"/>
+    <image href="/assets/screenshots/apex-auto-detail-auto-detailing-website-template-desktop.jpg" x="118" y="123" width="710" height="430" preserveAspectRatio="xMidYMid slice"/>
     <rect x="118" y="123" width="710" height="430" fill="#050607" opacity=".42"/>
     <text x="162" y="195" fill="#ff7a1a" font-family="Arial" font-size="17" font-weight="700">PRECISION DETAILING</text>
     <text x="162" y="258" fill="#fff" font-family="Georgia" font-size="52">Finish that earns</text>
@@ -19,7 +19,7 @@
   <path d="M62 585h822l-45 58H108z" fill="#aeb3b9"/>
   <rect x="850" y="151" width="245" height="462" rx="38" fill="#090b0d" stroke="#3b4148" stroke-width="8" data-device-frame="mobile"/>
   <g clip-path="url(#phone)">
-    <image href="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=900" x="871" y="179" width="203" height="404" preserveAspectRatio="xMidYMid slice"/>
+    <image href="/assets/screenshots/apex-auto-detail-auto-detailing-website-template-mobile.jpg" x="871" y="179" width="203" height="404" preserveAspectRatio="xMidYMid slice"/>
     <rect x="871" y="179" width="203" height="404" fill="#050607" opacity=".46"/>
     <text x="893" y="237" fill="#ff7a1a" font-family="Arial" font-size="12" font-weight="700">APEX AUTO</text>
     <text x="893" y="292" fill="#fff" font-family="Georgia" font-size="27">Precision</text>

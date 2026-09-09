@@ -8,7 +8,7 @@
   <rect x="70" y="70" width="900" height="585" rx="24" fill="#101012" data-device-frame="laptop"/>
   <rect x="88" y="88" width="864" height="535" rx="14" fill="#0d0d0e"/>
   <g clip-path="url(#screen)">
-    <image href="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=1600" x="108" y="108" width="790" height="493" preserveAspectRatio="xMidYMid slice"/>
+    <image href="/assets/screenshots/lumiere-photography-studio-photography-website-template-desktop.jpg" x="108" y="108" width="790" height="493" preserveAspectRatio="xMidYMid slice"/>
     <rect x="108" y="108" width="790" height="493" fill="url(#overlay)"/>
     <text x="152" y="170" fill="#d7b88a" font-family="Arial" font-size="15" font-weight="700" letter-spacing="4">LUMIERE PHOTOGRAPHY STUDIO</text>
     <text x="152" y="280" fill="#ffffff" font-family="Georgia" font-size="58">Stories in light.</text>
@@ -22,7 +22,7 @@
   <path d="M44 655h952l-42 35H86z" fill="#98948d"/>
   <rect x="815" y="145" width="280" height="445" rx="34" fill="#101012" data-device-frame="mobile"/>
   <g clip-path="url(#phone)">
-    <image href="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=86&amp;w=900" x="848" y="177" width="214" height="380" preserveAspectRatio="xMidYMid slice"/>
+    <image href="/assets/screenshots/lumiere-photography-studio-photography-website-template-mobile.jpg" x="848" y="177" width="214" height="380" preserveAspectRatio="xMidYMid slice"/>
     <rect x="848" y="177" width="214" height="380" fill="#09090b" opacity=".48"/>
     <text x="871" y="221" fill="#d7b88a" font-family="Arial" font-size="10" font-weight="700" letter-spacing="2">LUMIERE</text>
     <text x="871" y="314" fill="#ffffff" font-family="Georgia" font-size="30">Images that</text>
