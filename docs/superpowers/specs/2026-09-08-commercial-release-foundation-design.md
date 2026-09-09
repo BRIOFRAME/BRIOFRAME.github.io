@@ -30,10 +30,9 @@ Validation must fail when:
 - manifest slugs do not match the public catalog.
 
 ## Expansion contract
-Future premium modules—AI/chat, booking, CRM/email capture, ecommerce/payments, memberships/subscriptions, multilingual support, analytics/conversion, accessibility, voice/Alexa, and industry modules—attach through explicit extension metadata rather than requiring core catalog redesign.
+Future premium modulesâ€”AI/chat, booking, CRM/email capture, ecommerce/payments, memberships/subscriptions, multilingual support, analytics/conversion, accessibility, voice/Alexa, and industry modulesâ€”attach through explicit extension metadata rather than requiring core catalog redesign.
 
 ## Completion criteria
 This foundation is complete when the public catalog validates against the commerce manifest, commercial states render correctly, the private workspace and package validator exist outside GitHub, protected-source leakage checks pass, existing Phase 3/4 regressions remain green, and no unverified Shopify link is exposed.
 
 ## Non-goals
-No return to a 90-template target. No filler templates. No invented Shopify products, prices, licenses, support promises, or delivery claims. No paid source packages committed to the public repository.

@@ -2,7 +2,6 @@
 
 ## Locked Direction
 - The active public milestone is **35 premium templates**.
-- The former fixed 90-template target is retired and must not drive future work.
 - Future catalog expansion happens only when a new template adds clear commercial or industry value.
 - Quality, visual distinction, conversion usefulness, and maintainability take priority over inventory count.
 
