@@ -1,9 +1,18 @@
 from pathlib import Path
 import json
+import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
+
+def valid_local_photo(value: str) -> bool:
+    if not value.startswith("/assets/demo-media/") or not value.endswith(".jpg"):
+        return False
+    target = ROOT / value.lstrip("/")
+    return target.is_file() and target.stat().st_size > 10_000
+
+pattern = re.compile(r'"heroImage":"(/assets/demo-media/[^"]+\.jpg)')
 
 runtime_path = ROOT / "assets" / "js" / "demo-runtime.js"
 css_path = ROOT / "assets" / "css" / "demo-runtime.css"
@@ -107,8 +116,8 @@ for slug, visual in (
 ):
     item = config.get(slug, {})
     hero_image = item.get("heroImage", "")
-    if not hero_image.startswith("https://images.unsplash.com/"):
-        errors.append(f"{slug} must use a verified photographic hero image")
+    if not valid_local_photo(hero_image):
+        errors.append(f"{slug} must use a verified local photographic hero image")
     if item.get("visual") != visual:
         errors.append(f"{slug} must retain the {visual} visual identity")
 
@@ -127,8 +136,9 @@ for slug, visual in (
         errors.append(f"missing inline premium demo for {slug}")
         continue
     demo = demo_path.read_text(encoding="utf-8")
-    if '\"heroImage\":\"https://images.unsplash.com/' not in demo:
-        errors.append(f"{slug} must use a verified photographic hero image")
+    match = pattern.search(demo)
+    if not match or not valid_local_photo(match.group(1)):
+        errors.append(f"{slug} must use a verified local photographic hero image")
     if f'\"visual\":\"{visual}\"' not in demo:
         errors.append(f"{slug} must retain the {visual} visual identity")
 
@@ -139,8 +149,9 @@ if not aerolustre_path.is_file():
     errors.append("missing AeroLustre aircraft-detailing demo")
 else:
     aerolustre = aerolustre_path.read_text(encoding="utf-8")
-    if '\"heroImage\":\"https://images.unsplash.com/' not in aerolustre:
-        errors.append("aerolustre-aircraft-detailing must use a verified photographic hero image")
+    match = pattern.search(aerolustre)
+    if not match or not valid_local_photo(match.group(1)):
+        errors.append("aerolustre-aircraft-detailing must use a verified local photographic hero image")
     if '\"visual\":\"aviation\"' not in aerolustre:
         errors.append("aerolustre-aircraft-detailing must retain the aviation visual identity")
 

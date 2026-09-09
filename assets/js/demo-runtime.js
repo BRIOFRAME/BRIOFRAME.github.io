@@ -1,3 +1,29 @@
+function industryFeature(cfg){
+  const roles=cfg.sectionRoles||["capabilities","proof"];
+  const map={
+    "cinematic-aviation":["MISSION CONTROL","Operational readiness, fleet coordination and safety proof belong in the foreground—not buried in a generic services grid."],
+    "authority-legal":["CASE STRATEGY","Practice focus, attorney credibility and evidence of process should establish authority before the consultation ask."],
+    "performance-auto":["RESULTS IN MOTION","Transformation proof, protection packages and booking logic should feel like a performance experience."],
+    "immersive-villa":["THE STAY, BEFORE THE STAY","Property storytelling, cinematic media and a direct availability path should carry the experience."],
+    "trust-healthcare":["CARE WITH CONTEXT","Care model, physician access and appointment expectations should reduce uncertainty before a patient acts."]
+  };
+  const item=map[cfg.architecture] || [cfg.kicker, cfg.proof];
+  return `<section class="industry-feature" data-section-role="${roles[0]}"><p class="kicker">${item[0]}</p><h2>${item[1]}</h2><div class="industry-rule" aria-hidden="true"></div></section>`;
+}
+
+function optionalModules(cfg){
+  const modules=cfg.modules||[];
+  const blocks=[];
+  if(modules.includes("media-player")&&cfg.videoSrc){
+    blocks.push(`<section class="media-module" data-module="media-player"><div class="section-head"><p class="kicker">IMMERSIVE PREVIEW</p><div><h2>See the experience in motion.</h2><p>Sample footage demonstrates the media-ready variant and can be replaced with client-owned video.</p></div></div><video controls preload="metadata" playsinline poster="${cfg.videoPoster||cfg.heroImage}"><source src="${cfg.videoSrc}" type="video/mp4">Your browser does not support HTML5 video.</video></section>`);
+  }
+  if(modules.includes("image-slider")&&Array.isArray(cfg.galleryImages)&&cfg.galleryImages.length>1){
+    const slides=cfg.galleryImages.map((src,i)=>`<figure class="slider-slide${i===0?" is-active":""}" data-slide="${i}"><img src="${src}" alt="${cfg.name} gallery image ${i+1}" loading="lazy"></figure>`).join("");
+    blocks.push(`<section class="slider-module" data-module="image-slider"><div class="slider-head"><div><p class="kicker">VISUAL GALLERY</p><h2>Explore the setting.</h2></div><div class="slider-controls"><button type="button" data-slider-prev aria-label="Previous image">←</button><button type="button" data-slider-next aria-label="Next image">→</button></div></div><div class="slider-stage">${slides}</div></section>`);
+  }
+  return blocks.join("");
+}
+
 async function startDemo() {
   const slug = location.pathname.split("/").filter(Boolean).pop();
   const fallback = document.querySelector(".runtime-fallback");
@@ -55,7 +81,8 @@ async function startDemo() {
     document.documentElement.style.setProperty("--fg", cfg.fg);
     document.documentElement.style.setProperty("--accent", cfg.accent);
     document.documentElement.style.setProperty("--soft", cfg.soft);
-    document.body.className = `layout-${cfg.layout}`;
+    document.body.className = `layout-${cfg.layout} architecture-${cfg.architecture || "standard"}`;
+    document.documentElement.dataset.layoutFamily = cfg.architecture || "standard";
 
     document.body.innerHTML = `
       <a class="skip-link" href="#main-content">Skip to demo content</a>
@@ -82,7 +109,8 @@ async function startDemo() {
           <div class="visual" aria-hidden="true">${heroVisual}</div>
         </section>
         <section class="metrics" aria-label="Key proof points">${metrics}</section>
-        <section class="content" id="services" aria-labelledby="services-title">
+        ${industryFeature(cfg)}
+        <section class="content" id="services" data-section-role="${(cfg.sectionRoles||[])[0] || "service-path"}" aria-labelledby="services-title">
           <div class="section-head">
             <p class="kicker">BUILT AROUND THE DECISION</p>
             <div>
@@ -92,10 +120,11 @@ async function startDemo() {
           </div>
           <div class="services">${services}</div>
         </section>
-        <section class="proof" id="proof" aria-labelledby="proof-title">
+        <section class="proof" id="proof" data-section-role="${(cfg.sectionRoles||[])[1] || "proof"}" aria-labelledby="proof-title">
           <div><p class="kicker">BRIOFRAME CONVERSION LOGIC</p><h2 id="proof-title">Specific beats generic.</h2></div>
           <div class="proof-card"><p>${cfg.proof}</p></div>
         </section>
+        ${optionalModules(cfg)}
         <section class="contact" id="contact" aria-labelledby="contact-title">
           <div>
             <p class="kicker">NEXT STEP</p>
@@ -115,6 +144,14 @@ async function startDemo() {
       </main>
       <footer><span>© 2026 ${cfg.name} demo concept.</span><span>Designed for evaluation by BRIOFRAME Template Studio.</span></footer>`;
 
+
+    document.querySelectorAll('[data-module="image-slider"]').forEach((slider)=>{
+      const slides=[...slider.querySelectorAll('[data-slide]')];
+      let index=0;
+      const show=(next)=>{slides[index].classList.remove('is-active');index=(next+slides.length)%slides.length;slides[index].classList.add('is-active');};
+      slider.querySelector('[data-slider-prev]')?.addEventListener('click',()=>show(index-1));
+      slider.querySelector('[data-slider-next]')?.addEventListener('click',()=>show(index+1));
+    });
     document.querySelector("[data-demo-form]").addEventListener("submit", (event) => {
       event.preventDefault();
       document.querySelector("[data-form-status]").textContent = "Demo complete — no information was sent.";
