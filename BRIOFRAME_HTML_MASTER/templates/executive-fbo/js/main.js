@@ -87,6 +87,13 @@
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var status = form.querySelector("[data-bf-form-status]");
+      if (typeof form.reportValidity === "function" && !form.reportValidity()) {
+        if (status) {
+          status.textContent = "Please complete the required fields before submitting this simulated request.";
+          status.hidden = false;
+        }
+        return;
+      }
       if (status) {
         status.textContent =
           "Thank you. This is a simulated demonstration form — no data was transmitted. Connect your operations endpoint before production use.";

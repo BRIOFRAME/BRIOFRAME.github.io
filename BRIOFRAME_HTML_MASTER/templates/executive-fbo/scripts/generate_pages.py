@@ -599,7 +599,7 @@ def form_service_request() -> None:
             <h2 class="bf-heading-serif">Service Request Form</h2>
             <p class="bf-form__note">* Required field · Simulated demo — nothing is transmitted.</p>
           </div>
-          <form class="bf-form bf-form--grid" data-bf-demo-form novalidate>
+          <form class="bf-form bf-form--grid" data-bf-demo-form>
             <label>Request Type *<select name="request_type" required><option value="">Select a service</option><option>Aircraft Arrival</option><option>Concierge</option><option>Fueling</option><option>Hangar</option><option>Ground Handling</option><option>Other</option></select></label>
             <label>Aircraft Type<select name="aircraft"><option value="">e.g., Gulfstream G650</option><option>Light Jet</option><option>Midsize Jet</option><option>Heavy Jet</option><option>Turboprop</option></select></label>
             <label>Arrival Date *<input type="date" name="arrival_date" required></label>
@@ -666,7 +666,7 @@ def form_arrival_notification() -> None:
             </div>
             <p class="bf-form__note">Fields marked with * are required.</p>
           </div>
-          <form class="bf-form bf-form--grid" data-bf-demo-form novalidate>
+          <form class="bf-form bf-form--grid" data-bf-demo-form>
             <label>Aircraft Registration *<input type="text" name="registration" required placeholder="e.g. N123AB" autocomplete="off"></label>
             <label>Flight Number<input type="text" name="flight" placeholder="e.g. DAL123 (if applicable)" autocomplete="off"></label>
             <label>Estimated Arrival Date *<input type="date" name="eta_date" required></label>
