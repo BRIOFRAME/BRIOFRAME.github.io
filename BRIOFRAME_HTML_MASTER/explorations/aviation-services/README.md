@@ -27,6 +27,14 @@ Isolated HTML-first BRIOFRAME exploration workspace.
 - Playfair Display + DM Sans
 - Use existing BRIOFRAME identity assets from Links100 (do not recreate the logo)
 
+## Approved directions (Nova)
+
+| Concept | Approved option | Build status |
+|---|---|---|
+| Executive FBO | **Option A** | Active HTML master: `../templates/executive-fbo/` |
+| Private Terminal Editorial | **Option A** | Preserved here only — future separate build |
+| Aviation Operations | — | **HOLD** (too busy; refine later) |
+
 ## Current status
 
-See `DIFFUI-RESULTS.md`. Diffui MCP was **not connected** on the initial controlled test run; concept folders are empty placeholders.
+Diffui exploration **VERIFIED** — see `DIFFUI-RESULTS.md`. Engineering continues in `templates/executive-fbo/` for FBO Option A only.
