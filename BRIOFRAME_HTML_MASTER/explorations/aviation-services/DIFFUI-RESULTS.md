@@ -1,9 +1,10 @@
 # BRIOFRAME Aviation Services — Diffui Exploration Results
 
-**Date:** 2026-09-21  
+**Date:** 2026-09-22 (resumed from 2026-09-21 blocker)  
 **Agent:** Cursor Cloud Agent (controlled Diffui test)  
 **Identity:** BRIOFRAME Identity B / “Measured Leg”  
-**Scope:** Isolated HTML-first exploration only. No Shopify publish/deploy. No production overwrite.
+**Scope:** Isolated HTML-first exploration only. No Shopify publish/deploy. No production overwrite.  
+**No winner selected** (per brief).
 
 ---
 
@@ -11,217 +12,227 @@
 
 | State | Reached? | Evidence |
 |---|---|---|
-| **CONNECTED** | **NO** | No `diffui` namespace in the Cloud Agent MCP catalog. Pattern search for Diffui tools returned zero matches. Hosted endpoint `https://diffui.ai/mcp` responds `401` / `missing bearer token`. No `~/.diffui/credentials`, no `DIFFUI_API_KEY` env secret, no Diffui entry in agent MCP config. |
-| **SUBMITTED** | **NO** | Blocked by CONNECTED failure. Prompt was not transmitted. |
-| **RUNNING** | **NO** | No Diffui job/process started. |
-| **COMPLETED** | **NO** | No Diffui completion confirmation. |
-| **VERIFIED** | **PARTIAL (blocker only)** | Cursor inspected MCP catalog, Composio tool search, Diffui hosted MCP endpoint, local credentials paths, and workspace layout. No concept artifacts exist to verify. |
+| **CONNECTED** | **YES** | `DIFFUI_API_KEY` injected. Hosted MCP `https://diffui.ai/mcp` `initialize` returned 200 with Diffui instructions. `whoami` → authenticated as `dw11411@gmail.com`. `tools/list` returned 23 Diffui tools. *(Note: Diffui is still not registered as a native Cursor MCP namespace in this Cloud Agent catalog; connection was via authenticated hosted MCP HTTP using the authorized API key.)* |
+| **SUBMITTED** | **YES** | `create_project` succeeded. Three separate `generate_options` calls submitted (one prompt node per concept). |
+| **RUNNING** | **YES** | Each `generate_options` blocked until images ready (~30–36s each). |
+| **COMPLETED** | **YES** | Diffui returned success for all three: “2 design options generated” each; canvas state shows 3 prompt nodes × 2 images, all `status: ready`. |
+| **VERIFIED** | **YES** | Cursor downloaded all 6 WebPs, converted to PNG, and visually inspected every option via image read. Findings recorded below. |
 
-**Highest honest state:** connection inspection complete; Diffui **not connected**.
+**Highest honest state:** **VERIFIED**
 
 ---
 
-## Connection inspection log
+## Diffui run identity
 
-### MCP catalog (this Cloud Agent)
+| Field | Value |
+|---|---|
+| Project ID | `67a6e9ac-6f86-4a22-b1e5-fae12b381c2f` |
+| Canvas URL | https://diffui.ai/app/canvas/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f |
+| Account | `dw11411@gmail.com` |
+| Brands on account | none (`list_brands` → empty; no `brand_id` applied) |
+| Generation mode | 3× `generate_options`, `count=2`, `1440×900`, `style_randomize=false` |
+| Auto top-up | not enabled |
+| Regenerations | none (single controlled pass) |
 
-Available namespaces at inspection time:
+### Prompt nodes (canvas)
 
-- `Composio` (ready after `mcp_auth`)
-- `cursor`
-- `cursor-cloud`
-- `cursor-subscriptions`
-
-**Diffui namespace:** absent.
-
-Composio plugin MCP config present:
-
-```json
-{ "mcpServers": { "composio": { "url": "https://connect.composio.dev/mcp" } } }
-```
-
-No Diffui hosted MCP config (`url: https://diffui.ai/mcp` + `Authorization: Bearer dui_...`) was found for this environment.
-
-### Composio search for “Diffui”
-
-`COMPOSIO_SEARCH_TOOLS` with Diffui-targeted queries did **not** return a Diffui toolkit. Closest unrelated substitutes (intentionally **not** used):
-
-- `magic_patterns_mcp` (not Diffui; no active connection)
-- `htmlcss_to_image` (not Diffui; no active connection)
-- `higgsfield_mcp` (image/video gen; not Diffui; no active connection)
-- `canva_mcp` (not Diffui)
-
-Per task rules, Cursor did **not** substitute Magic Patterns, Canva, Higgsfield, or hand-authored “fake Diffui” concepts.
-
-### Diffui hosted MCP probe
-
-```text
-GET https://diffui.ai/mcp
-→ HTTP 401
-→ {"error":{"code":-32001,"message":"missing bearer token"},"id":null,"jsonrpc":"2.0"}
-```
-
-Diffui requires Cursor-style config:
-
-```json
-{
-  "mcpServers": {
-    "diffui": {
-      "url": "https://diffui.ai/mcp",
-      "headers": {
-        "Authorization": "Bearer dui_..."
-      }
-    }
-  }
-}
-```
-
-### Cost / spend control
-
-- Diffui auto top-up: **not enabled** (no Diffui session opened).
-- Additional Diffui spend: **not authorized / not incurred**.
-- Repeated/regenerative Diffui runs: **not initiated**.
-
-**DIFFUI COST:** `$0.00` (no Diffui API calls authenticated or billed).
+1. `prompt-1` — Concept A Executive FBO  
+2. `prompt-1f947371-e9f0-406a-a4cc-070b02bad920` — Concept B Aviation Operations  
+3. `prompt-7e1fa824-4b2f-4c7b-a455-827486408cea` — Concept C Private Terminal Editorial  
 
 ---
 
 ## Files / artifacts generated
 
-### Created by this run (scaffolding only)
-
 ```text
-BRIOFRAME_HTML_MASTER/
-  explorations/
-    aviation-services/
-      README.md
-      DIFFUI-RESULTS.md          ← this file
-      concept-a-executive-fbo/
-        .gitkeep
-        STATUS.md
-      concept-b-aviation-operations/
-        .gitkeep
-        STATUS.md
-      concept-c-private-terminal/
-        .gitkeep
-        STATUS.md
+BRIOFRAME_HTML_MASTER/explorations/aviation-services/
+  DIFFUI-RESULTS.md                 ← this file
+  README.md
+  diffui-run-manifest.json
+  concept-a-executive-fbo/
+    STATUS.md
+    diffui-manifest.json
+    diffui-options/
+      concept-a-option-a-42eab6ff.webp|.png
+      concept-a-option-b-66eb0b09.webp|.png
+  concept-b-aviation-operations/
+    STATUS.md
+    diffui-manifest.json
+    diffui-options/
+      concept-b-option-a-7f819f8d.webp|.png
+      concept-b-option-b-f4906b82.webp|.png
+  concept-c-private-terminal/
+    STATUS.md
+    diffui-manifest.json
+    diffui-options/
+      concept-c-option-a-7a1a5099.webp|.png
+      concept-c-option-b-3cb511d6.webp|.png
 ```
 
-### Diffui-generated design/code artifacts
+Also downloaded under gitignored `/workspace/.diffui/` for local MCP display convention.
 
-**None.** Concept folders are empty placeholders awaiting a connected Diffui run.
+**No production HTML/CSS/JS site files were generated by Diffui** — output is visual design mockups (homepage compositions), not implementable code packages. `create_build_link` was intentionally not called (no winner selection).
 
 ---
 
 ## Concept A — Executive FBO — architecture summary
 
-**Not available.** Diffui did not generate Concept A. No architecture, hero composition, or code to summarize.
+**Visual character observed:** Warm premium FBO; cream/ink/gold; sunset aircraft arrival photography; strong Service Request / Arrival Notification CTAs.
 
-Planned brief (for the future Diffui submission only; not executed):
+### Option A (`42eab6ff…`) — branded **BRIOFRAME**
+- **Hero:** Full-bleed golden-hour private jet + glass “EXECUTIVE FBO” building; left-aligned serif headline (“Effortless Arrival. Exceptional Service.”); dual CTAs (ink Service Request + gold Arrival Notification).
+- **Below hero:** Horizontal numbered service journey rail (Aircraft Arrival → … → Hangar/Services) — strong FBO narrative architecture.
+- **Mid:** Split hospitality band (lounge photo + amenities list with gold icons).
+- **Footer CTA:** “Let Us Know You’re Arriving” + Service Request.
+- **Architecture note:** Desktop homepage long-scroll with journey rail as primary differentiator vs B/C.
 
-- Premium executive aviation / arrival + concierge emphasis
-- Warm Measured Leg palette (cream / deep ink / warm gold)
-- Distinct hero + service-request CTA
+### Option B (`66eb0b09…`) — branded **SKYHARBOR EXECUTIVE FBO** (off-brief brand)
+- Similar FBO program, but **wrong brand name**.
+- Hero centered jet; service journey as icon timeline; triptych hospitality mid-band; navy conversion footer.
+- **Architecture note:** Still Executive FBO, but branding invalid for BRIOFRAME production path until renamed/retargeted.
 
 ---
 
 ## Concept B — Aviation Operations — architecture summary
 
-**Not available.** Diffui did not generate Concept B.
+**Visual character observed:** Cream operational pages (not dark); ramp/ground-ops photography; Rapid Assistance CTAs; capability inventories; trust/cert language.
 
-Planned brief (not executed):
+### Option A (`7f819f8d…`) — branded **BRIOFRAME**
+- **Hero:** Split — left editorial/ops headline + Rapid Assistance; right commercial jet + ground crew/tug.
+- **Below:** Value strip (“Prepared for the next critical movement”) + **6-column capabilities grid** (AOG, Ground Ops, Maintenance, Parts, Fueling, Flight Support).
+- **Lower:** Certifications/trust (IS-BAH / ISO 9001 / EASA) + Rapid Assistance panel over engine imagery.
+- **Architecture note:** Most “information-efficient / technical” of the three; grid is denser than Ideal Brio “avoid excessive cards” guidance — useful structure, needs thinning in HTML.
 
-- Operational / AOG / ground ops / maintenance coordination
-- Precise, information-efficient architecture
-- Rapid assistance CTA
+### Option B (`f4906b82…`) — branded **BRIOFRAME**
+- **Hero:** Split cream left / ramp photo right (worker + aircraft).
+- **Below:** Operational readiness **timeline** (not a card grid) then six numbered capability columns.
+- **Architecture note:** Timeline readiness band is a strong reusable ops pattern; less “SaaS dashboard” than Option A’s value strip.
 
 ---
 
 ## Concept C — Private Terminal Editorial — architecture summary
 
-**Not available.** Diffui did not generate Concept C.
+**Visual character observed:** Spacious cream editorial; cinematic terminal interiors; restrained CTAs; hospitality storytelling.
 
-Planned brief (not executed):
+### Option A (`7a1a5099…`) — branded **BRIOFRAME**
+- **Hero composition:** Full-bleed terminal interior looking to private jet — **text sits below the image** (not overlaid), maximizing cinematic media plane.
+- Nav: Terminal Experience / Hospitality / Destinations / Experience + Service Request.
+- Editorial headline under hero: “Arrive into a different sense of time.” + “Request a reservation”.
+- Starts “THE TERMINAL EXPERIENCE / More than a terminal.” section.
+- **Architecture note:** Clearest editorial/spacious architecture; best match to “no hero overlays” brief among the six.
 
-- Cinematic private-terminal editorial
-- Hospitality + destinations storytelling
-- Reservations / service-request path
+### Option B (`3cb511d6…`) — branded **AVIORA** (off-brief brand)
+- Full-bleed interior with **text overlaid on hero**; passengers walking to jet; Reservations CTA.
+- Elegant quiet-luxury look, but **wrong brand** and uses hero text overlay (conflicts with “no hero overlays” preference).
 
 ---
 
 ## Responsive readiness
 
-**Not assessable** — no generated HTML/CSS.
+- Artifacts are **desktop mockup frames (1440×900)** only.
+- No mobile layouts, breakpoints, or interaction states were generated.
+- Responsive behavior must be engineered in HTML/CSS later; do not assume Diffui frames are mobile-ready.
 
 ## Accessibility observations
 
-**Not assessable** — no generated UI. Future Diffui output must still be checked for:
+From visual inspection only (no DOM):
 
-- focus order / visible focus
-- contrast on cream / ink / gold
-- `prefers-reduced-motion`
-- semantic landmarks and CTA labeling
+- Cream backgrounds with deep-ink type generally support contrast directionally; gold-on-cream CTAs/links need WCAG checks in implementation.
+- Several designs use gold text links as primary CTAs — verify contrast and focus states.
+- Icon-only or thin-line service journey items need visible text labels (most do include labels — keep them).
+- Motion was not present in static frames; `prefers-reduced-motion` must be designed in implementation, not assumed from Diffui.
+- Fake/placeholder logos and approximated wing marks must be replaced with approved Links100 BRIOFRAME identity assets (do not ship approximated logos).
 
 ## Implementation feasibility
 
-**Blocked upstream.** Once Diffui connects and completes one controlled run, Cursor can assess HTML/CSS/JS reproducibility against BRIOFRAME’s HTML-first pipeline.
+- **High** for translating inspected layouts into production HTML/CSS/JS (semantic sections match real page architecture).
+- Diffui did **not** emit HTML. Next production step is Cursor HTML master build from chosen directions — **after** Nova/Darron review — not automatic.
+- Certification marks (IS-BAH/ISO/EASA) in Concept B Option A must not be advertised unless the customer actually holds them.
 
-## Reusable components
+## Reusable components (preserve across concepts)
 
-None from Diffui. Scaffolding folder layout is reusable for the resumed run.
+1. Dual-CTA arrival/service request pattern (Concept A)  
+2. Horizontal service-journey rail / icon timeline (Concept A)  
+3. Split ops hero (copy left / ramp imagery right) (Concept B)  
+4. Operational readiness timeline (Concept B Option B)  
+5. Capability inventory (thin, not card-heavy) (Concept B)  
+6. Editorial media-first hero with type below image (Concept C Option A)  
+7. Quiet reservation text CTA + cream field system (Concept C)  
+8. Measured Leg cream/ink/gold token set as shared CSS variables  
 
 ## Missing / broken elements
 
-- Diffui MCP connection on this Cloud Agent
-- Diffui API bearer token (`DIFFUI_API_KEY` / `dui_...`)
-- All three concept artifacts
-- Cost/balance readout from Diffui (unreachable without auth)
+- No HTML/CSS/JS implementation artifacts  
+- No mobile compositions  
+- No real BRIOFRAME logo asset wiring (Diffui invented marks)  
+- No Links100 asset pipeline integration  
+- Concept A Option B brand = SKYHARBOR (wrong)  
+- Concept C Option B brand = AVIORA (wrong)  
+- Exact Diffui dollar cost not exposed via MCP tools (billing UI not queried)  
+- Native Diffui MCP namespace still absent from Cloud Agent catalog (HTTP+key workaround used)
 
 ## External dependencies
 
-Required to proceed:
+- Diffui hosted MCP + `DIFFUI_API_KEY`  
+- Diffui file CDN URLs for generations (downloaded locally)  
+- Future: Links100 BRIOFRAME identity assets  
+- Google fonts (Playfair Display, DM Sans) at implementation time  
 
-1. Diffui account API key (`dui_...`)
-2. Diffui MCP registered on **this** Cloud Agent environment (hosted `https://diffui.ai/mcp`)
-3. Existing Diffui balance only (no auto top-up)
+## Maintenance problems / risks
 
-## Maintenance problems
-
-None introduced to Shopify production or public demos. Exploration path is isolated under `BRIOFRAME_HTML_MASTER/explorations/`.
+- Shipping approximated logos or wrong brand names (SKYHARBOR / AVIORA)  
+- Over-claiming certifications  
+- Treating dense 6-up capability grids as final without editorial thinning  
+- Keeping large PNG/WebP exploration binaries in long-term repo without retention policy  
+- Re-running Diffui without review (cost control)
 
 ## What can move directly into production HTML
 
-**Nothing yet** — no Diffui artifacts.
+Architecture patterns from **Concept A Option A**, **Concept B Option A/B**, and **Concept C Option A** as structural references (sections, hierarchy, CTA placement, cream/ink/gold system). Not pixel-perfect CSS dumps — intentional HTML reconstruction.
 
 ## What should go to Lovable for visual refinement
 
-**Nothing yet** — stop condition forbids automatic Lovable handoff.
+- Polish of Concept C Option A editorial rhythm (spacing, type scale, destination/hospitality storytelling bands beyond first fold)  
+- Softening Concept B capability density into a more restrained ops layout while keeping Rapid Assistance CTA  
+- Hospitality mid-band photography treatment for Concept A (after brand-correct logo swap)  
 
-## What should be rejected
+Do **not** auto-send; wait for Nova/Darron.
 
-- Substituting Magic Patterns / Canva / Higgsfield / Cursor-authored HTML as if they were Diffui output
-- Regenerating repeatedly without a first verified Diffui completion
-- Writing into active Shopify storefront paths
-- Publishing / deploying exploration work
+## What should be rejected (or quarantined)
+
+- **Concept A Option B** as-branded (SKYHARBOR) — reject brand; optional architecture salvage only after rename  
+- **Concept C Option B** as-branded (AVIORA) + hero text overlay — reject for BRIOFRAME identity path  
+- Any approximated wing/logo marks — replace with approved assets  
+- Any claim of live operational telemetry / unverified certifications  
+- Shopify-specific dependencies (none present; keep it that way)
 
 ---
 
-## Requested unblocking actions (recorded)
+## DIFFUI COST
 
-Environment setup actions requested for the user:
-
-1. Add secret `DIFFUI_API_KEY`
-2. External action: register Diffui MCP on this Cloud Agent and confirm namespace readiness
-
-After Diffui shows as **CONNECTED**, resume with a **single** controlled submission for Concepts A/B/C (separate Diffui prompt nodes, one project), then Cursor inspection → update this file through VERIFIED.
+- **Spend type:** Authorized controlled exploration only (resume of blocked task).  
+- **Calls billed (approx.):** 1× `create_project` + 3× `generate_options` (`count=2` each) → **6 design images**.  
+- **Exact USD:** **Unknown from MCP** (no balance/cost tool returned a dollar figure).  
+- **Auto top-up:** not used.  
+- **Extra regenerations:** none.
 
 ---
 
 ## STOP CONDITION COMPLIANCE
 
-- Three Diffui concepts: **not generated** (blocked)
-- No Shopify conversion
-- No publish / deploy
-- No second Diffui generation
-- No automatic Lovable send
-- Artifacts (scaffolding + this report) left intact for Nova / Darron review
+- Three concepts generated and inspected: **done**  
+- No winner selected  
+- No Shopify conversion  
+- No publish / deploy  
+- No second Diffui generation pass  
+- No automatic Lovable send  
+- Artifacts left intact for Nova / Darron review  
+
+---
+
+## Recommended next production step (after human review)
+
+1. Nova/Darron review canvas + local options; preserve useful architecture from all three (no forced single winner).  
+2. Cursor implements HTML/CSS/JS master under `BRIOFRAME_HTML_MASTER` using approved Links100 identity assets.  
+3. Optional Lovable refinement only if explicitly requested on selected directions.  
+4. Shopify remains a separate later track — not this exploration.
