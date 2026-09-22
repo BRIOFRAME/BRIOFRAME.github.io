@@ -261,13 +261,13 @@
 
 .bf-journey__tab {
   flex: 1 0 auto;
-  min-width: max(9rem, 14vw);
+  min-width: max(7.5rem, 10.5vw);
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.35rem;
-  padding: 1rem 1.15rem;
+  padding: 0.85rem 0.85rem;
   border: 0;
   border-right: 1px solid var(--bf-line);
   background: transparent;
@@ -1114,10 +1114,10 @@
   display: flex !important;
   align-items: flex-start;
   gap: 0.65rem;
-  text-transform: none;
-  letter-spacing: 0;
-  font-weight: 500;
-  font-size: 0.875rem;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
 }
 
 .bf-form__check input {
