@@ -1,0 +1,87 @@
+{
+  "projectId": "67a6e9ac-6f86-4a22-b1e5-fae12b381c2f",
+  "canvasUrl": "https://diffui.ai/app/canvas/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f",
+  "concepts": [
+    {
+      "folder": "concept-a-executive-fbo",
+      "letter": "A",
+      "promptNodeIds": [
+        "prompt-1"
+      ],
+      "options": [
+        {
+          "label": "Option A",
+          "imageId": "42eab6ff-151d-4069-a7a9-02f6d90cb082",
+          "promptNodeId": "prompt-1",
+          "url": "https://diffui.ai/files/generations/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f/42eab6ff-151d-4069-a7a9-02f6d90cb082.webp",
+          "local_diffui": "/workspace/.diffui/concept-a-option-a-42eab6ff.webp",
+          "local_concept": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-a-executive-fbo/diffui-options/concept-a-option-a-42eab6ff.webp",
+          "bytes": 162000
+        },
+        {
+          "label": "Option B",
+          "imageId": "66eb0b09-fc96-4d99-8043-799f1944436b",
+          "promptNodeId": "prompt-1",
+          "url": "https://diffui.ai/files/generations/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f/66eb0b09-fc96-4d99-8043-799f1944436b.webp",
+          "local_diffui": "/workspace/.diffui/concept-a-option-b-66eb0b09.webp",
+          "local_concept": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-a-executive-fbo/diffui-options/concept-a-option-b-66eb0b09.webp",
+          "bytes": 151218
+        }
+      ]
+    },
+    {
+      "folder": "concept-b-aviation-operations",
+      "letter": "B",
+      "promptNodeIds": [
+        "prompt-1f947371-e9f0-406a-a4cc-070b02bad920"
+      ],
+      "options": [
+        {
+          "label": "Option A",
+          "imageId": "7f819f8d-6241-4df6-8cf7-8012f2de7288",
+          "promptNodeId": "prompt-1f947371-e9f0-406a-a4cc-070b02bad920",
+          "url": "https://diffui.ai/files/generations/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f/7f819f8d-6241-4df6-8cf7-8012f2de7288.webp",
+          "local_diffui": "/workspace/.diffui/concept-b-option-a-7f819f8d.webp",
+          "local_concept": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-b-aviation-operations/diffui-options/concept-b-option-a-7f819f8d.webp",
+          "bytes": 138372
+        },
+        {
+          "label": "Option B",
+          "imageId": "f4906b82-9dc1-42e3-a9b4-5fde94567b05",
+          "promptNodeId": "prompt-1f947371-e9f0-406a-a4cc-070b02bad920",
+          "url": "https://diffui.ai/files/generations/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f/f4906b82-9dc1-42e3-a9b4-5fde94567b05.webp",
+          "local_diffui": "/workspace/.diffui/concept-b-option-b-f4906b82.webp",
+          "local_concept": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-b-aviation-operations/diffui-options/concept-b-option-b-f4906b82.webp",
+          "bytes": 144086
+        }
+      ]
+    },
+    {
+      "folder": "concept-c-private-terminal",
+      "letter": "C",
+      "promptNodeIds": [
+        "prompt-7e1fa824-4b2f-4c7b-a455-827486408cea"
+      ],
+      "options": [
+        {
+          "label": "Option A",
+          "imageId": "7a1a5099-9d95-47da-bf29-8dbcd5c65f9e",
+          "promptNodeId": "prompt-7e1fa824-4b2f-4c7b-a455-827486408cea",
+          "url": "https://diffui.ai/files/generations/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f/7a1a5099-9d95-47da-bf29-8dbcd5c65f9e.webp",
+          "local_diffui": "/workspace/.diffui/concept-c-option-a-7a1a5099.webp",
+          "local_concept": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-c-private-terminal/diffui-options/concept-c-option-a-7a1a5099.webp",
+          "bytes": 100880
+        },
+        {
+          "label": "Option B",
+          "imageId": "3cb511d6-b4e4-45fa-b592-9ca7357a24b0",
+          "promptNodeId": "prompt-7e1fa824-4b2f-4c7b-a455-827486408cea",
+          "url": "https://diffui.ai/files/generations/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f/3cb511d6-b4e4-45fa-b592-9ca7357a24b0.webp",
+          "local_diffui": "/workspace/.diffui/concept-c-option-b-3cb511d6.webp",
+          "local_concept": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-c-private-terminal/diffui-options/concept-c-option-b-3cb511d6.webp",
+          "bytes": 119366
+        }
+      ]
+    }
+  ]
+}
