@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" data-bf-template="executive-fbo" data-bf-identity="measured-leg" data-bf-auth="lYgauvXzh4a4">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tell us about your upcoming arrival or service needs — simulated demo form.">
+  <title>Service Request | BRIOFRAME Executive FBO</title>
+  <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body class="bf-shell">
+  <p class="bf-master-note" role="note">BRIOFRAME HTML master · Executive FBO · Measured Leg Identity B · Diffui authToken lYgauvXzh4a4 · Forms are simulated · Not published</p>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="bf-header">
+    <div class="bf-container bf-header__inner">
+      <a class="bf-brand" href="index.html" aria-label="BRIOFRAME home">
+        <img class="bf-brand__wing" src="assets/images/brand/wing.svg" alt="" width="28" height="28">
+        <span class="bf-brand__text">BRIOFRAME</span>
+      </a>
+      <button type="button" class="bf-nav-toggle" data-bf-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="bf-nav" data-bf-nav data-open="false" aria-label="Primary">
+        <ul class="bf-nav__list">
+          <li class="bf-nav__item bf-nav__item--dropdown">
+            <details>
+              <summary class="bf-nav__summary">Services <span aria-hidden="true">▾</span></summary>
+              <ul class="bf-nav__sub">
+                <li><a href="services.html">Services overview</a></li>
+                <li><a href="aircraft-arrival.html">Aircraft arrival</a></li>
+                <li><a href="concierge.html">Concierge</a></li>
+                <li><a href="passenger-services.html">Passenger services</a></li>
+                <li><a href="crew-services.html">Crew services</a></li>
+                <li><a href="ground-handling.html">Ground handling</a></li>
+                <li><a href="fueling.html">Fueling</a></li>
+                <li><a href="ground-transportation.html">Transportation</a></li>
+                <li><a href="hangar-services.html">Hangar</a></li>
+              </ul>
+            </details>
+          </li>
+          <li><a class="bf-nav__link" href="hospitality-amenities.html">Amenities</a></li>
+          <li><a class="bf-nav__link" href="hangar-services.html">Hangar</a></li>
+          <li><a class="bf-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+        <a class="bf-btn bf-btn--gold" href="service-request.html">Service Request <span class="bf-btn__icon" aria-hidden="true">→</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="bf-main">
+    <section class="bf-page-hero bf-page-hero--photo bf-page-hero--short" aria-labelledby="page-title">
+      <figure class="bf-page-hero__bg"><img src="assets/images/heroes/service-request.webp" alt="" width="2048" height="1152" fetchpriority="high" decoding="async"></figure>
+      <div class="bf-page-hero__scrim" aria-hidden="true"></div>
+      <div class="bf-container bf-page-hero__content">
+        <nav class="bf-breadcrumb bf-breadcrumb--on-dark" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Service Request</li></ol></nav>
+        <h1 id="page-title" class="bf-heading-serif">Request a Service</h1>
+        <p class="bf-lede">Tell us about your upcoming arrival or service needs and we'll take care of the rest.</p>
+      </div>
+    </section>
+    <section class="bf-section">
+      <div class="bf-container bf-form-layout">
+        <div>
+          <div class="bf-form-head">
+            <h2 class="bf-heading-serif">Service Request Form</h2>
+            <p class="bf-form__note">* Required field · Simulated demo — nothing is transmitted.</p>
+          </div>
+          <form class="bf-form bf-form--grid" data-bf-demo-form novalidate>
+            <label>Request Type *<select name="request_type" required><option value="">Select a service</option><option>Aircraft Arrival</option><option>Concierge</option><option>Fueling</option><option>Hangar</option><option>Ground Handling</option><option>Other</option></select></label>
+            <label>Aircraft Type<select name="aircraft"><option value="">e.g., Gulfstream G650</option><option>Light Jet</option><option>Midsize Jet</option><option>Heavy Jet</option><option>Turboprop</option></select></label>
+            <label>Arrival Date *<input type="date" name="arrival_date" required></label>
+            <label>Arrival Time (Local) *<input type="time" name="arrival_time" required></label>
+            <label>Departure Date<input type="date" name="departure_date"></label>
+            <label>Number of Passengers<input type="number" name="pax" min="0" placeholder="e.g., 6"></label>
+            <label>Crew Members<input type="number" name="crew" min="0" placeholder="e.g., 2"></label>
+            <label>Tail Number (Optional)<input type="text" name="tail" placeholder="e.g., N123AB" autocomplete="off"></label>
+            <label class="bf-form__full">Additional Services<select name="additional"><option value="">Select additional services</option><option>Catering</option><option>Ground Transportation</option><option>Hangar Overnight</option><option>Customs Coordination</option></select></label>
+            <label class="bf-form__full">Special Instructions<textarea name="notes" maxlength="500" data-bf-char-count placeholder="Let us know any special requests, preferences, or details."></textarea><span class="bf-char-count" data-bf-char-count-label>0 / 500</span></label>
+            <label class="bf-form__check bf-form__full"><input type="checkbox" name="consent" required> I agree to be contacted regarding this request. Your information will be kept confidential and used only to fulfill your request.</label>
+            <div class="bf-form__full">
+              <button type="submit" class="bf-btn bf-btn--gold">Submit Request <span class="bf-btn__icon" aria-hidden="true">→</span></button>
+              <p class="bf-form__status" data-bf-form-status hidden role="status"></p>
+            </div>
+          </form>
+        </div>
+        <aside class="bf-form-aside" aria-labelledby="aside-title">
+          <p class="bf-eyebrow">Exceptional Service</p>
+          <h2 id="aside-title" class="bf-heading-serif">Your Journey, Our Priority</h2>
+          <p>Our dedicated team is ready to support every detail of your visit with calm, professional hospitality.</p>
+          <ul class="bf-amenity-list">
+            <li><span class="bf-amenity-list__icon" aria-hidden="true">⏱</span><div><p class="bf-amenity-list__title">Dedicated Support</p><p class="bf-amenity-list__desc">Our team coordinates around your schedule.</p></div></li>
+            <li><span class="bf-amenity-list__icon" aria-hidden="true">◆</span><div><p class="bf-amenity-list__title">Personalized Service</p><p class="bf-amenity-list__desc">Tailored to your aircraft, crew and passengers.</p></div></li>
+            <li><span class="bf-amenity-list__icon" aria-hidden="true">◇</span><div><p class="bf-amenity-list__title">Discreet &amp; Secure</p><p class="bf-amenity-list__desc">Your privacy is always protected.</p></div></li>
+            <li><span class="bf-amenity-list__icon" aria-hidden="true">✦</span><div><p class="bf-amenity-list__title">A Seamless Experience</p><p class="bf-amenity-list__desc">From touchdown to takeoff.</p></div></li>
+          </ul>
+          <div class="bf-aside-contact">
+            <p class="bf-eyebrow">Need Immediate Assistance?</p>
+            <p class="bf-phone"><a href="tel:+18005550123">+1 (800) 555-0123</a></p>
+            <p class="bf-form__note">Demo contact only · Available 24/7</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bf-footer">
+    <div class="bf-container bf-footer__inner">
+      <div class="bf-footer__brand">
+        <img class="bf-brand__wing" src="assets/images/brand/wing.svg" alt="" width="28" height="28">
+        <span>BRIOFRAME</span>
+      </div>
+      <nav class="bf-footer__nav" aria-label="Footer">
+        <a href="services.html">Services</a>
+        <a href="hospitality-amenities.html">Amenities</a>
+        <a href="hangar-services.html">Hangar</a>
+        <a href="contact.html">Contact</a>
+        <a href="private-terminal.html">Private Terminal</a>
+      </nav>
+      <p class="bf-footer__copy">© 2026 BRIOFRAME. All rights reserved. Working demonstration — not a live FBO.</p>
+    </div>
+  </footer>
+</body>
+</html>
