@@ -1,0 +1,66 @@
+{
+  "canvasUrl": "https://diffui.ai/app/canvas/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f",
+  "edgeCount": 3,
+  "nodes": [
+    {
+      "id": "prompt-1",
+      "images": [
+        {
+          "imageId": "42eab6ff-151d-4069-a7a9-02f6d90cb082",
+          "slotNodeId": "slot-e3daa0a7-7424-4afe-9cbb-03354af3e079",
+          "status": "ready"
+        },
+        {
+          "imageId": "66eb0b09-fc96-4d99-8043-799f1944436b",
+          "slotNodeId": "slot-3031aa76-6255-4950-b0bd-b53c4b32c337",
+          "status": "ready"
+        }
+      ],
+      "kind": "prompt",
+      "name": "Prompt",
+      "prompt": "Design a premium EXECUTIVE FBO aviation services website homepage (desktop-first). Visual character: sophisticated, warm\u2026"
+    },
+    {
+      "id": "prompt-7e1fa824-4b2f-4c7b-a455-827486408cea",
+      "images": [
+        {
+          "imageId": "7a1a5099-9d95-47da-bf29-8dbcd5c65f9e",
+          "slotNodeId": "slot-79764087-33af-4ca4-9100-bbf41ba4abf8",
+          "status": "ready"
+        },
+        {
+          "imageId": "3cb511d6-b4e4-45fa-b592-9ca7357a24b0",
+          "slotNodeId": "slot-5a850bf0-af8b-4422-851e-e8f6bd4e363f",
+          "status": "ready"
+        }
+      ],
+      "kind": "prompt",
+      "name": "Design a LUXURY PRIVATE TERMINAL editorial websi\u2026",
+      "prompt": "Design a LUXURY PRIVATE TERMINAL editorial website homepage (desktop-first). Visual character: editorial, spacious, cine\u2026"
+    },
+    {
+      "id": "prompt-14dd123c-de6a-4604-b2c6-e3b57484dcd1",
+      "kind": "prompt",
+      "name": "Prompt"
+    },
+    {
+      "id": "prompt-d8ba5a11-8884-4c84-864a-fc3951fe01bc",
+      "kind": "prompt",
+      "name": "Prompt"
+    },
+    {
+      "id": "prompt-eb22b3e1-0b3e-4e24-bb42-48087da7c1e9",
+      "images": [
+        {
+          "imageId": "a92d43e1-c60c-482f-a885-3d0834442378",
+          "slotNodeId": "slot-e333c4a7-75a1-4b2e-910e-78350a026733",
+          "status": "ready"
+        }
+      ],
+      "kind": "prompt",
+      "name": "Aircraft Arrival Service",
+      "prompt": "Create the Aircraft Arrival Service detail page for this Executive FBO site. Second-layer service page (not a homepage).\u2026"
+    }
+  ],
+  "projectId": "67a6e9ac-6f86-4a22-b1e5-fae12b381c2f"
+}

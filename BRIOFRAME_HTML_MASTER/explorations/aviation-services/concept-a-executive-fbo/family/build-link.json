@@ -1,0 +1,8 @@
+{
+  "assetDownloadNote": "URLs returned by build_generate_image / build_create_texture / build_generate_svg are directly downloadable: curl -fL -o assets/<name>.png \"<url>&format=png\". No API key or header needed. Keep -f so an error status fails loudly instead of saving an error card.",
+  "buildId": "e39a21cc-2b90-456e-a2e8-36fe20602282",
+  "buildUrl": "https://diffui.ai/api/agent-build/e39a21cc-2b90-456e-a2e8-36fe20602282/instructions",
+  "handoff": "Create a web page implementation from the following Diffui build instructions (buildId=e39a21cc-2b90-456e-a2e8-36fe20602282). Use MCP build_* tools with this build_id for assets.",
+  "mode": "mcp",
+  "slug": "BRIOFRAME_Executive_FBO_Complete_Family"
+}

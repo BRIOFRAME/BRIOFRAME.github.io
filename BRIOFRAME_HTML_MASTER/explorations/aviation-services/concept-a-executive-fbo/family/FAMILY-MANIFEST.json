@@ -1,0 +1,106 @@
+{
+  "bundle_name": "BRIOFRAME Executive FBO Complete Family",
+  "projectId": "67a6e9ac-6f86-4a22-b1e5-fae12b381c2f",
+  "canvasUrl": "https://diffui.ai/app/canvas/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f",
+  "buildId": "e39a21cc-2b90-456e-a2e8-36fe20602282",
+  "parent": {
+    "name": "Home / Executive FBO Option A",
+    "imageId": "42eab6ff-151d-4069-a7a9-02f6d90cb082",
+    "promptNodeId": "prompt-1"
+  },
+  "generation_note": "Diffui generate_pages max 8/call; submitted 2 batches (8+4) after first 12-page call rejected. Homepage and Aircraft Arrival reused.",
+  "pages": [
+    {
+      "slug": "home",
+      "name": "Home",
+      "image_id": "42eab6ff-151d-4069-a7a9-02f6d90cb082",
+      "source": "reused-parent"
+    },
+    {
+      "slug": "services",
+      "name": "Services Overview",
+      "image_id": "38b198a6-1bf2-44ee-868a-8a0640d0481e",
+      "source": "generated-batch1"
+    },
+    {
+      "slug": "aircraft-arrival",
+      "name": "Aircraft Arrival Service",
+      "image_id": "a92d43e1-c60c-482f-a885-3d0834442378",
+      "source": "reused-prior"
+    },
+    {
+      "slug": "concierge",
+      "name": "Concierge Services",
+      "image_id": "c9189feb-13ee-4f96-ad81-c0946961cb76",
+      "source": "generated-batch1"
+    },
+    {
+      "slug": "passenger-services",
+      "name": "Passenger Services",
+      "image_id": "a6d549ec-5719-4604-88cf-3062d943afe4",
+      "source": "generated-batch1"
+    },
+    {
+      "slug": "crew-services",
+      "name": "Crew Services",
+      "image_id": "1aebd3c5-e2c7-409a-a4a3-38757a076d89",
+      "source": "generated-batch1"
+    },
+    {
+      "slug": "ground-handling",
+      "name": "Ground Handling",
+      "image_id": "ae238bcb-27d9-49a2-8e62-2e7862826f42",
+      "source": "generated-batch1"
+    },
+    {
+      "slug": "fueling",
+      "name": "Fueling Services",
+      "image_id": "cef9b234-26b9-438c-8bec-c67e7e4d1525",
+      "source": "generated-batch1"
+    },
+    {
+      "slug": "hospitality-amenities",
+      "name": "Hospitality & Amenities",
+      "image_id": "982ade8b-bb1c-470a-ae66-389aa236c85b",
+      "source": "generated-batch1"
+    },
+    {
+      "slug": "ground-transportation",
+      "name": "Ground Transportation",
+      "image_id": "7c400980-85c3-4b01-b1d2-4ae8a75950f5",
+      "source": "generated-batch1"
+    },
+    {
+      "slug": "hangar-services",
+      "name": "Hangar & Extended Services",
+      "image_id": "5693b806-9672-4f6a-bdbc-5257b28f5f8f",
+      "source": "generated-batch2"
+    },
+    {
+      "slug": "arrival-notification",
+      "name": "Arrival Notification",
+      "image_id": "32356b8f-e378-4dfd-9afc-b8c2352128d2",
+      "source": "generated-batch2"
+    },
+    {
+      "slug": "service-request",
+      "name": "Service Request",
+      "image_id": "15e0afe6-b224-4c0b-9073-f3cb6f076e6e",
+      "source": "generated-batch2"
+    },
+    {
+      "slug": "contact",
+      "name": "Contact / FBO Information",
+      "image_id": "83a6fa7d-e2f8-4ad3-97bf-1257960ec56b",
+      "source": "generated-batch2"
+    }
+  ],
+  "controls": {
+    "new_project": false,
+    "homepage_regenerated": false,
+    "auto_top_up": false,
+    "lovable": false,
+    "shopify": false,
+    "publish": false
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "page": "Aircraft Arrival Service",
+  "projectId": "67a6e9ac-6f86-4a22-b1e5-fae12b381c2f",
+  "canvasUrl": "https://diffui.ai/app/canvas/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f",
+  "parent": {
+    "concept": "Executive FBO Option A",
+    "imageId": "42eab6ff-151d-4069-a7a9-02f6d90cb082",
+    "promptNodeId": "prompt-1"
+  },
+  "generation": {
+    "tool": "generate_page",
+    "count": 1,
+    "name": "Aircraft Arrival Service",
+    "elapsed_sec": 37.4,
+    "imageId": "a92d43e1-c60c-482f-a885-3d0834442378",
+    "promptNodeId": "prompt-eb22b3e1-0b3e-4e24-bb42-48087da7c1e9",
+    "slotNodeId": "slot-e333c4a7-75a1-4b2e-910e-78350a026733",
+    "url": "https://diffui.ai/files/generations/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f/a92d43e1-c60c-482f-a885-3d0834442378.webp",
+    "local_webp": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-a-executive-fbo/second-layer/aircraft-arrival-service-a92d43e1.webp",
+    "local_png": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-a-executive-fbo/second-layer/aircraft-arrival-service-a92d43e1.png"
+  },
+  "controls": {
+    "new_project": false,
+    "homepage_regenerated": false,
+    "options_count": 1,
+    "auto_top_up": false,
+    "lovable": false,
+    "other_generations_this_turn": false
+  }
+}

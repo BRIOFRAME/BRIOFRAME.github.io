@@ -1,0 +1,28 @@
+{
+  "concept": "concept-b-aviation-operations",
+  "projectId": "67a6e9ac-6f86-4a22-b1e5-fae12b381c2f",
+  "canvasUrl": "https://diffui.ai/app/canvas/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f",
+  "options": [
+    {
+      "label": "Option A",
+      "imageId": "7f819f8d-6241-4df6-8cf7-8012f2de7288",
+      "promptNodeId": "prompt-1f947371-e9f0-406a-a4cc-070b02bad920",
+      "url": "https://diffui.ai/files/generations/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f/7f819f8d-6241-4df6-8cf7-8012f2de7288.webp",
+      "local_diffui": "/workspace/.diffui/concept-b-option-a-7f819f8d.webp",
+      "local_concept": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-b-aviation-operations/diffui-options/concept-b-option-a-7f819f8d.webp",
+      "bytes": 138372
+    },
+    {
+      "label": "Option B",
+      "imageId": "f4906b82-9dc1-42e3-a9b4-5fde94567b05",
+      "promptNodeId": "prompt-1f947371-e9f0-406a-a4cc-070b02bad920",
+      "url": "https://diffui.ai/files/generations/67a6e9ac-6f86-4a22-b1e5-fae12b381c2f/f4906b82-9dc1-42e3-a9b4-5fde94567b05.webp",
+      "local_diffui": "/workspace/.diffui/concept-b-option-b-f4906b82.webp",
+      "local_concept": "/workspace/BRIOFRAME_HTML_MASTER/explorations/aviation-services/concept-b-aviation-operations/diffui-options/concept-b-option-b-f4906b82.webp",
+      "bytes": 144086
+    }
+  ],
+  "promptNodeIds": [
+    "prompt-1f947371-e9f0-406a-a4cc-070b02bad920"
+  ]
+}
