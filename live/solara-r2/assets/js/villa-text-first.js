@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  function hydrateVillaText() {
+  function hydrateVillaFirstPaint() {
     const D = window.SOLARA_DATA;
     if (!D || !Array.isArray(D.villas)) return false;
 
@@ -52,7 +52,8 @@
 
     document.querySelectorAll('[data-v="specs"]').forEach((el) => {
       if (!el.children.length) {
-        [[v.bedrooms, "Bedrooms"], [v.baths, "Bathrooms"], [v.guests, "Guests"], [v.size ? v.size.toLocaleString() + " m²" : "", "Interior"], [v.type, "Property"]]
+        [[v.bedrooms, "Bedrooms"], [v.baths, "Bathrooms"], [v.guests, "Guests"],
+         [v.size ? v.size.toLocaleString() + " m²" : "", "Interior"], [v.type, "Property"]]
           .forEach(([value, label]) => {
             const li = document.createElement("li");
             const a = document.createElement("span");
@@ -67,17 +68,60 @@
       }
     });
 
+    const gallery = document.querySelector("[data-gallery]");
+    if (gallery && !gallery.children.length) {
+      const hero = (v.images || []).find((im) => im.hero) || (v.images || [])[0];
+      const meta = hero && window.SOLARA_IMAGES && window.SOLARA_IMAGES[hero.src];
+      if (hero && meta) {
+        const remote = window.SOLARA_PHOTO_SOURCES || {};
+        const rid = remote.photos && remote.photos[hero.src];
+        const [w, h, widths] = meta;
+        const imgUrl = (size) => rid
+          ? remote.base + rid + "?w=" + size + "&" + remote.query
+          : "../assets/img/photo/" + hero.src + "-" + size + ".webp";
+        const stage = document.createElement("div");
+        const track = document.createElement("div");
+        const slide = document.createElement("figure");
+        const open = document.createElement("div");
+        const img = document.createElement("img");
+
+        gallery.classList.add("gal", "gal--prepaint");
+        stage.className = "gal__stage";
+        track.className = "gal__track";
+        slide.className = "gal__slide";
+        open.className = "gal__open";
+
+        img.src = imgUrl(widths.includes(1280) ? 1280 : widths[widths.length - 1]);
+        img.srcset = widths.map((size) => imgUrl(size) + " " + size + "w").join(", ");
+        img.sizes = "(min-width: 1100px) 70vw, 100vw";
+        img.width = w;
+        img.height = h;
+        img.alt = hero.alt || v.name;
+        img.fetchPriority = "high";
+        img.decoding = "async";
+
+        open.appendChild(img);
+        slide.appendChild(open);
+        track.appendChild(slide);
+        stage.appendChild(track);
+        gallery.appendChild(stage);
+      }
+    }
+
     document.documentElement.dataset.villaTextReady = "true";
     return true;
   }
 
-  hydrateVillaText();
+  window.SOLARA_HYDRATE_VILLA = hydrateVillaFirstPaint;
+  hydrateVillaFirstPaint();
+
   window.addEventListener("pageshow", () => {
-    hydrateVillaText();
-    requestAnimationFrame(hydrateVillaText);
-    setTimeout(hydrateVillaText, 120);
+    hydrateVillaFirstPaint();
+    requestAnimationFrame(hydrateVillaFirstPaint);
+    setTimeout(hydrateVillaFirstPaint, 120);
   });
+
   document.addEventListener("visibilitychange", () => {
-    if (!document.hidden) hydrateVillaText();
+    if (!document.hidden) hydrateVillaFirstPaint();
   });
 })();

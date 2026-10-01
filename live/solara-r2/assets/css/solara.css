@@ -1916,3 +1916,14 @@ body[data-page="my-stay"] .portal-signin__panel {
   color: var(--ivory);
   border-color: var(--gold-deep);
 }
+
+
+/* Villa first-paint stability — keep content visible while hero photography resolves. */
+@media (min-width: 700px) {
+  body[data-page="villa"] .gal__stage {
+    height: clamp(420px, 52svh, 620px);
+    min-height: 420px;
+  }
+}
+body[data-page="villa"] .gal--prepaint .gal__open { cursor: default; }
+body[data-page="villa"] .gal--prepaint .gal__stage { background: var(--sand); }
