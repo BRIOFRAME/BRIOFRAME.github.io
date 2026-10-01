@@ -1497,17 +1497,6 @@ body[data-page="home"] .plan-band {
   color: #1d1a17;
 }
 
-@media (min-width: 1280px) {
-  .container,
-  .site-header__bar,
-  .hero__content,
-  .site-footer__top,
-  .site-footer__bottom,
-  .exp-strip__rail {
-    width: 100%;
-    max-width: none;
-  }
-}
 
 /* One premium hero entrance: the entire copy block moves together. */
 .hero--home .hero__content {
@@ -1741,4 +1730,67 @@ body[data-page="my-stay"] .portal-signin__panel {
 .tray.is-compact { bottom: 5.25rem; }
 @media (max-width: 699px) {
   .tray.is-compact { bottom: 8.5rem; }
+}
+
+/* ---------- BRIOFRAME laptop + desktop fidelity rails ---------- */
+@media (min-width: 1280px) {
+  .container,
+  .site-header__bar,
+  .hero__content,
+  .site-footer__top,
+  .site-footer__bottom,
+  .exp-strip__rail,
+  .page-head,
+  .collection,
+  .villa-top,
+  .villa-gallery,
+  .villa-layout,
+  .atlas-cover,
+  .manifesto,
+  .journal-head,
+  .journal-list,
+  .plan-head,
+  .plan,
+  .contact-head,
+  .contact,
+  .portal-bar__inner,
+  .portal-tabs__list,
+  .portal__body,
+  .reader__layout,
+  .reader__pager {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* ---------- BRIOFRAME large-monitor composition stabilizers ---------- */
+@media (min-width: 1600px) {
+  /* Keep split hero text at laptop-like vertical positions. */
+  .contact-head__media img {
+    width: 100%;
+    height: clamp(380px, 22vw, 420px);
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+  .plan-head__media img {
+    width: 100%;
+    height: clamp(330px, 20vw, 380px);
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+  .manifesto__media img {
+    width: 100%;
+    height: clamp(640px, 36vw, 720px);
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+
+  /* Preserve premium card scale instead of over-packing wide monitors. */
+  .villa-grid {
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  }
+  .journal-grid,
+  .exp-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
 }
