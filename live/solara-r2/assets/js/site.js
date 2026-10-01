@@ -25,7 +25,7 @@
   const villa = (id) => (D.villas || []).find((v) => v.id === id);
   const dest = (id) => (D.destinations || []).find((d) => d.id === id);
   const exp = (id) => (D.experiences || []).find((e) => e.id === id);
-  const villaUrl = (id) => `${base}villa/index.html?id=${encodeURIComponent(id)}&bf=20261001-0600`;
+  const villaUrl = (id) => `${base}villa/${encodeURIComponent(id)}/index.html?bf=20261001-0615`;
   const cur = C.currency || { code: "USD", locale: "en-US" };
   const moneyFmt = new Intl.NumberFormat(cur.locale || "en-US", { style: "currency", currency: cur.code || "USD", maximumFractionDigits: 0 });
   const price = (n) => moneyFmt.format(n);

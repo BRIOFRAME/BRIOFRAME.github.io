@@ -5,7 +5,7 @@
     const D = window.SOLARA_DATA;
     if (!D || !Array.isArray(D.villas)) return false;
 
-    const id = new URLSearchParams(location.search).get("id") || (D.villas[0] && D.villas[0].id);
+    const id = new URLSearchParams(location.search).get("id") || document.body.dataset.villaId || (D.villas[0] && D.villas[0].id);
     const v = D.villas.find((x) => x.id === id);
     if (!v) return false;
 

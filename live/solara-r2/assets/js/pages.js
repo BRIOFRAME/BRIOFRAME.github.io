@@ -274,7 +274,7 @@
      VILLA DETAIL — gallery, specifications, inquiry, related villas
      ====================================================================== */
   function villa() {
-    const id = params.get("id") || D.villas[0].id;
+    const id = params.get("id") || document.body.dataset.villaId || D.villas[0].id;
     const v = S.villa(id);
     if (!v) {
       $("[data-villa-missing]").hidden = false;
