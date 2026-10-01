@@ -334,21 +334,11 @@
         io.unobserve(en.target);
       }
     }), { rootMargin: "0px 0px -18% 0px", threshold: 0.18 });
-    const revealVisible = () => {
-      const trigger = window.innerHeight * .72;
-      els.forEach((el) => {
-        if (el.classList.contains("is-in")) return;
-        const r = el.getBoundingClientRect();
-        if (r.top < trigger && r.bottom > 0) {
-          el.classList.add("is-in");
-          io.unobserve(el);
-        }
-      });
-    };
-    els.forEach((el) => io.observe(el));
-    revealVisible();
-    window.addEventListener("scroll", revealVisible, { passive: true });
-    window.addEventListener("resize", revealVisible);
+    els.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * .68 && r.bottom > 0) el.classList.add("is-in");
+      else io.observe(el);
+    });
   }
   window.addEventListener("beforeprint", () => $$(".bf-flow").forEach((el) => el.classList.add("is-in")));
 
