@@ -79,6 +79,60 @@
   doc.addEventListener("solara:itinerary", paintItineraryCount);
   window.addEventListener("storage", (e) => { if (e.key === store.key) paintItineraryCount(); });
 
+  /* ---------- live-preview UX: visible desktop hero reveal ---------- */
+  function desktopHeroReveal() {
+    const hero = $(".hero--home .hero__content");
+    if (!hero || !window.matchMedia("(min-width: 1280px)").matches) return;
+    hero.classList.add("bf-hero-pending");
+    hero.classList.remove("bf-hero-live");
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      window.setTimeout(() => hero.classList.add("bf-hero-live"), 650);
+    }));
+  }
+
+  /* ---------- live-preview UX: clear saved stay ---------- */
+  function savedStayClear() {
+    if (body.dataset.page !== "plan") return;
+    const head = $(".plan-head__text");
+    if (!head || $("[data-clear-saved-stay]")) return;
+    const btn = doc.createElement("button");
+    btn.type = "button";
+    btn.className = "text-btn clear-saved-stay";
+    btn.setAttribute("data-clear-saved-stay", "");
+    const sync = () => {
+      const n = store.get().length;
+      btn.hidden = n === 0;
+      btn.textContent = n ? "Clear saved stay (" + n + ")" : "Clear saved stay";
+    };
+    btn.addEventListener("click", () => {
+      store.clear();
+      $$('input[name="experiences"]:checked').forEach((input) => {
+        input.checked = false;
+        input.dispatchEvent(new Event("change", { bubbles: true }));
+      });
+      sync();
+    });
+    head.appendChild(btn);
+    doc.addEventListener("solara:itinerary", sync);
+    sync();
+  }
+
+  /* ---------- live-preview UX: back to top ---------- */
+  function backToTop() {
+    if ($("[data-back-top]")) return;
+    const btn = doc.createElement("button");
+    btn.type = "button";
+    btn.className = "back-top";
+    btn.setAttribute("data-back-top", "");
+    btn.setAttribute("aria-label", "Back to top");
+    btn.innerHTML = '<span aria-hidden="true">↑</span><span>Top</span>';
+    body.appendChild(btn);
+    const paint = () => btn.classList.toggle("is-visible", window.scrollY > 700);
+    btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduced() ? "auto" : "smooth" }));
+    window.addEventListener("scroll", paint, { passive: true });
+    paint();
+  }
+
   /* ---------- config bindings ---------- */
   function bindConfig() {
     const get = (path) => path.split(".").reduce((o, k) => (o ? o[k] : undefined), C);
@@ -549,6 +603,9 @@
   };
 
   bindConfig();
+  desktopHeroReveal();
+  savedStayClear();
+  backToTop();
   header();
   navGroups();
   heroMotion();
