@@ -66,7 +66,7 @@
      HOME — featured villas, destination explorer, testimonials
      ====================================================================== */
   function home() {
-    const featured = D.villas.filter((v) => v.featured).slice(0, 3);
+    const featured = ["serai", "lefka", "aurelia"].map((id) => S.villa(id)).filter(Boolean);
     const fw = $("[data-featured]");
     if (fw) {
       const avoid = $$("[data-photo]").map((el) => el.dataset.photo);
