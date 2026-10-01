@@ -202,7 +202,7 @@
       results.innerHTML = list.map((v) => {
         const d = S.dest(v.destination);
         const note = state.month ? (seasonOf(d, state.month) === "best" ? `Best season in ${MONTHS[state.month - 1]}` : "") : "";
-        return S.villaCard(v, { variant: state.view === "list" ? "row" : "", summary: state.view === "list", note,
+        return S.villaCard(v, { variant: state.view === "list" ? "row" : "", summary: true, note,
           sizes: state.view === "list" ? "(min-width: 1100px) 34vw, 100vw" : "(min-width: 1400px) 30vw, (min-width: 700px) 45vw, 100vw" });
       }).join("");
       empty.hidden = list.length > 0;
@@ -885,6 +885,8 @@
     let step = 0;
     const inEl = $("#pl-in"), outEl = $("#pl-out"), destSel = $("#pl-dest");
     const adults = $("#pl-adults"), children = $("#pl-children"), infants = $("#pl-infants");
+    const clearStayBtn = $("[data-clear-saved-stay]");
+    const savedStayItems = $("[data-saved-stay-items]");
 
     destSel.insertAdjacentHTML("beforeend", D.destinations.map((d) => `<option value="${d.id}">${esc(d.name)}, ${esc(d.country)}</option>`).join(""));
     inEl.min = todayISO(); outEl.min = addDays(todayISO(), 1);
@@ -947,12 +949,29 @@
       rows.push(["Guests", g]);
       rows.push(["Destination", destSel.value ? S.dest(destSel.value).name : "Open to suggestions"]);
       const rec = $('input[name="mode"]:checked', form).value === "recommend";
-      const vs = $$('input[name="villas"]:checked', form).map((i) => S.villa(i.value).name);
-      rows.push(["Villas", rec ? "Recommendation requested" : vs.join(", ") || "None chosen yet"]);
-      const ex = $$('input[name="experiences"]:checked', form).map((i) => S.exp(i.value).name);
-      rows.push(["Experiences", ex.join(", ") || "None yet"]);
+      const selectedVillas = $$('input[name="villas"]:checked', form).map((i) => S.villa(i.value)).filter(Boolean);
+      rows.push(["Villas", rec ? "Recommendation requested" : selectedVillas.map((v) => v.name).join(", ") || "None chosen yet"]);
+      const selectedExperiences = $$('input[name="experiences"]:checked', form).map((i) => S.exp(i.value)).filter(Boolean);
+      rows.push(["Experiences", selectedExperiences.map((e) => e.name).join(", ") || "None yet"]);
       if ($("#pl-occasion").value) rows.push(["Occasion", $("#pl-occasion").value]);
       summary.innerHTML = rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+
+      const itemRows = [
+        ...selectedVillas.map((v) => ({ kind: "villa", id: v.id, label: "Villa", name: v.name })),
+        ...selectedExperiences.map((e) => ({ kind: "experience", id: e.id, label: "Experience", name: e.name }))
+      ];
+      if (savedStayItems) {
+        savedStayItems.innerHTML = itemRows.length ? `
+          <p class="saved-stay-items__title">Saved stay selections</p>
+          <ul>${itemRows.map((x) => `<li class="saved-stay-item"><span><small>${esc(x.label)}</small>${esc(x.name)}</span><button type="button" data-remove-stay-item data-remove-kind="${x.kind}" data-remove-id="${esc(x.id)}" aria-label="Remove ${esc(x.name)}">Remove</button></li>`).join("")}</ul>
+        ` : "";
+      }
+      const hasStay = !!(inEl.value || outEl.value || destSel.value || selectedVillas.length || selectedExperiences.length ||
+        Number(children.value) || Number(infants.value) || Number(adults.value) !== 2 || $("#pl-flex").checked || $("#pl-occasion").value);
+      if (clearStayBtn) {
+        clearStayBtn.hidden = !hasStay;
+        clearStayBtn.textContent = "Clear entire stay";
+      }
     }
 
     function show(k, focus = true) {
@@ -981,6 +1000,38 @@
       paintSummary();
     });
     form.addEventListener("input", paintSummary);
+
+    if (savedStayItems) savedStayItems.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-remove-stay-item]");
+      if (!btn) return;
+      const kind = btn.dataset.removeKind;
+      const id = btn.dataset.removeId;
+      const input = kind === "villa"
+        ? $('input[name="villas"][value="' + id + '"]', form)
+        : $('input[name="experiences"][value="' + id + '"]', form);
+      if (!input) return;
+      input.checked = false;
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+      if (kind === "villa") paintPicker();
+      paintSummary();
+    });
+
+    if (clearStayBtn) clearStayBtn.addEventListener("click", () => {
+      form.reset();
+      $$('input[name="villas"]', form).forEach((i) => { i.checked = false; });
+      $$('input[name="experiences"]', form).forEach((i) => { i.checked = false; });
+      S.store.clear();
+      inEl.value = "";
+      outEl.value = "";
+      outEl.min = addDays(todayISO(), 1);
+      history.replaceState(null, "", window.location.pathname);
+      status.textContent = "";
+      paintMode();
+      paintPicker();
+      paintSummary();
+      show(0, false);
+    });
+
     S.liveValidation(form);
 
     back.addEventListener("click", () => show(step - 1));

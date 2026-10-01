@@ -1732,37 +1732,6 @@ body[data-page="my-stay"] .portal-signin__panel {
   .tray.is-compact { bottom: 8.5rem; }
 }
 
-/* ---------- BRIOFRAME laptop + desktop fidelity rails ---------- */
-@media (min-width: 1280px) {
-  .container,
-  .site-header__bar,
-  .hero__content,
-  .site-footer__top,
-  .site-footer__bottom,
-  .exp-strip__rail,
-  .page-head,
-  .collection,
-  .villa-top,
-  .villa-gallery,
-  .villa-layout,
-  .atlas-cover,
-  .manifesto,
-  .journal-head,
-  .journal-list,
-  .plan-head,
-  .plan,
-  .contact-head,
-  .contact,
-  .portal-bar__inner,
-  .portal-tabs__list,
-  .portal__body,
-  .reader__layout,
-  .reader__pager {
-    width: 100%;
-    max-width: none;
-  }
-}
-
 /* ---------- BRIOFRAME large-monitor composition stabilizers ---------- */
 @media (min-width: 1600px) {
   /* Keep split hero text at laptop-like vertical positions. */
@@ -1793,4 +1762,69 @@ body[data-page="my-stay"] .portal-signin__panel {
   .exp-grid {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
+}
+
+
+/* Concierge desktop rhythm fix — 2026-10-01 */
+@media (min-width: 900px) {
+  body[data-page="concierge"] .crosslinks--text {
+    padding-top: clamp(2rem, 3vw, 3rem);
+    padding-bottom: clamp(1rem, 1.5vw, 1.75rem);
+  }
+  body[data-page="concierge"] .cg-contact {
+    padding-top: clamp(1rem, 1.5vw, 1.75rem);
+    padding-bottom: clamp(3rem, 5vw, 4.5rem);
+  }
+}
+
+/* Plan Your Stay granular removal controls */
+.clear-saved-stay::before { content: "\00D7"; }
+.saved-stay-items { margin-top: 1.5rem; border-top: 1px solid var(--line); }
+.saved-stay-items:empty { display: none; }
+.saved-stay-items__title {
+  margin: 1rem 0 .35rem;
+  font: 600 .66rem/1.4 var(--sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.saved-stay-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.saved-stay-item > span { min-width: 0; font: 400 1.05rem/1.25 var(--serif); }
+.saved-stay-item small {
+  display: block;
+  margin-bottom: .2rem;
+  font: 600 .6rem/1.2 var(--sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.saved-stay-item button {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: .45rem .65rem;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink);
+  font: 600 .65rem/1 var(--sans);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.saved-stay-item button:hover { border-color: var(--ink); background: var(--ink); color: var(--ivory); }
+
+/* Large-desktop rhythm: fixed, monitor-independent spacing */
+@media (min-width: 1600px) {
+  :root { --section: 5rem; }
+  .section--tight-top { padding-top: 3rem; }
+  .section-head { margin-bottom: 2.75rem; }
+  .band.section { padding-block: 4rem; }
+  body[data-page="about"] .owners.section { padding-top: 4.5rem; }
+  body[data-page="villa"] .related.section { padding-top: 4.5rem; }
+  .villa-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
