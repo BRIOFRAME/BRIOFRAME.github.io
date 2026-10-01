@@ -1485,3 +1485,37 @@ html.js [data-reveal].is-in { opacity: 1; transform: none; }
   body.is-printing-doc .doc-view { position: static; width: auto; max-height: none; overflow: visible; box-shadow: none; }
   body.is-printing-doc .doc-view__bar { display: none; }
 }
+
+/* ---------- BRIOFRAME live-preview desktop parity patch ---------- */
+@media (min-width: 1280px) {
+  .site-footer__top,
+  .site-footer__bottom {
+    max-width: var(--wide);
+  }
+
+  .hero--home .hero__content > * {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: bfDesktopHeroReveal .9s var(--ease) forwards;
+  }
+
+  .hero--home .hero__content > .eyebrow { animation-delay: .10s; }
+  .hero--home .hero__content > h1 { animation-delay: .22s; }
+  .hero--home .hero__content > .hero__lede { animation-delay: .34s; }
+  .hero--home .hero__content > .cta-row { animation-delay: .46s; }
+}
+
+@keyframes bfDesktopHeroReveal {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero--home .hero__content > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
