@@ -1588,3 +1588,164 @@ html.js [data-reveal] {
 @media (max-width: 699px) {
   .back-top { right: .85rem; bottom: 4.75rem; }
 }
+
+/* ---------- BRIOFRAME live-preview motion layer v4 ---------- */
+
+/* Pre-paint states: body gets bf-motion in HTML so content cannot flash in first. */
+body.bf-motion .hero--home .hero__content:not(.bf-hero-live) {
+  opacity: 0;
+  transform: translateY(18px);
+}
+body.bf-motion .hero--home .hero__content {
+  transition: opacity 1.45s linear,
+              transform 1.3s cubic-bezier(.22, .75, .25, 1);
+  will-change: opacity, transform;
+}
+body.bf-motion .hero--home .hero__content.bf-hero-live {
+  opacity: 1;
+  transform: none;
+}
+
+/* True image crossfade on homepage hero. */
+.hero__media .hero__slide {
+  z-index: 0;
+  opacity: 0;
+  transform: scale(1.035);
+  transition:
+    opacity 2.25s cubic-bezier(.4, 0, .2, 1),
+    transform 7.5s cubic-bezier(.22, 1, .36, 1);
+  will-change: opacity, transform;
+}
+.hero__media .hero__slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1);
+}
+.hero__scrim,
+.hero__content,
+.hero__aside {
+  z-index: 2;
+}
+
+/* Late reveal flow: hidden before JS paints, then eased in as it enters view. */
+body.bf-motion main > section:not(.hero) > .container:not(.is-in),
+body.bf-motion main > section:not(.hero) > .plan-band__panel:not(.is-in),
+body.bf-motion main .plan-head:not(.is-in),
+body.bf-motion main .contact-head:not(.is-in),
+body.bf-motion main .contact:not(.is-in),
+body.bf-motion main .collection:not(.is-in),
+body.bf-motion main .atlas-cover:not(.is-in),
+body.bf-motion main .manifesto:not(.is-in),
+body.bf-motion main .villa-gallery:not(.is-in),
+body.bf-motion main .villa-title:not(.is-in),
+body.bf-motion main .villa-section:not(.is-in),
+body.bf-motion main .villa-aside:not(.is-in),
+body.bf-motion .site-footer__top:not(.is-in) {
+  opacity: 0;
+  transform: translateY(30px);
+}
+body.bf-motion .bf-flow {
+  transition:
+    opacity 1.35s linear,
+    transform 1.2s cubic-bezier(.22, .75, .25, 1);
+  will-change: opacity, transform;
+}
+body.bf-motion .bf-flow.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Villa gallery: slower eased slide with opacity blend. */
+.gal__track {
+  transition: transform 1.15s cubic-bezier(.22, 1, .36, 1);
+}
+.gal__slide {
+  opacity: .58;
+  transition: opacity 1.05s cubic-bezier(.22, 1, .36, 1);
+}
+.gal__slide.is-current {
+  opacity: 1;
+}
+.gal__slide img {
+  transform: scale(1.018);
+  transition: transform 1.25s cubic-bezier(.22, 1, .36, 1);
+}
+.gal__slide.is-current img {
+  transform: scale(1);
+}
+
+/* Make the saved-stay reset impossible to miss without looking destructive. */
+.clear-saved-stay {
+  position: relative;
+  gap: .55rem;
+  margin-top: 1.35rem;
+  padding: .85rem 1.15rem;
+  border: 1px solid var(--gold-deep);
+  background: var(--gold-deep);
+  color: var(--ivory);
+  box-shadow: 0 10px 24px -18px rgba(29, 26, 23, .75);
+}
+.clear-saved-stay::before {
+  content: "×";
+  display: inline-grid;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: .9rem;
+  line-height: 1;
+}
+.clear-saved-stay:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ivory);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.bf-motion .hero--home .hero__content,
+  body.bf-motion .bf-flow,
+  .hero__media .hero__slide,
+  .gal__track,
+  .gal__slide,
+  .gal__slide img {
+    transition: none !important;
+  }
+}
+
+/* ---------- Browser color-fidelity guard ---------- */
+html,
+body,
+main {
+  color-scheme: only light;
+}
+html,
+body {
+  background-color: #f6f1e9 !important;
+}
+main {
+  background-color: #f6f1e9 !important;
+  color: #1d1a17;
+}
+body[data-page] .page-head,
+body[data-page] .collection,
+body[data-page] .villa-top,
+body[data-page] .villa-gallery,
+body[data-page] .villa-layout,
+body[data-page] .atlas-cover,
+body[data-page] .manifesto,
+body[data-page] .journal-head,
+body[data-page] .reader__head,
+body[data-page] .reader__media,
+body[data-page] .reader__layout,
+body[data-page] .reader__pager,
+body[data-page] .plan-head,
+body[data-page] .plan,
+body[data-page] .contact-head,
+body[data-page] .contact {
+  color-scheme: only light;
+}
+body.bf-motion [data-reveal]:not(.is-in) {
+  opacity: 0;
+  transform: translateY(30px);
+}
