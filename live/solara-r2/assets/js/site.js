@@ -82,12 +82,14 @@
   /* ---------- live-preview UX: visible desktop hero reveal ---------- */
   function desktopHeroReveal() {
     const hero = $(".hero--home .hero__content");
-    if (!hero) return;
+    if (!hero || !window.matchMedia("(min-width: 1280px)").matches) return;
     hero.classList.add("bf-hero-pending");
     hero.classList.remove("bf-hero-live");
-    window.setTimeout(() => {
+    const reveal = () => window.setTimeout(() => {
       requestAnimationFrame(() => hero.classList.add("bf-hero-live"));
-    }, 420);
+    }, 550);
+    if (doc.readyState === "complete") reveal();
+    else window.addEventListener("load", reveal, { once: true });
   }
 
   /* ---------- live-preview UX: clear saved stay ---------- */
@@ -267,17 +269,8 @@
     doc.addEventListener("visibilitychange", run);
     reducedQuery.addEventListener("change", () => { if (reduced()) { dropFilm(); stop(); show(0); if (pauseBtn) pauseBtn.hidden = true; } });
     syncButton();
-    slides.forEach((s) => { s.loading = "eager"; });
     show(0);
-    const decoded = slides.map((s) => {
-      if (typeof s.decode === "function") return s.decode().catch(() => {});
-      if (s.complete) return Promise.resolve();
-      return new Promise((resolve) => {
-        s.addEventListener("load", resolve, { once: true });
-        s.addEventListener("error", resolve, { once: true });
-      });
-    });
-    Promise.all(decoded).then(run);
+    run();
   }
 
   /* ---------- restrained parallax on [data-parallax] media (off for reduced motion / small screens) ---------- */
@@ -313,9 +306,8 @@
       "main > section:not(.hero) > .container",
       "main > section:not(.hero) > .plan-band__panel",
       "main .plan-head", "main .contact-head", "main .contact",
-      "main .collection", "main .atlas-cover", "main .manifesto",
-      "main .villa-gallery", "main .villa-title", "main .villa-section",
-      "main .villa-aside", ".site-footer__top"
+      "main .collection", "main .villa-layout", "main .atlas-cover",
+      "main .manifesto", ".site-footer__top"
     ].join(",")) : [];
     const candidates = [...new Set([...auto, ...explicit])];
     const els = candidates.filter((el) => !candidates.some((p) => p !== el && p.contains(el)));
@@ -330,10 +322,10 @@
         en.target.classList.add("is-in");
         io.unobserve(en.target);
       }
-    }), { rootMargin: "0px 0px -18% 0px", threshold: 0.18 });
+    }), { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
     els.forEach((el) => {
       const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight * .68 && r.bottom > 0) el.classList.add("is-in");
+      if (r.top < window.innerHeight * .82 && r.bottom > 0) el.classList.add("is-in");
       else io.observe(el);
     });
   }
@@ -582,7 +574,6 @@
       track.style.transform = `translate3d(${-i * 100}%,0,0)`;
       $$(".gal__slide", el).forEach((s, j) => {
         s.setAttribute("aria-hidden", String(j !== i));
-        s.classList.toggle("is-current", j === i);
         $("button", s).tabIndex = j === i ? 0 : -1;
         if (Math.abs(j - i) <= 1 || (i === 0 && j === n - 1)) { const im = $("img", s); if (im && im.loading === "lazy") im.loading = "eager"; }
       });
