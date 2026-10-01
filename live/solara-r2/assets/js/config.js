@@ -48,7 +48,7 @@ window.SOLARA_CONFIG = {
    * needs a media-src entry in the Content-Security-Policy.
    */
   media: {
-    heroInterval: 7,
+    heroInterval: 5.5,
     heroVideo: {
       src: "",
       srcCompact: "",

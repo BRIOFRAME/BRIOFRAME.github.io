@@ -85,20 +85,26 @@
     if (!hero || !window.matchMedia("(min-width: 1280px)").matches) return;
     hero.classList.add("bf-hero-pending");
     hero.classList.remove("bf-hero-live");
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      window.setTimeout(() => hero.classList.add("bf-hero-live"), 650);
-    }));
+    const reveal = () => window.setTimeout(() => {
+      requestAnimationFrame(() => hero.classList.add("bf-hero-live"));
+    }, 550);
+    if (doc.readyState === "complete") reveal();
+    else window.addEventListener("load", reveal, { once: true });
   }
 
   /* ---------- live-preview UX: clear saved stay ---------- */
   function savedStayClear() {
     if (body.dataset.page !== "plan") return;
     const head = $(".plan-head__text");
-    if (!head || $("[data-clear-saved-stay]")) return;
-    const btn = doc.createElement("button");
-    btn.type = "button";
-    btn.className = "text-btn clear-saved-stay";
-    btn.setAttribute("data-clear-saved-stay", "");
+    if (!head) return;
+    let btn = $("[data-clear-saved-stay]");
+    if (!btn) {
+      btn = doc.createElement("button");
+      btn.type = "button";
+      btn.className = "clear-saved-stay";
+      btn.setAttribute("data-clear-saved-stay", "");
+      head.appendChild(btn);
+    }
     const sync = () => {
       const n = store.get().length;
       btn.hidden = n === 0;
@@ -293,21 +299,37 @@
     update();
   }
 
-  /* ---------- reveal on scroll ---------- */
+  /* ---------- premium flow reveal on scroll ---------- */
   function reveals(scope = doc) {
-    const els = $$("[data-reveal]:not(.is-in)", scope);
-    const rootEl = doc.documentElement;
-    if (reduced() || !("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("is-in")); rootEl.classList.add("js"); return; }
-    // Anything already on screen is shown immediately, so gating never hides visible content.
-    const vh = window.innerHeight;
-    els.forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < vh && r.bottom > 0) el.classList.add("is-in"); });
-    rootEl.classList.add("js");
+    const explicit = $$("[data-reveal]", scope);
+    const auto = scope === doc ? $$([
+      "main > section:not(.hero) > .container",
+      "main > section:not(.hero) > .plan-band__panel",
+      "main .plan-head", "main .contact-head", "main .contact",
+      "main .collection", "main .villa-layout", "main .atlas-cover",
+      "main .manifesto", ".site-footer__top"
+    ].join(",")) : [];
+    const candidates = [...new Set([...auto, ...explicit])];
+    const els = candidates.filter((el) => !candidates.some((p) => p !== el && p.contains(el)));
+    doc.documentElement.classList.add("js");
+    els.forEach((el) => el.classList.add("bf-flow"));
+    if (reduced() || !("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("is-in"));
+      return;
+    }
     const io = new IntersectionObserver((entries) => entries.forEach((en) => {
-      if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
-    }), { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-    els.filter((el) => !el.classList.contains("is-in")).forEach((el) => io.observe(el));
+      if (en.isIntersecting) {
+        en.target.classList.add("is-in");
+        io.unobserve(en.target);
+      }
+    }), { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
+    els.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * .82 && r.bottom > 0) el.classList.add("is-in");
+      else io.observe(el);
+    });
   }
-  window.addEventListener("beforeprint", () => $$("[data-reveal]").forEach((el) => el.classList.add("is-in")));
+  window.addEventListener("beforeprint", () => $$(".bf-flow").forEach((el) => el.classList.add("is-in")));
 
   /* ---------- form engine ---------- */
   const labelOf = (el) => {
