@@ -579,10 +579,33 @@
     }
 
     const tray = $("[data-tray]"), trayList = $("[data-tray-list]"), trayToggle = $("[data-tray-toggle]");
+    let trayCompactTimer = 0;
+    const collapseTray = () => {
+      if (!tray || tray.hidden) return;
+      clearTimeout(trayCompactTimer);
+      tray.classList.add("is-compact");
+      trayToggle.setAttribute("aria-expanded", "false");
+      trayList.hidden = true;
+    };
+    const expandTray = () => {
+      clearTimeout(trayCompactTimer);
+      tray.classList.remove("is-compact");
+    };
+    const scheduleTrayCollapse = () => {
+      clearTimeout(trayCompactTimer);
+      trayCompactTimer = window.setTimeout(collapseTray, 1800);
+    };
     function paintTray() {
       const sel = S.store.get();
       tray.hidden = sel.length === 0;
       body.classList.toggle("has-tray", sel.length > 0);
+      if (sel.length) {
+        expandTray();
+        scheduleTrayCollapse();
+      } else {
+        clearTimeout(trayCompactTimer);
+        tray.classList.remove("is-compact");
+      }
       $("[data-tray-n]").textContent = sel.length;
       $("[data-tray-label]").textContent = sel.length === 1 ? "experience in your stay" : "experiences in your stay";
       trayList.innerHTML = sel.map((id) => { const e = S.exp(id); return `<li><span>${esc(e.name)}</span><button type="button" class="text-btn text-btn--light" data-remove-exp="${id}" aria-label="Remove ${esc(e.name)}">Remove</button></li>`; }).join("");
@@ -602,10 +625,19 @@
       if (rem) { S.store.toggle(rem.dataset.removeExp); trayToggle.focus(); }
     });
     trayToggle.addEventListener("click", () => {
+      if (tray.classList.contains("is-compact")) {
+        expandTray();
+        trayToggle.setAttribute("aria-expanded", "false");
+        trayList.hidden = true;
+        return;
+      }
       const open = trayToggle.getAttribute("aria-expanded") !== "true";
       trayToggle.setAttribute("aria-expanded", String(open));
       trayList.hidden = !open;
     });
+    window.addEventListener("scroll", () => {
+      if (!tray.hidden && window.scrollY > 160) collapseTray();
+    }, { passive: true });
     $("[data-tray-clear]").addEventListener("click", () => S.store.clear());
     doc.addEventListener("solara:itinerary", paintTray);
     render();

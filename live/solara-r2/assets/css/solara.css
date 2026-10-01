@@ -1588,3 +1588,157 @@ html.js [data-reveal] {
 @media (max-width: 699px) {
   .back-top { right: .85rem; bottom: 4.75rem; }
 }
+
+/* ---------- BRIOFRAME approved UX refinements 2026-10-01 ---------- */
+
+/* Distinct saved-stay reset */
+.clear-saved-stay {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 44px;
+  margin-top: 1.25rem;
+  padding: .78rem 1rem;
+  border: 1px solid var(--gold-deep);
+  background: var(--gold-deep);
+  color: var(--ivory);
+  font: 600 .7rem/1 var(--sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 24px -18px rgba(29, 26, 23, .75);
+}
+.clear-saved-stay::before {
+  content: "×";
+  display: inline-grid;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: .9rem;
+  line-height: 1;
+}
+.clear-saved-stay:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--ivory);
+}
+
+/* Floating return-to-top control */
+.back-top {
+  position: fixed;
+  right: clamp(1rem, 2.5vw, 2rem);
+  bottom: clamp(1rem, 2.5vw, 2rem);
+  z-index: 48;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 46px;
+  padding: 0 .95rem;
+  border: 1px solid rgba(246, 241, 233, .42);
+  background: rgba(29, 26, 23, .92);
+  color: var(--ivory);
+  font: 600 .68rem/1 var(--sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease), background-color .3s;
+  box-shadow: 0 12px 30px -16px rgba(0,0,0,.55);
+}
+.back-top.is-visible { opacity: 1; pointer-events: auto; transform: none; }
+.back-top:hover { background: var(--ink); }
+.back-top span:first-child { font-size: 1rem; line-height: 1; }
+
+/* Journal: remove stacked section-height gap before newsletter */
+body[data-page="journal"] .journal-list {
+  padding-bottom: clamp(2.25rem, 4vw, 3.75rem);
+}
+body[data-page="journal"] .newsletter.section {
+  padding-top: clamp(2.75rem, 4.5vw, 4.25rem);
+}
+
+/* Contact: tighter vertical rhythm and cleaner form/directory alignment */
+body[data-page="contact"] .contact {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
+  gap: clamp(2.5rem, 4vw, 4rem);
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+}
+body[data-page="contact"] .contact__forms,
+body[data-page="contact"] .directory {
+  align-self: start;
+}
+body[data-page="contact"] .directory {
+  gap: 2rem;
+  padding-top: .15rem;
+}
+body[data-page="contact"] .faq.section {
+  padding-top: clamp(3rem, 5vw, 4.5rem);
+}
+
+/* My Stay: center sign-in content in its panel */
+body[data-page="my-stay"] .portal-signin__panel {
+  justify-self: center;
+  width: min(100%, 680px);
+  max-width: 680px;
+  padding-inline: clamp(2rem, 4vw, 4rem);
+}
+
+/* Experience selections collapse into a compact side control */
+.tray {
+  transition: width .3s var(--ease), left .3s var(--ease), right .3s var(--ease),
+              transform .3s var(--ease), bottom .3s var(--ease);
+}
+.tray.is-compact {
+  left: auto;
+  right: clamp(1rem, 2vw, 1.5rem);
+  bottom: clamp(1rem, 2vw, 1.5rem);
+  width: auto;
+  max-width: calc(100% - 2rem);
+  transform: none;
+}
+.tray.is-compact .tray__bar {
+  padding: .35rem .45rem;
+}
+.tray.is-compact .tray__actions,
+.tray.is-compact .tray__list {
+  display: none !important;
+}
+.tray.is-compact .tray__toggle {
+  min-height: 42px;
+  padding: 0 .55rem 0 .25rem;
+}
+.tray.is-compact [data-tray-label] {
+  font-size: 0;
+}
+.tray.is-compact [data-tray-label]::after {
+  content: "My stay";
+  font: 600 .68rem/1 var(--sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.has-tray .site-footer {
+  padding-bottom: 4.5rem;
+}
+
+@media (max-width: 1099px) {
+  body[data-page="contact"] .contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  body[data-page="my-stay"] .portal-signin__panel {
+    width: 100%;
+  }
+}
+@media (max-width: 699px) {
+  .back-top { right: .85rem; bottom: 4.75rem; }
+  .tray.is-compact { right: .85rem; bottom: 4.75rem; }
+}
+
+/* UX overlap guard: keep My Stay compact control above Back to Top */
+.back-top { z-index: 44; }
+.tray.is-compact { bottom: 5.25rem; }
+@media (max-width: 699px) {
+  .tray.is-compact { bottom: 8.5rem; }
+}
