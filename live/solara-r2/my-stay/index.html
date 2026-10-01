@@ -1,0 +1,444 @@
+<!doctype html>
+<!-- BRIOFRAME · SOLARA Private Villas Master · Product BF-SOLARA-PV-M1 · v1.1.0 · Original publisher: BRIOFRAME · Licensed use only, see LICENSE.md -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex">
+<title>My Stay — Guest portal | SOLARA Private Villas</title>
+<meta name="description" content="Your SOLARA reservation, itinerary, documents, concierge requests and arrival details in one place.">
+<meta name="generator" content="BRIOFRAME · SOLARA Private Villas Master v1.1.0">
+<meta name="bf-release" content="BF-SOLARA-PV-M1@1.1.0">
+<meta name="theme-color" content="#f6f1e9">
+<meta property="og:image" content="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?w=1200&amp;h=630&amp;fit=crop&amp;q=80&amp;fm=jpg">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&amp;family=Manrope:wght@300..700&amp;display=swap">
+<link rel="stylesheet" href="../assets/css/solara.css">
+</head>
+<body data-page="my-stay" data-root="../" data-bf="BF-SOLARA-PV-M1">
+<!-- BF:HEADER -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="site-header__bar">
+    <a class="wordmark" href="../index.html" data-nav="home" aria-label="SOLARA Private Villas — home">
+      <span class="wordmark__name" data-bind="brand.name">SOLARA</span>
+      <span class="wordmark__sub">Private Villas</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="../villas/index.html" data-nav="villas">Villas</a></li>
+        <li><a href="../destinations/index.html" data-nav="destinations">Destinations</a></li>
+        <li class="nav-group" data-nav-group>
+          <a href="../experiences/index.html" data-nav="experiences">Experiences</a>
+          <button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="nav-experiences"><span class="sr-only">More in Experiences</span></button>
+          <div class="nav-group__panel" id="nav-experiences" hidden>
+            <ul>
+              <li><a href="../experiences/index.html"><span class="nav-group__title">All experiences</span><span class="nav-group__note">Boats, chefs, guides and transfers</span></a></li>
+              <li><a href="../wellness/index.html" data-nav="wellness"><span class="nav-group__title">Wellness &amp; spa</span><span class="nav-group__note">Massage, movement and rituals in the villa</span></a></li>
+              <li><a href="../weddings/index.html" data-nav="weddings"><span class="nav-group__title">Weddings &amp; events</span><span class="nav-group__note">Intimate weddings, buyouts and celebrations</span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="../concierge/index.html" data-nav="concierge">Concierge</a></li>
+        <li><a href="../journal/index.html" data-nav="journal">Journal</a></li>
+        <li><a href="../about/index.html" data-nav="about">About</a></li>
+        <li><a href="../contact/index.html" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="util-link" href="../my-stay/index.html" data-nav="my-stay" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 20c.9-3.6 3.8-5.6 7.2-5.6s6.3 2 7.2 5.6"/></svg><span>My stay</span></a>
+    <a class="btn btn--header" href="../plan/index.html" data-nav="plan">Plan your stay<span class="badge" data-itinerary-count hidden></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-toggle__label">Menu</span><span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+<div class="site-menu" id="site-menu" hidden>
+  <div class="site-menu__inner">
+    <nav class="site-menu__nav" aria-label="Site menu">
+      <ol>
+        <li><a href="../index.html" data-nav="home"><span>01</span>Home</a></li>
+        <li><a href="../villas/index.html" data-nav="villas"><span>02</span>Villas</a></li>
+        <li><a href="../destinations/index.html" data-nav="destinations"><span>03</span>Destinations</a></li>
+        <li><a href="../experiences/index.html" data-nav="experiences"><span>04</span>Experiences</a>
+          <ul class="site-menu__sub">
+            <li><a href="../wellness/index.html" data-nav="wellness">Wellness &amp; spa</a></li>
+            <li><a href="../weddings/index.html" data-nav="weddings">Weddings &amp; events</a></li>
+          </ul>
+        </li>
+        <li><a href="../concierge/index.html" data-nav="concierge"><span>05</span>Concierge</a></li>
+        <li><a href="../journal/index.html" data-nav="journal"><span>06</span>Journal</a></li>
+        <li><a href="../about/index.html" data-nav="about"><span>07</span>About</a></li>
+        <li><a href="../contact/index.html" data-nav="contact"><span>08</span>Contact</a></li>
+        <li><a href="../plan/index.html" data-nav="plan"><span>09</span>Plan your stay</a></li>
+      </ol>
+    </nav>
+    <div class="site-menu__aside">
+      <p class="eyebrow">Booked with us?</p>
+      <p><a class="link-quiet" href="../my-stay/index.html" data-nav="my-stay" aria-current="page">My stay — guest portal</a></p>
+      <p class="eyebrow site-menu__eyebrow">Reservations</p>
+      <p><a class="link-quiet" href="tel:+442079460180" data-bind-href="tel:brand.phone" data-bind="brand.phone">+44 20 7946 0180</a></p>
+      <p><a class="link-quiet" href="mailto:reserve@solara-villas.example" data-bind-href="mailto:brand.email" data-bind="brand.email">reserve@solara-villas.example</a></p>
+      <p class="muted" data-bind="brand.hours">Reservations 08:00–20:00 UK · Concierge 24 hours</p>
+    </div>
+  </div>
+</div>
+<!-- /BF:HEADER -->
+
+<main id="main" class="portal-page">
+  <p class="demo-banner" role="note"><strong>Front-end demonstration.</strong> Sign-in, reservation data and documents on this page are simulated in your browser. A live guest portal needs the site owner's own authentication, backend and document storage — none is included or hosted by the template publisher.</p>
+
+  <section class="portal-signin" data-portal-signin aria-labelledby="signin-title">
+    <div class="portal-signin__media">
+      <img data-photo="lefka-06" data-eager src="https://images.unsplash.com/photo-1469796466635-455ede028aca?w=1280&amp;q=80&amp;fm=webp&amp;fit=max" srcset="https://images.unsplash.com/photo-1469796466635-455ede028aca?w=640&amp;q=80&amp;fm=webp&amp;fit=max 640w, https://images.unsplash.com/photo-1469796466635-455ede028aca?w=1280&amp;q=80&amp;fm=webp&amp;fit=max 1280w, https://images.unsplash.com/photo-1469796466635-455ede028aca?w=1920&amp;q=80&amp;fm=webp&amp;fit=max 1920w" sizes="(min-width: 1000px) 50vw, 100vw" width="1920" height="1280" alt="Sun loungers on a whitewashed terrace above the caldera, with bougainvillea" fetchpriority="high" decoding="async">
+    </div>
+    <div class="portal-signin__panel">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li aria-current="page">My stay</li></ol></nav>
+      <p class="eyebrow">Guest portal</p>
+      <h1 id="signin-title" class="display-lg">My stay</h1>
+      <p class="portal-signin__lede">Your reservation, documents, itinerary and a direct line to your planner — in one place, from the day you book until you fly home.</p>
+      <form class="portal-signin__form" data-signin novalidate>
+        <div class="field" data-field>
+          <label for="si-ref">Booking reference</label>
+          <input type="text" id="si-ref" name="reference" required autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="20" placeholder="e.g. SOL-ABC123">
+        </div>
+        <div class="field" data-field>
+          <label for="si-email">Email used for the booking</label>
+          <input type="email" id="si-email" name="email" required autocomplete="email" maxlength="120">
+        </div>
+        <p class="form-status" role="alert" data-form-status></p>
+        <button type="submit" class="btn btn--dark btn--block">Sign in</button>
+        <div class="demo-creds">
+          <p><span class="eyebrow">Demo access</span>Reference <code data-demo-ref>SOL-DEMO24</code> · email <code data-demo-email>eleanor.marsh@example.com</code></p>
+          <button type="button" class="text-btn" data-demo-fill>Fill in the demo details</button>
+        </div>
+      </form>
+      <ul class="portal-signin__features" aria-label="What you can do in My stay">
+        <li>Reservation and confirmation</li>
+        <li>Invoices and receipts</li>
+        <li>Itinerary and requests</li>
+        <li>Messages with your planner</li>
+      </ul>
+      <p class="portal-signin__help">Not booked yet? <a class="link-underline" href="../plan/index.html">Plan your stay</a> · Lost your reference? <a class="link-underline" href="../contact/index.html">Contact reservations</a></p>
+    </div>
+  </section>
+
+  <div class="portal" data-portal-app hidden>
+    <header class="portal-bar">
+      <div class="portal-bar__inner">
+        <div class="portal-bar__who">
+          <p class="eyebrow">My stay · <span data-p="reference"></span></p>
+          <h1 class="portal-bar__title" tabindex="-1" data-portal-title>Welcome back, <span data-p="first-name"></span></h1>
+        </div>
+        <div class="portal-bar__meta">
+          <span class="status status--best" data-p="status"></span>
+          <button type="button" class="btn btn--line btn--sm" data-signout>Sign out</button>
+        </div>
+      </div>
+    </header>
+    <nav class="portal-tabs" aria-label="My stay sections">
+        <div class="portal-tabs__list" role="tablist" aria-label="My stay sections">
+          <button type="button" role="tab" id="tab-overview" aria-controls="panel-overview" data-tab="overview">Overview</button>
+          <button type="button" role="tab" id="tab-itinerary" aria-controls="panel-itinerary" data-tab="itinerary">Itinerary</button>
+          <button type="button" role="tab" id="tab-requests" aria-controls="panel-requests" data-tab="requests">Requests</button>
+          <button type="button" role="tab" id="tab-messages" aria-controls="panel-messages" data-tab="messages">Messages <span class="badge" data-unread hidden></span></button>
+          <button type="button" role="tab" id="tab-documents" aria-controls="panel-documents" data-tab="documents">Documents</button>
+          <button type="button" role="tab" id="tab-arrival" aria-controls="panel-arrival" data-tab="arrival">Arrival</button>
+          <button type="button" role="tab" id="tab-guest" aria-controls="panel-guest" data-tab="guest">Guest details</button>
+          <button type="button" role="tab" id="tab-account" aria-controls="panel-account" data-tab="account">Account</button>
+        </div>
+    </nav>
+
+    <div class="portal__body">
+      <!-- Overview -->
+      <section class="portal-panel" role="tabpanel" id="panel-overview" aria-labelledby="tab-overview" tabindex="0">
+        <div class="stay-card">
+          <div class="stay-card__media" data-p="villa-image"></div>
+          <div class="stay-card__body">
+            <p class="eyebrow" data-p="villa-where"></p>
+            <h2 class="display-md" data-p="villa-name"></h2>
+            <p class="stay-card__countdown" data-p="countdown"></p>
+            <dl class="stay-facts" data-p="stay-facts"></dl>
+            <div class="cta-row">
+              <a class="btn btn--dark" data-p="villa-link" href="../villas/index.html">View the villa</a>
+              <button type="button" class="btn btn--line" data-goto="documents">Confirmation &amp; invoices</button>
+            </div>
+          </div>
+        </div>
+        <div class="portal-grid">
+          <section class="portal-card" aria-labelledby="conf-title">
+            <h3 id="conf-title" class="portal-card__title">Reservation confirmation</h3>
+            <dl class="portal-dl" data-p="confirmation"></dl>
+          </section>
+          <section class="portal-card" aria-labelledby="pay-title">
+            <h3 id="pay-title" class="portal-card__title">Payments</h3>
+            <div data-p="payments"></div>
+            <button type="button" class="text-link" data-goto="documents">All documents</button>
+          </section>
+          <section class="portal-card" aria-labelledby="next-title">
+            <h3 id="next-title" class="portal-card__title">Coming up</h3>
+            <ol class="next-list" data-p="next"></ol>
+            <button type="button" class="text-link" data-goto="itinerary">Full itinerary</button>
+          </section>
+          <section class="portal-card portal-card--dark" aria-labelledby="planner-title">
+            <p class="eyebrow eyebrow--light">Your planner</p>
+            <h3 id="planner-title" class="portal-card__title" data-p="planner-name"></h3>
+            <ul class="planner-lines" data-p="planner-lines"></ul>
+            <button type="button" class="btn btn--light btn--sm" data-goto="messages">Send a message</button>
+          </section>
+        </div>
+      </section>
+
+      <!-- Itinerary -->
+      <section class="portal-panel" role="tabpanel" id="panel-itinerary" aria-labelledby="tab-itinerary" tabindex="0" hidden>
+        <div class="portal-panel__head">
+          <div>
+            <p class="eyebrow">Your days</p>
+            <h2 class="display-sm">Itinerary</h2>
+          </div>
+          <div class="cta-row cta-row--tight">
+            <button type="button" class="btn btn--line btn--sm" data-goto="requests">Add a request</button>
+            <a class="btn btn--line btn--sm" href="../experiences/index.html">Browse experiences</a>
+          </div>
+        </div>
+        <ol class="itinerary" data-p="itinerary"></ol>
+      </section>
+
+      <!-- Requests -->
+      <section class="portal-panel" role="tabpanel" id="panel-requests" aria-labelledby="tab-requests" tabindex="0" hidden>
+        <div class="portal-panel__head">
+          <div>
+            <p class="eyebrow">Concierge</p>
+            <h2 class="display-sm">Requests</h2>
+          </div>
+          <p class="portal-panel__lede">Ask for anything before or during your stay. Your planner confirms availability and price before it is booked.</p>
+        </div>
+        <div class="portal-split">
+          <ul class="request-list" data-p="requests" aria-live="polite"></ul>
+          <form class="portal-form" data-request-form novalidate aria-labelledby="req-form-title">
+            <h3 id="req-form-title" class="portal-card__title">New request</h3>
+            <div class="field" data-field>
+              <label for="rq-service">Service</label>
+              <select id="rq-service" name="service" required data-label="Service"><option value="">Choose a service</option></select>
+            </div>
+            <div class="field" data-field>
+              <label for="rq-date">Preferred date</label>
+              <input type="date" id="rq-date" name="date" required>
+            </div>
+            <div class="field" data-field>
+              <label for="rq-detail">Details</label>
+              <textarea id="rq-detail" name="detail" rows="4" required maxlength="600" placeholder="Times, numbers, preferences…"></textarea>
+            </div>
+            <p class="form-status" role="alert" data-form-status></p>
+            <button type="submit" class="btn btn--dark btn--block">Send request</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Messages -->
+      <section class="portal-panel" role="tabpanel" id="panel-messages" aria-labelledby="tab-messages" tabindex="0" hidden>
+        <div class="portal-panel__head">
+          <div>
+            <p class="eyebrow">Your planner</p>
+            <h2 class="display-sm">Messages &amp; notices</h2>
+          </div>
+        </div>
+        <div class="portal-split portal-split--messages">
+          <div>
+            <ul class="notices" data-p="notices" aria-label="Notices"></ul>
+            <ol class="thread" data-p="thread" aria-live="polite" aria-label="Conversation with your planner"></ol>
+            <form class="compose" data-message-form novalidate>
+              <div class="field" data-field>
+                <label for="msg-text">Write to <span data-p="planner-first"></span></label>
+                <textarea id="msg-text" name="message" rows="3" required maxlength="1000" data-label="Message"></textarea>
+              </div>
+              <p class="form-status" role="alert" data-form-status></p>
+              <button type="submit" class="btn btn--dark">Send message</button>
+            </form>
+          </div>
+          <aside class="portal-card" aria-labelledby="msg-help-title">
+            <h3 id="msg-help-title" class="portal-card__title">Urgent during your stay?</h3>
+            <p class="muted">Call the 24-hour concierge line rather than messaging.</p>
+            <p><a class="link-quiet" href="tel:+442079460180" data-bind-href="tel:brand.phone" data-bind="brand.phone">+44 20 7946 0180</a></p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Documents -->
+      <section class="portal-panel" role="tabpanel" id="panel-documents" aria-labelledby="tab-documents" tabindex="0" hidden>
+        <div class="portal-panel__head">
+          <div>
+            <p class="eyebrow">Paperwork</p>
+            <h2 class="display-sm">Invoices &amp; documents</h2>
+          </div>
+          <p class="portal-panel__lede">Download a copy for your records. Payments are taken through a secure hosted checkout — card details are never entered on this site.</p>
+        </div>
+        <div class="doc-table" role="region" aria-labelledby="inv-title" tabindex="0">
+          <table>
+            <caption id="inv-title" class="doc-table__caption">Invoices and receipts</caption>
+            <thead><tr><th scope="col">Document</th><th scope="col">Number</th><th scope="col">Issued</th><th scope="col">Amount</th><th scope="col">Status</th><th scope="col"><span class="sr-only">Actions</span></th></tr></thead>
+            <tbody data-p="invoices"></tbody>
+          </table>
+        </div>
+        <h3 class="portal-subhead">Booking documents</h3>
+        <ul class="doc-list" data-p="documents"></ul>
+      </section>
+
+      <!-- Arrival -->
+      <section class="portal-panel" role="tabpanel" id="panel-arrival" aria-labelledby="tab-arrival" tabindex="0" hidden>
+        <div class="portal-panel__head">
+          <div>
+            <p class="eyebrow">Getting there</p>
+            <h2 class="display-sm">Arrival information</h2>
+          </div>
+        </div>
+        <div class="portal-split">
+          <dl class="portal-dl portal-dl--wide" data-p="arrival"></dl>
+          <section class="portal-card" aria-labelledby="check-title">
+            <h3 id="check-title" class="portal-card__title">Before you travel</h3>
+            <p class="checklist__progress" data-p="checklist-progress" aria-live="polite"></p>
+            <div class="checklist" data-p="checklist"></div>
+          </section>
+        </div>
+      </section>
+
+      <!-- Guest details -->
+      <section class="portal-panel" role="tabpanel" id="panel-guest" aria-labelledby="tab-guest" tabindex="0" hidden>
+        <div class="portal-panel__head">
+          <div>
+            <p class="eyebrow">Your party</p>
+            <h2 class="display-sm">Guest details</h2>
+          </div>
+          <p class="portal-panel__lede">Keep these up to date so the household can prepare. Changes go straight to your planner.</p>
+        </div>
+        <form class="portal-form portal-form--wide" data-guest-form novalidate>
+          <div class="form-grid">
+            <div class="field" data-field><label for="gd-first">First name</label><input type="text" id="gd-first" name="firstName" required autocomplete="given-name" maxlength="60"></div>
+            <div class="field" data-field><label for="gd-last">Last name</label><input type="text" id="gd-last" name="lastName" required autocomplete="family-name" maxlength="60"></div>
+            <div class="field" data-field><label for="gd-email">Email</label><input type="email" id="gd-email" name="email" required autocomplete="email" maxlength="120"></div>
+            <div class="field" data-field><label for="gd-phone">Mobile</label><input type="tel" id="gd-phone" name="phone" required autocomplete="tel" maxlength="20"></div>
+            <div class="field" data-field><label for="gd-country">Country of residence</label><input type="text" id="gd-country" name="country" autocomplete="country-name" maxlength="60"></div>
+            <div class="field" data-field><label for="gd-flight">Arrival flight <span class="optional">(optional)</span></label><input type="text" id="gd-flight" name="flight" maxlength="20" placeholder="e.g. BA2604"></div>
+            <div class="field" data-field><label for="gd-adults">Adults</label><input type="number" id="gd-adults" name="adults" required min="1" max="16" inputmode="numeric"></div>
+            <div class="field" data-field><label for="gd-children">Children</label><input type="number" id="gd-children" name="children" required min="0" max="10" inputmode="numeric"></div>
+            <div class="field field--full" data-field><label for="gd-dietary">Dietary requirements and allergies <span class="optional">(optional)</span></label><textarea id="gd-dietary" name="dietary" rows="2" maxlength="400"></textarea></div>
+            <div class="field field--full" data-field><label for="gd-occasion">Celebrating anything? <span class="optional">(optional)</span></label><input type="text" id="gd-occasion" name="occasion" maxlength="80"></div>
+          </div>
+          <div class="form-actions">
+            <p class="form-note" data-guest-note>The villa sleeps up to <span data-p="villa-guests"></span> guests.</p>
+            <button type="submit" class="btn btn--dark">Save details</button>
+          </div>
+          <p class="form-status" role="alert" data-form-status></p>
+        </form>
+      </section>
+
+      <!-- Account -->
+      <section class="portal-panel" role="tabpanel" id="panel-account" aria-labelledby="tab-account" tabindex="0" hidden>
+        <div class="portal-panel__head">
+          <div>
+            <p class="eyebrow">Account</p>
+            <h2 class="display-sm">Sign-in &amp; privacy</h2>
+          </div>
+        </div>
+        <div class="portal-grid portal-grid--two">
+          <section class="portal-card" aria-labelledby="acct-title">
+            <h3 id="acct-title" class="portal-card__title">Signed in</h3>
+            <dl class="portal-dl" data-p="account"></dl>
+            <div class="cta-row cta-row--tight">
+              <button type="button" class="btn btn--dark btn--sm" data-signout>Sign out</button>
+              <button type="button" class="btn btn--line btn--sm" data-reset-demo data-demo-only>Reset demo data</button>
+            </div>
+          </section>
+          <section class="portal-card" aria-labelledby="about-portal-title" data-demo-only>
+            <h3 id="about-portal-title" class="portal-card__title">About this demonstration</h3>
+            <p class="muted">Everything here runs in your browser with sample data and resets when you close the tab. In a live site, sign-in, sessions, reservations, messages and documents are served by the owner's own booking system or backend — for example a property-management system, Microsoft Entra External ID, Auth0, Supabase or a custom API — through the adapter described in the template's README.</p>
+          </section>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <dialog class="doc-view" data-doc-view aria-labelledby="doc-view-title">
+    <div class="doc-view__bar">
+      <p class="eyebrow" id="doc-view-title">Document</p>
+      <div class="doc-view__actions">
+        <button type="button" class="btn btn--line btn--sm" data-doc-print>Print or save as PDF</button>
+        <button type="button" class="btn btn--dark btn--sm" data-doc-download>Download</button>
+        <button type="button" class="round-btn" data-doc-close aria-label="Close document"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+      </div>
+    </div>
+    <div class="doc-view__page" data-doc-body></div>
+  </dialog>
+  <p class="sr-only" aria-live="polite" data-portal-live></p>
+  <noscript><p class="notice">The guest portal needs JavaScript. <a href="../contact/index.html">Contact reservations</a> for your booking details.</p></noscript>
+</main>
+
+<!-- BF:FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="site-footer__brand">
+      <a class="wordmark wordmark--footer" href="../index.html" aria-label="SOLARA Private Villas — home">
+        <span class="wordmark__name" data-bind="brand.name">SOLARA</span>
+        <span class="wordmark__sub">Private Villas</span>
+      </a>
+      <p class="site-footer__statement">A small collection of private homes on the world's most beautiful coasts, each with its own household and a concierge who knows it well.</p>
+      <a class="btn btn--gold" href="../plan/index.html">Plan your stay</a>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <div>
+        <p class="site-footer__heading">Stay</p>
+        <ul>
+          <li><a href="../villas/index.html" data-nav="villas">Villas</a></li>
+          <li><a href="../destinations/index.html" data-nav="destinations">Destinations</a></li>
+          <li><a href="../experiences/index.html" data-nav="experiences">Experiences</a></li>
+          <li><a href="../wellness/index.html" data-nav="wellness">Wellness &amp; spa</a></li>
+          <li><a href="../weddings/index.html" data-nav="weddings">Weddings &amp; events</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="site-footer__heading">Service</p>
+        <ul>
+          <li><a href="../plan/index.html" data-nav="plan">Plan your stay</a></li>
+          <li><a href="../concierge/index.html" data-nav="concierge">Concierge</a></li>
+          <li><a href="../my-stay/index.html" data-nav="my-stay" aria-current="page">My stay · guest portal</a></li>
+          <li><a href="../contact/index.html" data-nav="contact">Contact</a></li>
+          <li><a href="../contact/index.html?path=owner">Property owners</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="site-footer__heading">Discover</p>
+        <ul>
+          <li><a href="../index.html" data-nav="home">Home</a></li>
+          <li><a href="../about/index.html" data-nav="about">About</a></li>
+          <li><a href="../journal/index.html" data-nav="journal">Journal</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__contact">
+        <p class="site-footer__heading">Reservations</p>
+        <ul>
+          <li><a href="tel:+442079460180" data-bind-href="tel:brand.phone" data-bind="brand.phone">+44 20 7946 0180</a></li>
+          <li><a href="mailto:reserve@solara-villas.example" data-bind-href="mailto:brand.email" data-bind="brand.email">reserve@solara-villas.example</a></li>
+          <li><span data-bind="brand.address">14 Albemarle Street, London W1S 4HW</span></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom">
+    <p>© <span data-year>2026</span> <span data-bind="brand.full">SOLARA Private Villas</span>. Demonstration content — all properties and names are fictional.</p>
+    <p data-bf-attribution>Website template by BRIOFRAME</p>
+  </div>
+</footer>
+<!-- /BF:FOOTER -->
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/images.js"></script>
+<script src="../assets/js/photo-sources.js"></script>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/portal.js"></script>
+<script src="../assets/js/pages.js"></script>
+</body>
+</html>

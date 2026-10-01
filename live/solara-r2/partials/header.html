@@ -1,0 +1,65 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="site-header__bar">
+    <a class="wordmark" href="{{root}}index.html" data-nav="home" aria-label="SOLARA Private Villas — home">
+      <span class="wordmark__name" data-bind="brand.name">SOLARA</span>
+      <span class="wordmark__sub">Private Villas</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="{{root}}villas/index.html" data-nav="villas">Villas</a></li>
+        <li><a href="{{root}}destinations/index.html" data-nav="destinations">Destinations</a></li>
+        <li class="nav-group" data-nav-group>
+          <a href="{{root}}experiences/index.html" data-nav="experiences">Experiences</a>
+          <button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="nav-experiences"><span class="sr-only">More in Experiences</span></button>
+          <div class="nav-group__panel" id="nav-experiences" hidden>
+            <ul>
+              <li><a href="{{root}}experiences/index.html"><span class="nav-group__title">All experiences</span><span class="nav-group__note">Boats, chefs, guides and transfers</span></a></li>
+              <li><a href="{{root}}wellness/index.html" data-nav="wellness"><span class="nav-group__title">Wellness &amp; spa</span><span class="nav-group__note">Massage, movement and rituals in the villa</span></a></li>
+              <li><a href="{{root}}weddings/index.html" data-nav="weddings"><span class="nav-group__title">Weddings &amp; events</span><span class="nav-group__note">Intimate weddings, buyouts and celebrations</span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="{{root}}concierge/index.html" data-nav="concierge">Concierge</a></li>
+        <li><a href="{{root}}journal/index.html" data-nav="journal">Journal</a></li>
+        <li><a href="{{root}}about/index.html" data-nav="about">About</a></li>
+        <li><a href="{{root}}contact/index.html" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="util-link" href="{{root}}my-stay/index.html" data-nav="my-stay"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 20c.9-3.6 3.8-5.6 7.2-5.6s6.3 2 7.2 5.6"/></svg><span>My stay</span></a>
+    <a class="btn btn--header" href="{{root}}plan/index.html" data-nav="plan">Plan your stay<span class="badge" data-itinerary-count hidden></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-toggle__label">Menu</span><span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+<div class="site-menu" id="site-menu" hidden>
+  <div class="site-menu__inner">
+    <nav class="site-menu__nav" aria-label="Site menu">
+      <ol>
+        <li><a href="{{root}}index.html" data-nav="home"><span>01</span>Home</a></li>
+        <li><a href="{{root}}villas/index.html" data-nav="villas"><span>02</span>Villas</a></li>
+        <li><a href="{{root}}destinations/index.html" data-nav="destinations"><span>03</span>Destinations</a></li>
+        <li><a href="{{root}}experiences/index.html" data-nav="experiences"><span>04</span>Experiences</a>
+          <ul class="site-menu__sub">
+            <li><a href="{{root}}wellness/index.html" data-nav="wellness">Wellness &amp; spa</a></li>
+            <li><a href="{{root}}weddings/index.html" data-nav="weddings">Weddings &amp; events</a></li>
+          </ul>
+        </li>
+        <li><a href="{{root}}concierge/index.html" data-nav="concierge"><span>05</span>Concierge</a></li>
+        <li><a href="{{root}}journal/index.html" data-nav="journal"><span>06</span>Journal</a></li>
+        <li><a href="{{root}}about/index.html" data-nav="about"><span>07</span>About</a></li>
+        <li><a href="{{root}}contact/index.html" data-nav="contact"><span>08</span>Contact</a></li>
+        <li><a href="{{root}}plan/index.html" data-nav="plan"><span>09</span>Plan your stay</a></li>
+      </ol>
+    </nav>
+    <div class="site-menu__aside">
+      <p class="eyebrow">Booked with us?</p>
+      <p><a class="link-quiet" href="{{root}}my-stay/index.html" data-nav="my-stay">My stay — guest portal</a></p>
+      <p class="eyebrow site-menu__eyebrow">Reservations</p>
+      <p><a class="link-quiet" href="tel:+442079460180" data-bind-href="tel:brand.phone" data-bind="brand.phone">+44 20 7946 0180</a></p>
+      <p><a class="link-quiet" href="mailto:reserve@solara-villas.example" data-bind-href="mailto:brand.email" data-bind="brand.email">reserve@solara-villas.example</a></p>
+      <p class="muted" data-bind="brand.hours">Reservations 08:00–20:00 UK · Concierge 24 hours</p>
+    </div>
+  </div>
+</div>

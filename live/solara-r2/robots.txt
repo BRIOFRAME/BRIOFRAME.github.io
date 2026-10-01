@@ -1,0 +1,8 @@
+# Replace the domain below with your own before launch.
+User-agent: *
+Allow: /
+Disallow: /partials/
+Disallow: /tools/
+Disallow: /my-stay/
+
+Sitemap: https://www.solara-villas.example/sitemap.xml

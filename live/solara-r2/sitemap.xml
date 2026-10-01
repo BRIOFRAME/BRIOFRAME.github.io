@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace https://www.solara-villas.example/ with your domain before launch. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.solara-villas.example/</loc><lastmod>2026-09-26</lastmod><priority>1.0</priority></url>
+  <url><loc>https://www.solara-villas.example/villas/</loc><lastmod>2026-09-26</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.solara-villas.example/destinations/</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solara-villas.example/experiences/</loc><lastmod>2026-09-26</lastmod><priority>0.7</priority></url>
+  <url><loc>https://www.solara-villas.example/wellness/</loc><lastmod>2026-09-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://www.solara-villas.example/weddings/</loc><lastmod>2026-09-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://www.solara-villas.example/concierge/</loc><lastmod>2026-09-26</lastmod><priority>0.7</priority></url>
+  <url><loc>https://www.solara-villas.example/plan/</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solara-villas.example/about/</loc><lastmod>2026-09-26</lastmod><priority>0.5</priority></url>
+  <url><loc>https://www.solara-villas.example/journal/</loc><lastmod>2026-09-26</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.solara-villas.example/contact/</loc><lastmod>2026-09-26</lastmod><priority>0.6</priority></url>
+  <url><loc>https://www.solara-villas.example/villa/?id=aurelia</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solara-villas.example/villa/?id=lefka</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solara-villas.example/villa/?id=oriel</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solara-villas.example/villa/?id=serai</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solara-villas.example/villa/?id=lumen</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solara-villas.example/villa/?id=kanu</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solara-villas.example/villa/?id=halden</loc><lastmod>2026-09-26</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.solara-villas.example/journal/?post=liguria-to-amalfi-by-sea</loc><lastmod>2026-08-18</lastmod><priority>0.5</priority></url>
+  <url><loc>https://www.solara-villas.example/journal/?post=a-slow-week-in-the-cyclades</loc><lastmod>2026-07-30</lastmod><priority>0.5</priority></url>
+  <url><loc>https://www.solara-villas.example/journal/?post=planning-a-harvest-week</loc><lastmod>2026-07-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://www.solara-villas.example/journal/?post=choosing-a-villa-for-three-generations</loc><lastmod>2026-06-26</lastmod><priority>0.5</priority></url>
+  <url><loc>https://www.solara-villas.example/journal/?post=maldives-by-seaplane</loc><lastmod>2026-06-04</lastmod><priority>0.5</priority></url>
+  <url><loc>https://www.solara-villas.example/journal/?post=bali-highland-valleys</loc><lastmod>2026-05-15</lastmod><priority>0.5</priority></url>
+  <url><loc>https://www.solara-villas.example/journal/?post=packing-for-coastline-days</loc><lastmod>2026-04-28</lastmod><priority>0.5</priority></url>
+  <url><loc>https://www.solara-villas.example/journal/?post=mountains-between-stays</loc><lastmod>2026-04-09</lastmod><priority>0.5</priority></url>
+</urlset>
