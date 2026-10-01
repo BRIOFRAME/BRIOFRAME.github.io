@@ -63,15 +63,18 @@
     doc.dispatchEvent(new CustomEvent("solara:track", { detail: { name, data } }));
   }
 
-  /* ---------- itinerary store (selected experiences, shared across pages) ---------- */
+  /* ---------- itinerary store (session-scoped for marketplace preview) ---------- */
   const store = {
     key: "solara.itinerary",
-    get() { try { const a = JSON.parse(localStorage.getItem(this.key) || "[]"); return Array.isArray(a) ? a.filter((id) => exp(id)) : []; } catch { return []; } },
-    set(a) { try { localStorage.setItem(this.key, JSON.stringify([...new Set(a)])); } catch { /* storage unavailable */ } doc.dispatchEvent(new CustomEvent("solara:itinerary")); },
+    get() { try { const a = JSON.parse(sessionStorage.getItem(this.key) || "[]"); return Array.isArray(a) ? a.filter((id) => exp(id)) : []; } catch { return []; } },
+    set(a) { try { sessionStorage.setItem(this.key, JSON.stringify([...new Set(a)])); } catch { /* storage unavailable */ } doc.dispatchEvent(new CustomEvent("solara:itinerary")); },
     has(id) { return this.get().includes(id); },
     toggle(id) { const a = this.get(); this.set(a.includes(id) ? a.filter((x) => x !== id) : [...a, id]); return this.has(id); },
     clear() { this.set([]); }
   };
+  try {
+    if (localStorage.getItem(store.key) != null) localStorage.removeItem(store.key);
+  } catch { /* storage unavailable */ }
   function paintItineraryCount() {
     const n = store.get().length;
     $$("[data-itinerary-count]").forEach((el) => { el.textContent = n; el.hidden = n === 0; el.setAttribute("aria-label", `${n} experience${n === 1 ? "" : "s"} selected`); });
