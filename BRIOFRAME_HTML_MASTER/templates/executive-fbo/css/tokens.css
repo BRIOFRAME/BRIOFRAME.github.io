@@ -1,0 +1,37 @@
+/**
+ * BRIOFRAME Identity B — Measured Leg
+ * Executive FBO HTML master tokens
+ */
+:root {
+  --bf-ink-deep: #101a2e;
+  --bf-ink-soft: #1b2740;
+  --bf-cream: #fbf7ee;
+  --bf-cream-warm: #f5efe0;
+  --bf-gold: #c8a24a;
+  --bf-gold-pale: #e9d9ac;
+  --bf-gold-text: #7a5c1e;
+  --bf-white: #fffdf9;
+  --bf-line: color-mix(in srgb, var(--bf-ink-deep) 14%, transparent);
+  --bf-line-strong: color-mix(in srgb, var(--bf-ink-deep) 22%, transparent);
+  --bf-shadow: 0 24px 64px color-mix(in srgb, var(--bf-ink-deep) 12%, transparent);
+  --bf-font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --bf-font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bf-radius-sm: 2px;
+  --bf-radius-md: 4px;
+  --bf-space-xs: 0.5rem;
+  --bf-space-sm: 0.75rem;
+  --bf-space-md: 1.25rem;
+  --bf-space-lg: 2rem;
+  --bf-space-xl: clamp(3rem, 8vw, 6rem);
+  --bf-content-max: 72rem;
+  --bf-header-height: 4.5rem;
+  --bf-focus-ring: 3px solid var(--bf-gold);
+  --bf-focus-offset: 3px;
+  --bf-transition: 220ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --bf-transition: 0ms;
+  }
+}
